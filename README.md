@@ -6,7 +6,7 @@
 
 We started building V2 in August 2016, became feature complete in November 2016, and [launched to the press in January 2017](http://venturebeat.com/2017/01/10/staffjoy-raises-1-2-million-to-help-small-businesses-manage-workflow-scheduling/). 
 
-This is a *monorepo*, so all of the code for all of the services are in this repo. The core technologies are the [Bazel build system](https://bazel.build/), [Kubernetes](https://kubernetes.io/) (including its DNS for internal service discovery), [Redux](http://redux.js.org/), [Go](https://golang.org/), and [Yarn](https://yarnpkg.com/en/). In staging and production, we used [Google Container Engine](https://cloud.google.com/container-engine/) and their managed databases. 
+This is a *monorepo*, so all of the code for all of the services are in this repo. The core technologies are the [Bazel build system](https://bazel.build/), [Kubernetes](https://kubernetes.io/) (including its DNS for internal service discovery), [Redux](http://redux.js.org/), [Go](https://golang.org/), [Protocol Buffers](https://developers.google.com/protocol-buffers/), [gRPC](http://www.grpc.io/), and [Yarn](https://yarnpkg.com/en/). In staging and production, we used [Google Container Engine](https://cloud.google.com/container-engine/) and their managed databases. 
 
 ## Credit
 
