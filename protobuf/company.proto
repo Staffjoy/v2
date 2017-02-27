@@ -1,0 +1,501 @@
+syntax = "proto3";
+package staffjoy.company;
+
+option go_package = "v2.staffjoy.com/company";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+option (gogoproto.sizer_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+
+message Company {
+  string uuid = 1 [(gogoproto.moretags) = "db:\"uuid\""];
+  string name = 2  [(gogoproto.moretags) = "db:\"name\""];
+  bool archived = 3  [(gogoproto.moretags) = "db:\"archived\""];
+  string default_timezone = 4 [(gogoproto.moretags) = "db:\"default_timezone\""];
+  string default_day_week_starts = 5  [(gogoproto.moretags) = "db:\"default_day_week_starts\""];
+} 
+
+message CompanyList {
+	repeated Company companies = 1 [(gogoproto.nullable) = false];
+	int32 limit = 2; // mirrors request
+	int32 offset = 3;
+}
+
+message CompanyListRequest {
+  int32 offset = 1;
+  int32 limit = 2;
+}
+
+message CreateCompanyRequest {
+	string name = 1;
+	string default_timezone = 2;
+	string default_day_week_starts = 3;
+}
+
+message GetCompanyRequest {
+  string uuid = 1;
+}
+
+message Team {
+	string uuid = 1  [(gogoproto.moretags) = "db:\"uuid\""];
+	string company_uuid = 2  [(gogoproto.moretags) = "db:\"company_uuid\""];
+	string name = 3  [(gogoproto.moretags) = "db:\"name\""];
+  bool archived = 4  [(gogoproto.moretags) = "db:\"archived\""];
+  string timezone = 5  [(gogoproto.moretags) = "db:\"timezone\""];
+  string day_week_starts = 6  [(gogoproto.moretags) = "db:\"day_week_starts\""];
+	string color = 7  [(gogoproto.moretags) = "db:\"color\""];
+}
+
+message TeamList {
+	repeated Team teams = 1 [(gogoproto.nullable) = false];
+}
+
+message TeamListRequest {
+	string company_uuid = 1;
+}
+
+message CreateTeamRequest {
+	string company_uuid = 1;
+	string name = 2;
+	string timezone = 3;
+	string day_week_starts = 4;
+	string color = 5;
+}
+
+message GetTeamRequest {
+  string company_uuid = 1;
+  string uuid = 2;
+}
+
+message Job {
+	string uuid = 1  [(gogoproto.moretags) = "db:\"uuid\""];
+	string company_uuid = 2  [(gogoproto.moretags) = "db:\"-\""];
+	string team_uuid = 3  [(gogoproto.moretags) = "db:\"team_uuid\""];
+	string name = 4 [(gogoproto.moretags) = "db:\"name\""];
+	bool archived = 5  [(gogoproto.moretags) = "db:\"archived\""];
+	string color = 6 [(gogoproto.moretags) = "db:\"color\""];
+}
+
+message JobList {
+	repeated Job jobs = 1 [(gogoproto.nullable) = false];
+}
+
+message JobListRequest {
+	string company_uuid = 1;
+	string team_uuid = 2;
+}
+
+message CreateJobRequest {
+	string company_uuid = 1;
+	string team_uuid = 2;
+	string name = 3;
+	string color = 4;
+}
+
+message GetJobRequest {
+	string uuid = 1;
+	string company_uuid = 2;
+	string team_uuid = 3;
+}
+
+message Shift {
+  string uuid = 1  [(gogoproto.moretags) = "db:\"uuid\""];
+  string company_uuid = 2 [(gogoproto.moretags) = "db:\"-\""];
+  string team_uuid = 3  [(gogoproto.moretags) = "db:\"team_uuid\""];
+  google.protobuf.Timestamp start = 4  [(gogoproto.moretags) = "db:\"start\"", (gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+  google.protobuf.Timestamp stop = 5  [(gogoproto.moretags) = "db:\"stop\"", (gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+  string user_uuid = 6  [(gogoproto.moretags) = "db:\"user_uuid\""];
+  string job_uuid = 7  [(gogoproto.moretags) = "db:\"job_uuid\""];
+  bool published = 8  [(gogoproto.moretags) = "db:\"published\""];
+}
+
+message ShiftList {
+  repeated Shift shifts = 1 [(gogoproto.nullable) = false];
+	google.protobuf.Timestamp shift_start_after = 2 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+	google.protobuf.Timestamp shift_start_before = 3 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+}
+
+message ShiftListRequest {
+  string company_uuid = 1;
+  string team_uuid = 2;
+  string user_uuid = 3;
+  string job_uuid = 4;
+	string shift_start_after = 5;
+	string shift_start_before = 6;
+}
+
+message WorkerShiftListRequest {
+  string company_uuid = 1;
+  string team_uuid = 2;
+  string worker_uuid = 3;
+	google.protobuf.Timestamp shift_start_after = 4 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+	google.protobuf.Timestamp shift_start_before = 5 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+}
+
+message BulkPublishShiftsRequest {
+  string company_uuid = 1;
+  string team_uuid = 2;
+  string user_uuid = 3;
+  string job_uuid = 4;
+	google.protobuf.Timestamp shift_start_after = 5 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+	google.protobuf.Timestamp shift_start_before = 6 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+	bool published = 7;
+}
+
+message CreateShiftRequest {
+  string company_uuid = 1;
+  string team_uuid = 2;
+  google.protobuf.Timestamp start = 4 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+  google.protobuf.Timestamp stop = 5 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+  string user_uuid = 6;
+	string job_uuid = 7;
+	bool published = 8;
+}
+
+message GetShiftRequest {
+	string uuid = 1;
+	string team_uuid = 2;
+	string company_uuid = 3;
+}
+
+// directory
+message DirectoryEntry {
+	string user_uuid = 1;
+	string internal_id = 2;
+	string company_uuid = 3;
+	// coming from account
+	string name = 5;
+  	string email = 6;
+  	bool confirmed_and_active = 7;
+	string phonenumber = 8;
+	string photo_url = 9;
+
+
+}
+message NewDirectoryEntry {
+	string company_uuid = 1;
+	string name = 2;
+  	string email = 3;
+  	string phonenumber = 4;
+	string internal_id = 5;
+}
+
+message DirectoryEntryRequest {
+	string company_uuid = 1;
+	string user_uuid = 2;
+}
+
+message DirectoryList {
+	repeated DirectoryEntry accounts = 1 [(gogoproto.nullable) = false];
+	int32 limit = 2;
+	int32 offset = 3;
+}
+message DirectoryListRequest {
+	string company_uuid = 1;
+	int32 limit = 2;
+	int32 offset = 3;
+}
+
+// admins
+message AdminListRequest {
+	string company_uuid = 1;
+}
+message Admins {
+	string company_uuid = 1;
+	repeated DirectoryEntry admins = 2  [(gogoproto.nullable) = false];
+}
+
+message AdminOfRequest {
+	string user_uuid = 1;
+}
+message AdminOfList {
+	string user_uuid = 1;
+	repeated Company companies = 2 [(gogoproto.nullable) = false];
+}
+
+// workers
+message WorkerListRequest {
+	string company_uuid = 1;
+	string team_uuid = 2;
+}
+
+
+message Workers {
+	string company_uuid = 1 ;
+	string team_uuid = 2;
+	repeated DirectoryEntry workers = 3 [(gogoproto.nullable) = false];
+
+}
+
+message Worker {
+	string company_uuid = 1;
+	string team_uuid = 2;
+	string user_uuid = 3;
+}
+
+message WorkerOfRequest {
+	string user_uuid = 1;
+}
+
+message WorkerOfList {
+	string user_uuid = 1;
+	repeated Team teams = 2 [(gogoproto.nullable) = false];
+}
+
+message Association {
+	DirectoryEntry account = 1 [(gogoproto.nullable) = false];
+	repeated Team teams = 2 [(gogoproto.nullable) = false];
+	bool admin = 3;
+}
+
+message AssociationList {
+	repeated Association accounts = 1 [(gogoproto.nullable) = false];
+	int32 limit = 2;
+	int32 offset = 3;
+}
+
+message TimeZoneList {
+  repeated string timezones = 1;
+}
+
+message TimeZoneListRequest {
+}
+
+message ScheduledPerWeek {
+  string week = 1;
+  int32 count = 2;
+}
+
+message GrowthGraphResponse {
+  map<string, int32> people_scheduled_per_week = 1;
+  int32 people_on_shifts = 2;
+}
+
+message GrowthGraphRequest {
+}
+	
+service CompanyService {
+	rpc CreateCompany(CreateCompanyRequest) returns (Company) {
+		option (google.api.http) = {
+			post: "/v1/companies"
+			body: "*"
+		};
+	}
+	rpc ListCompanies(CompanyListRequest) returns (CompanyList) {
+		option (google.api.http) = {
+			get: "/v1/companies"
+		};
+	}
+	rpc GetCompany(GetCompanyRequest) returns (Company) {
+		option (google.api.http) = {
+			get: "/v1/companies/{uuid}"
+		};
+	}
+	rpc UpdateCompany(Company) returns (Company) {
+		option (google.api.http) = {
+			put: "/v1/companies/{uuid}"
+			body: "*"
+		};
+	}	
+
+  // teams
+	rpc CreateTeam(CreateTeamRequest) returns (Team) {
+		option (google.api.http) = {
+			post: "/v1/companies/{company_uuid}/teams"
+			body: "*"
+		};
+	}
+
+	rpc ListTeams(TeamListRequest) returns (TeamList) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams"
+		};
+	}
+
+	rpc GetTeam(GetTeamRequest) returns (Team) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{uuid}"
+		};
+	}
+
+	rpc UpdateTeam(Team) returns (Team) {
+		option (google.api.http) = {
+			put: "/v1/companies/{company_uuid}/teams/{uuid}"
+			body: "*"
+		};
+	}
+
+	rpc GetWorkerTeamInfo(Worker) returns (Worker) {
+		option (google.api.http) = {
+			get: "/v1/companies/{user_uuid}/teaminfo"
+		};
+	}
+
+	rpc CreateJob(CreateJobRequest) returns (Job) {
+		option (google.api.http) = {
+			post: "/v1/companies/{company_uuid}/teams/{team_uuid}/jobs"
+			body: "*"
+		};
+	}
+
+	rpc ListJobs(JobListRequest) returns (JobList) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/jobs"
+		};
+	}
+	rpc GetJob(GetJobRequest) returns (Job) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/jobs/{uuid}"
+		};
+	}
+	rpc UpdateJob(Job) returns (Job) {
+		option (google.api.http) = {
+			put: "/v1/companies/{company_uuid}/teams/{team_uuid}/jobs/{uuid}"
+			body: "*"
+		};
+	}
+	rpc CreateShift(CreateShiftRequest) returns (Shift) {
+		option (google.api.http) = {
+			post: "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts"
+			body: "*"
+		};
+	}
+
+	rpc ListShifts(ShiftListRequest) returns (ShiftList) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts"
+		};
+	}
+	
+	rpc ListWorkerShifts(WorkerShiftListRequest) returns (ShiftList) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/workers/{worker_uuid}/shifts"
+		};
+	}
+	
+	rpc BulkPublishShifts(BulkPublishShiftsRequest) returns (ShiftList) {
+		option (google.api.http) = {
+			put: "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts",
+			body: "*",
+		};
+	}
+	
+	rpc GetShift(GetShiftRequest) returns (Shift) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts/{uuid}"
+		};
+	}
+	rpc DeleteShift(GetShiftRequest) returns (google.protobuf.Empty) {
+		option (google.api.http) = {
+			delete: "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts/{uuid}"
+		};
+	}
+	
+	rpc UpdateShift(Shift) returns (Shift) {
+		option (google.api.http) = {
+			put: "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts/{uuid}"
+			body: "*"
+		};
+	}
+
+	// Directory
+	rpc CreateDirectory(NewDirectoryEntry) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			post: "/v1/companies/{company_uuid}/directory",
+			body: "*"
+		};
+	}
+
+	rpc Directory(DirectoryListRequest) returns (DirectoryList) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/directory"
+		};
+	}
+
+	rpc GetAssociations(DirectoryListRequest) returns (AssociationList) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/associations"
+		};
+	}
+
+	rpc GetDirectoryEntry(DirectoryEntryRequest) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/directory/{user_uuid}"
+		};
+	}
+	rpc UpdateDirectoryEntry(DirectoryEntry) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			put: "/v1/companies/{company_uuid}/directory/{user_uuid}",
+			body: "*"
+		};
+	}
+	
+	// Admins
+	rpc ListAdmins(AdminListRequest) returns (Admins) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/admins"
+		};
+	}
+	rpc CreateAdmin(DirectoryEntryRequest) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			post: "/v1/companies/{company_uuid}/admins",
+			body: "*"
+		};
+	}
+
+	rpc GetAdmin(DirectoryEntryRequest) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/admins/{user_uuid}"
+		};
+	}
+	rpc DeleteAdmin(DirectoryEntryRequest) returns (google.protobuf.Empty) {
+		option (google.api.http) = {
+			delete: "/v1/companies/{company_uuid}/admins/{user_uuid}"
+		};
+	}
+
+	// Workers
+	rpc ListWorkers(WorkerListRequest) returns (Workers) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/workers"
+		};
+	}
+	rpc GetWorker(Worker) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			get: "/v1/companies/{company_uuid}/teams/{team_uuid}/workers/{user_uuid}"
+		};
+	}
+	rpc DeleteWorker(Worker) returns (google.protobuf.Empty) {
+		option (google.api.http) = {
+			delete: "/v1/companies/{company_uuid}/teams/{team_uuid}/workers/{user_uuid}"
+		};
+	}
+	rpc CreateWorker(Worker) returns (DirectoryEntry) {
+		option (google.api.http) = {
+			post: "/v1/companies/{company_uuid}/teams/{team_uuid}/workers",
+			body: "*"
+		};
+	}		
+
+  	// timezones
+	rpc ListTimeZones(TimeZoneListRequest) returns (TimeZoneList) {
+		option (google.api.http) = {
+			get: "/v1/timezones"
+		};
+	}
+	
+  	// growth graph
+	rpc GrowthGraph(GrowthGraphRequest) returns (GrowthGraphResponse) {
+		option (google.api.http) = {
+			get: "/v1/internal/kpis"
+		};
+	}
+	
+	rpc GetWorkerOf(WorkerOfRequest) returns (WorkerOfList) {}
+	rpc GetAdminOf(AdminOfRequest) returns (AdminOfList) {}
+}

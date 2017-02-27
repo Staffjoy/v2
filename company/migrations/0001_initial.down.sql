@@ -1,0 +1,4 @@
+DROP TABLE company;
+DROP TABLE team;
+DROP TABLE job;
+DROP TABLE shift;

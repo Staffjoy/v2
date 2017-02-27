@@ -1,0 +1,64 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: whoami-deployment
+spec:
+  replicas: 3
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      volumes:
+      - name: secrets
+        secret:
+          secretName: gcloud
+      containers:
+      - name: whoami-container
+        image: gcr.io/staffjoy-prod/whoami:VERSION
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        volumeMounts:
+        - name: secrets    
+          mountPath: "/etc/secrets"
+          readOnly: true
+        env:
+        - name: DEPLOY
+          value: VERSION # Gets replaced during deploy
+        - name: ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              name: sentry
+              key: dsn
+        - name: SIGNING_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: signing
+              key: secret
+        - name: GCLOUD_PROJECT
+          value: staffjoy-prod
+        - name: INTERCOM_APP_ID
+          valueFrom: 
+            secretKeyRef: 
+              name: intercom
+              key: app
+        - name: INTERCOM_SIGNING_SECRET
+          valueFrom: 
+            secretKeyRef: 
+              name: intercom
+              key: signing

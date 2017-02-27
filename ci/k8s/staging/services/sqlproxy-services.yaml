@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqlproxy-service-database1
+spec:
+  ports:
+  - port: 3306
+    targetPort: sqlproxydb1
+  selector:
+    app: cloudsqlproxy
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqlproxy-service-database2
+spec:
+  ports:
+  - port: 3306
+    targetPort: sqlproxydb2
+  selector:
+    app: cloudsqlproxy

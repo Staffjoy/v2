@@ -1,0 +1,41 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="/assets/js/analytics.js?version={{ .Version }}"></script>
+<script src="/assets/js/common.js?version={{ .Version }}"></script>
+<script src="/assets/js/bundle.js?version={{ .Version }}"></script>
+
+{{ if eq .TemplateName "home.tmpl" }}
+  <script src="/assets/js/typed.js?version={{ .Version }}"></script>
+  <script src="/assets/js/home.js?version={{ .Version }}"></script>
+{{ end }}
+
+{{ if eq .TemplateName "new_company.tmpl" }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment-with-locales.min.js" integrity="sha256-cOjhb1i1QhtRZd/URBwT+FhNy+RzyFVkLv09UXV7md4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.9/moment-timezone-with-data.js" integrity="sha256-Srjh9SmEF9S64bDSPpF6EyMk6tjE7bpjBqgH6bHupYA=" crossorigin="anonymous"></script>
+  <script language="javascript">
+    $(document).ready(function() {
+      var tz = moment.tz.guess();
+      $('#tz-val').val(tz);
+      $("#v2-new-company-form").on('submit',function(e){
+        var $form = $(this);
+
+        if ($form.data('submitted') === true) {
+          // Previously submitted - don't submit again
+          e.preventDefault();
+        } else {
+          // Mark it so that the next submit can be ignored
+          $form.data('submitted', true);
+        }
+      });
+
+  // Keep chainability
+  return this;
+    });
+</script>
+{{ end }}
+
+
+
+<!-- TODO: (ZO) This isn't setup properly. I put the import script in the template file. -->
+{{ if eq .TemplateName "breaktime_episode.tmpl" }}
+  <script src="/assets/js/breaktime.js"></script>
+{{ end }}

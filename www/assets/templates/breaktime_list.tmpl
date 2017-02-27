@@ -1,0 +1,31 @@
+{{ template "header.tmpl" . }}
+{{ template "blog_navigation.tmpl" . }}
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col mdl-cell--12-col-tablet breaktime-container">
+    <div class="mdl-grid">
+      {{ range $slug, $episode := .Episodes }}
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet episode">
+          <a href="/breaktime/{{ $slug }}">
+            <img src="/assets/breaktime-cover/{{ $slug }}.jpg" alt="{{ $episode.Name }}" class="episode-image"/>
+            <div class="episode-attributes even">
+              <p class="date even">{{ $episode.Date }}</p>
+              <p class="title even">{{ $episode.Name }}</p>
+            </div>
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+<ul>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col mdl-cell--12-col-tablet">
+    {{ template "footer.tmpl" . }}
+  </div>
+</div>
+
+<script src="/assets/js/breaktime.js"></script>

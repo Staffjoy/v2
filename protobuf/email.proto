@@ -1,0 +1,17 @@
+syntax = "proto3";
+package staffjoy.email;
+
+option go_package = "v2.staffjoy.com/email";
+
+import "google/protobuf/empty.proto";
+
+message EmailRequest {
+    string to = 1;
+    string subject = 2;
+    string html_body = 3;
+    string name = 4;
+}
+
+service EmailService {
+  rpc Send(EmailRequest) returns (google.protobuf.Empty){}
+}

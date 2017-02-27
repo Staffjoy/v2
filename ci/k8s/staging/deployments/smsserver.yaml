@@ -1,0 +1,51 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: smsserver-deployment
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: smsserver
+    spec:
+      containers:
+      - name: smsserver-container
+        image: gcr.io/staffjoy-prod/smsserver:VERSION
+        ports:
+        - containerPort: 80
+        - containerPort: 1000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        env:
+        - name: DEPLOY
+          value: VERSION # Gets replaced during deploy
+        - name: ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              name: sentry
+              key: dsn
+        - name: TWILIO_SID
+          valueFrom:
+            secretKeyRef:
+              name: twilio
+              key: sid
+        - name: TWILIO_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: twilio
+              key: token
+

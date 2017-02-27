@@ -1,0 +1,53 @@
+syntax = "proto3";
+package staffjoy.bot;
+
+option go_package = "v2.staffjoy.com/bot";
+
+import "google/protobuf/empty.proto";
+import "company.proto";
+
+message OnboardWorkerRequest {
+    string company_uuid = 1;
+    string user_uuid = 2;
+}
+
+message AlertNewShiftRequest {
+    string user_uuid = 1;
+    staffjoy.company.Shift new_shift = 2;
+}
+
+message AlertNewShiftsRequest {
+    string user_uuid = 1;
+    repeated staffjoy.company.Shift new_shifts = 2;
+}
+
+message AlertRemovedShiftRequest {
+    string user_uuid = 1;
+    staffjoy.company.Shift old_shift = 2;
+}
+
+message AlertRemovedShiftsRequest {
+    string user_uuid = 1;
+    repeated staffjoy.company.Shift old_shifts = 2;
+}
+
+
+message AlertChangedShiftRequest {
+    string user_uuid = 1;
+    staffjoy.company.Shift old_shift = 2;
+    staffjoy.company.Shift new_shift = 3;
+}
+
+service BotService {
+  rpc OnboardWorker(OnboardWorkerRequest) returns (google.protobuf.Empty){}
+
+  rpc AlertNewShift(AlertNewShiftRequest) returns (google.protobuf.Empty){}
+
+  rpc AlertNewShifts(AlertNewShiftsRequest) returns (google.protobuf.Empty){}
+
+  rpc AlertRemovedShift(AlertRemovedShiftRequest) returns (google.protobuf.Empty){}
+
+  rpc AlertRemovedShifts(AlertRemovedShiftsRequest) returns (google.protobuf.Empty){}
+
+  rpc AlertChangedShift(AlertChangedShiftRequest) returns (google.protobuf.Empty){}
+}

@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cloudsqlproxy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cloudsqlproxy
+    spec:
+      containers:
+      - image: b.gcr.io/cloudsql-docker/gce-proxy:1.05
+        name: cloudsqlproxy
+        command:
+        - /cloud_sql_proxy
+        - -dir=/cloudsql
+        - -instances=staffjoy-prod:account-staging=tcp:0.0.0.0:3306,staffjoy-prod:company-staging=tcp:0.0.0.0:3307
+        - -credential_file=/credentials/gcloud.json
+        ports:
+        - name: sqlproxydb1
+          containerPort: 3306
+        - name: sqlproxydb2
+          containerPort: 3307
+        volumeMounts:
+        - mountPath: /cloudsql
+          name: cloudsql
+        - mountPath: /credentials
+          name: gcloud
+        - mountPath: /etc/ssl/certs
+          name: ca-certificates
+      volumes:
+      - name: cloudsql
+        emptyDir:
+      - name: gcloud
+        secret:
+          secretName: gcloud
+      - name: ca-certificates
+        configMap:
+          name: ca-certificates

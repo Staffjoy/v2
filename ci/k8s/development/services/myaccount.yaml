@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myaccount-service
+  labels:
+    app: myaccount
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: myaccount

@@ -1,0 +1,46 @@
+{{ template "header.tmpl" . }}
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone">
+  </div>
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--1-offset-tablet">
+    <div class="main-area">
+      <img src="/assets/images/staffjoy-logos/logo-white.svg" alt="Staffjoy Logo">
+      <h1>Finish your profile</h1>
+
+      <form class="sign-up-form" id="v2-signup-form" name="v2-signup-form" method="post">
+        {{ if .ErrorMessage }}
+        <p class="warning-message">{{ .ErrorMessage }}</p>
+        {{ end }}
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-area">
+          <input class="mdl-textfield__input" name="email" type="text" value="{{.Email}}" disabled>
+          <label class="mdl-textfield__label" for="sign-up-form-main">Email</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-area">
+          <input class="mdl-textfield__input" name="password" type="password" autofocus>
+          <label class="mdl-textfield__label" for="sign-up-form-main">Password</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-area">
+          <input class="mdl-textfield__input" name="name" type="text" value="{{.Name}}">
+          <label class="mdl-textfield__label" for="sign-up-form-main">Full Name</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-area">
+          <input class="mdl-textfield__input" name="phonenumber" type="text" value="{{.Phonenumber}}">
+          <label class="mdl-textfield__label" for="sign-up-form-main">Mobile Phone Number</label>
+        </div>
+        <label class="mdl-checkbox tos-area" for="tos-checkbox">
+          <input type="checkbox" id="tos-checkbox" class="mdl-checkbox__input" name="tos">
+          <span class="mdl-checkbox__label">I agree to the <a href="/terms/">Terms of Service</a> and <a href="/privacy-policy/">Privacy Policy</a>.</span>
+        </label>
+        {{ .CsrfField }}
+        <input type="submit" class="mdl-button mdl-button--raised mdl-button--accent sign-up-submit" name="subscribe" value="Next" id="v2-signup" />
+      </form>
+      <ul class="sign-up-nav">
+        <li><a href="mailto:help@staffjoy.com" id="intercom-launcher">Support</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{{ template "scripts.tmpl" . }}
+</body>
+</html>

@@ -1,0 +1,48 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+*.swo
+
+# Folders
+_obj
+_test
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
+
+# ignore bazel bins
+bazel-*
+
+# ignore vagrant
+.vagrant
+
+# ignore visual studio configuration
+.vscode
+
+# Silly macs
+.DS_Store
+*.swp
+
+# allow local go/glide vendor
+vendor
+
+# ignore glide cache
+.glide/
+
+# in case you accidentally run npm at this level
+npm-debug.log
+node_modules/

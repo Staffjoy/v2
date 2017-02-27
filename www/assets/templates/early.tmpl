@@ -1,0 +1,35 @@
+{{ template "header.tmpl" . }}
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone">
+    <div class="back-button">
+      <a class="button button--outline" href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i>Go Back</a>
+    </div>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-phone mdl-cell--1-offset-tablet">
+    <div class="main-area">
+      <img src="/assets/images/staffjoy-logos/logo-white.svg" alt="Staffjoy Logo">
+      <h1>Get immediate access to the new Staffjoy application:</h1>
+
+      <form class="sign-up-form" id="v2-signup-form" name="v2-signup-form" action="/confirm/" method="post">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sign-up-area">
+          <input class="mdl-textfield__input" name="email" type="text" id="sign-up-form-main" autofocus>
+          <label class="mdl-textfield__label" for="sign-up-form-main">Email</label>
+          {{ .CsrfField }}
+        </div>
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent sign-up-submit" name="subscribe" value="Sign Up For Free" id="v2-signup" />
+      </form>
+      <p>Already have an account? <a href="/login/">Login Here</a></p>
+      <p>By clicking 'Sign Up', I agree to Staffjoy's <a href="/terms/">Terms of Service</a> and <a href="/privacy-policy/">Privacy Policy</a></p>
+
+      <ul class="sign-up-nav">
+        <li><a href="https://blog.staffjoy.com/">Blog</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="mailto:help@staffjoy.com" id="intercom-launcher">Support</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{{ template "scripts.tmpl" . }}
+</body>
+</html>

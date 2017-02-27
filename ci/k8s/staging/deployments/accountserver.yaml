@@ -1,0 +1,60 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: accountserver-deployment
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: accountserver
+    spec:
+      containers:
+      - name: accountserver-container
+        image: gcr.io/staffjoy-prod/accountserver:VERSION
+        ports:
+        - containerPort: 80
+        - containerPort: 1000
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        env:
+        - name: DEPLOY
+          value: VERSION # Gets replaced during deploy
+        - name: ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              name: sentry
+              key: dsn
+        - name: MYSQL_CONFIG
+          valueFrom:
+            secretKeyRef:
+              name: account-mysql-stagings
+              key: config
+        - name: SIGNING_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: signing
+              key: secret
+        - name: INTERCOM_APP_ID
+          valueFrom: 
+            secretKeyRef: 
+              name: intercom
+              key: app
+        - name: INTERCOM_API_KEY
+          valueFrom: 
+            secretKeyRef: 
+              name: intercom
+              key: key

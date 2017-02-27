@@ -1,0 +1,56 @@
+.header {
+  padding: 20px 30px;
+  background: #48b7ab;
+  .breaktime{
+    text-align: center;
+    .main-logo{
+      float: left;
+    }
+    &.simple-text{
+      font-size: 80px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      color: #ffffff;
+      text-align: center;
+    }
+    &.at-symbol-large{
+      font-size: 80px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: -2.7px;
+      color: #ffffff;
+      text-align: center;
+    }
+    .blog-logo{
+      width: 210px;
+      vertical-align: text-bottom;
+    }
+
+    &.logo-small{
+      font-size: 40px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .small-at-symbol{
+      font-weight: bold;
+      letter-spacing: -18px;
+    }
+    &.small-img-logo{
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      vertical-align: text-bottom;
+    }
+
+  }
+}

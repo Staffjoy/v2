@@ -1,0 +1,1 @@
+ALTER TABLE `account` ADD `photo_url` VARCHAR(255) NOT NULL DEFAULT "";

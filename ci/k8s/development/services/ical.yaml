@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ical-service
+  labels:
+    app: ical
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: ical

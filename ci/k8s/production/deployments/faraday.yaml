@@ -1,0 +1,54 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: faraday-deployment
+spec:
+  replicas: 3
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: faraday
+    spec:
+      volumes:
+      - name: secrets
+        secret:
+          secretName: gcloud
+      containers:
+      - name: faraday-container
+        image: gcr.io/staffjoy-prod/faraday:VERSION
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+        volumeMounts:
+        - name: secrets    
+          mountPath: "/etc/secrets"
+          readOnly: true
+        env:
+        - name: DEPLOY
+          value: VERSION # Gets replaced during deploy
+        - name: ENV
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: SENTRY_DSN
+          valueFrom:
+            secretKeyRef:
+              name: sentry
+              key: dsn
+        - name: GCLOUD_PROJECT
+          value: staffjoy-prod
+        - name: SIGNING_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: signing
+              key: secret

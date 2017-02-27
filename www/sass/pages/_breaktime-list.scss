@@ -1,0 +1,70 @@
+#breaktimeList {
+  background-color: #d8d8d8;
+
+  .breaktime-container{
+    max-width: 1200px;
+    .body-content{
+      margin-top: 32px;
+    }
+    .episode{
+      height: 310px;
+      background-color: #fff;
+      position: relative;
+      box-shadow: 0 5px 10px rgba(0,0,0,.1);
+      &:hover{
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .20);
+        transform: translateY(-6px);
+        -webkit-transition: box-shadow .3s ease;
+        -moz-transition: box-shadow .3s ease;
+        -o-transition: box-shadow .3s ease;
+        transition: box-shadow .3s ease;
+
+        -webkit-transition: transform .3s ease;
+        -moz-transition: transform .3s ease;
+        -o-transition: transform .3s ease;
+        transition: transform .3s ease;
+      }
+      .episode-attributes{
+        position: absolute;
+        bottom: 0;
+        height: 90px;
+        padding: 20px;
+        width: 100%;
+        &.even{
+          background-color: #ffffff;
+          color: #423a3f;
+          border-radius: 2px;
+        }
+        .date{
+          font-size: 1vw;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.0;
+          color: #ffffff;
+          &.even{
+            color: #423a3f;
+          }
+        }
+        .title{
+          font-size: 1.5vw;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.0;
+          letter-spacing: -1px;
+          color: #ffffff;
+          &.even{
+            color: #423a3f;
+          }
+        }
+      }
+    }
+    .episode-image{
+      width: 100%;
+      max-height: 310px;
+      border-radius: 2px;
+    }
+  }
+}

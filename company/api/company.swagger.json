@@ -1,0 +1,1913 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "company.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/companies": {
+      "get": {
+        "operationId": "ListCompanies",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyCompanyList"
+            }
+          }
+        },
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "operationId": "CreateCompany",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyCompany"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyCreateCompanyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/admins": {
+      "get": {
+        "summary": "Admins",
+        "operationId": "ListAdmins",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyAdmins"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "operationId": "CreateAdmin",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/admins/{user_uuid}": {
+      "get": {
+        "operationId": "GetAdmin",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteAdmin",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/associations": {
+      "get": {
+        "operationId": "GetAssociations",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyAssociationList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/directory": {
+      "get": {
+        "operationId": "Directory",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "summary": "Directory",
+        "operationId": "CreateDirectory",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyNewDirectoryEntry"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/directory/{user_uuid}": {
+      "get": {
+        "operationId": "GetDirectoryEntry",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateDirectoryEntry",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams": {
+      "get": {
+        "operationId": "ListTeams",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyTeamList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "summary": "teams",
+        "operationId": "CreateTeam",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyTeam"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyCreateTeamRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/jobs": {
+      "get": {
+        "operationId": "ListJobs",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyJobList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "operationId": "CreateJob",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyJob"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyCreateJobRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/jobs/{uuid}": {
+      "get": {
+        "operationId": "GetJob",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyJob"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateJob",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyJob"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyJob"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts": {
+      "get": {
+        "operationId": "ListShifts",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyShiftList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "operationId": "CreateShift",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyShift"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyCreateShiftRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "put": {
+        "operationId": "BulkPublishShifts",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyShiftList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyBulkPublishShiftsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/shifts/{uuid}": {
+      "get": {
+        "operationId": "GetShift",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyShift"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteShift",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateShift",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyShift"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyShift"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/workers": {
+      "get": {
+        "summary": "Workers",
+        "operationId": "ListWorkers",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyWorkers"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "post": {
+        "operationId": "CreateWorker",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyWorker"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/workers/{user_uuid}": {
+      "get": {
+        "operationId": "GetWorker",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyDirectoryEntry"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteWorker",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protobufEmpty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{team_uuid}/workers/{worker_uuid}/shifts": {
+      "get": {
+        "operationId": "ListWorkerShifts",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyShiftList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "team_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "worker_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{company_uuid}/teams/{uuid}": {
+      "get": {
+        "operationId": "GetTeam",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyTeam"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateTeam",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyTeam"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "company_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyTeam"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{user_uuid}/teaminfo": {
+      "get": {
+        "operationId": "GetWorkerTeamInfo",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyWorker"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "user_uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/companies/{uuid}": {
+      "get": {
+        "operationId": "GetCompany",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyCompany"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateCompany",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyCompany"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/companyCompany"
+            }
+          }
+        ],
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/internal/kpis": {
+      "get": {
+        "summary": "growth graph",
+        "operationId": "GrowthGraph",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyGrowthGraphResponse"
+            }
+          }
+        },
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    },
+    "/v1/timezones": {
+      "get": {
+        "summary": "timezones",
+        "operationId": "ListTimeZones",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/companyTimeZoneList"
+            }
+          }
+        },
+        "tags": [
+          "CompanyService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "companyAdminListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      },
+      "title": "admins"
+    },
+    "companyAdminOfList": {
+      "type": "object",
+      "properties": {
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyCompany"
+          }
+        }
+      }
+    },
+    "companyAdminOfRequest": {
+      "type": "object",
+      "properties": {
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyAdmins": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "admins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyDirectoryEntry"
+          }
+        }
+      }
+    },
+    "companyAssociation": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/companyDirectoryEntry"
+        },
+        "teams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyTeam"
+          }
+        },
+        "admin": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "companyAssociationList": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyAssociation"
+          }
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "companyBulkPublishShiftsRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "job_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "shift_start_after": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shift_start_before": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "published": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "companyCompany": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "archived": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "default_timezone": {
+          "type": "string",
+          "format": "string"
+        },
+        "default_day_week_starts": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyCompanyList": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyCompany"
+          }
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "companyCompanyListRequest": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "companyCreateCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "default_timezone": {
+          "type": "string",
+          "format": "string"
+        },
+        "default_day_week_starts": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyCreateJobRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "color": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyCreateShiftRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stop": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "job_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "published": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "companyCreateTeamRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "timezone": {
+          "type": "string",
+          "format": "string"
+        },
+        "day_week_starts": {
+          "type": "string",
+          "format": "string"
+        },
+        "color": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyDirectoryEntry": {
+      "type": "object",
+      "properties": {
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "internal_id": {
+          "type": "string",
+          "format": "string"
+        },
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string",
+          "title": "coming from account"
+        },
+        "email": {
+          "type": "string",
+          "format": "string"
+        },
+        "confirmed_and_active": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "phonenumber": {
+          "type": "string",
+          "format": "string"
+        },
+        "photo_url": {
+          "type": "string",
+          "format": "string"
+        }
+      },
+      "title": "directory"
+    },
+    "companyDirectoryEntryRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyDirectoryList": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyDirectoryEntry"
+          }
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "companyDirectoryListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "offset": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "companyGetCompanyRequest": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyGetJobRequest": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyGetShiftRequest": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyGetTeamRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyGrowthGraphRequest": {
+      "type": "object"
+    },
+    "companyGrowthGraphResponse": {
+      "type": "object",
+      "properties": {
+        "people_scheduled_per_week": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "people_on_shifts": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "companyJob": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "archived": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "color": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyJobList": {
+      "type": "object",
+      "properties": {
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyJob"
+          }
+        }
+      }
+    },
+    "companyJobListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyNewDirectoryEntry": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "string"
+        },
+        "phonenumber": {
+          "type": "string",
+          "format": "string"
+        },
+        "internal_id": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyShift": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stop": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "job_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "published": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "companyShiftList": {
+      "type": "object",
+      "properties": {
+        "shifts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyShift"
+          }
+        },
+        "shift_start_after": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shift_start_before": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "companyShiftListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "job_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "shift_start_after": {
+          "type": "string",
+          "format": "string"
+        },
+        "shift_start_before": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyTeam": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "name": {
+          "type": "string",
+          "format": "string"
+        },
+        "archived": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "timezone": {
+          "type": "string",
+          "format": "string"
+        },
+        "day_week_starts": {
+          "type": "string",
+          "format": "string"
+        },
+        "color": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyTeamList": {
+      "type": "object",
+      "properties": {
+        "teams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyTeam"
+          }
+        }
+      }
+    },
+    "companyTeamListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyTimeZoneList": {
+      "type": "object",
+      "properties": {
+        "timezones": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "string"
+          }
+        }
+      }
+    },
+    "companyTimeZoneListRequest": {
+      "type": "object"
+    },
+    "companyWorker": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyWorkerListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      },
+      "title": "workers"
+    },
+    "companyWorkerOfList": {
+      "type": "object",
+      "properties": {
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "teams": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyTeam"
+          }
+        }
+      }
+    },
+    "companyWorkerOfRequest": {
+      "type": "object",
+      "properties": {
+        "user_uuid": {
+          "type": "string",
+          "format": "string"
+        }
+      }
+    },
+    "companyWorkerShiftListRequest": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "worker_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "shift_start_after": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shift_start_before": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "companyWorkers": {
+      "type": "object",
+      "properties": {
+        "company_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "team_uuid": {
+          "type": "string",
+          "format": "string"
+        },
+        "workers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/companyDirectoryEntry"
+          }
+        }
+      }
+    },
+    "protobufEmpty": {
+      "type": "object",
+      "description": "service Foo {\n      rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);\n    }\n\nThe JSON representation for `Empty` is empty JSON object `{}`.",
+      "title": "A generic empty message that you can re-use to avoid defining duplicated\nempty messages in your APIs. A typical example is to use it as the request\nor the response type of an API method. For instance:"
+    }
+  }
+}

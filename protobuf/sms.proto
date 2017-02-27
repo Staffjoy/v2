@@ -1,0 +1,15 @@
+syntax = "proto3";
+package staffjoy.sms;
+
+option go_package = "v2.staffjoy.com/sms";
+
+import "google/protobuf/empty.proto";
+
+message SmsRequest {
+    string to = 1;
+    string body = 2;
+}
+
+service SmsService {
+  rpc QueueSend(SmsRequest) returns (google.protobuf.Empty){}
+}

@@ -1,0 +1,135 @@
+syntax = "proto3";
+package account;
+
+option go_package = "v2.staffjoy.com/account";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+
+option (gogoproto.sizer_all) = true;
+option (gogoproto.marshaler_all) = true;
+option (gogoproto.unmarshaler_all) = true;
+
+message Account {
+	string uuid = 1  [(gogoproto.moretags) = "db:\"uuid\""];
+	string name = 2 [(gogoproto.moretags) = "db:\"name\""];
+  string email = 3 [(gogoproto.moretags) = "db:\"email\""];
+  bool confirmed_and_active = 4 [(gogoproto.moretags) = "db:\"confirmed_and_active\""];
+	google.protobuf.Timestamp member_since = 5 [(gogoproto.moretags) = "db:\"member_since\"", (gogoproto.stdtime) = true, (gogoproto.nullable) = false]; // API format becomes RFC 3339
+	bool support = 6 [(gogoproto.moretags) = "db:\"support\""];
+	string phonenumber = 7 [(gogoproto.moretags) = "db:\"phonenumber\""];
+	string photo_url = 8 [(gogoproto.moretags) = "db:\"photo_url\""];
+}
+
+message UpdatePasswordRequest {
+	string uuid = 1;
+	string password = 2;
+}
+
+message VerifyPasswordRequest {
+	string email = 1;
+	string password = 2;
+}
+
+message AccountList {
+	repeated Account accounts = 1 [(gogoproto.nullable) = false];
+	int32 limit = 2; // mirrors request
+	int32 offset = 3;
+}
+
+message GetAccountListRequest {
+  int32 offset = 1;
+  int32 limit = 2;
+}
+
+message CreateAccountRequest {
+	string name = 1;
+	string email = 2;
+	string phonenumber = 3;
+}
+
+message GetAccountRequest {
+  string uuid = 1;
+}
+
+message GetAccountByPhonenumberRequest {
+	string phonenumber = 1;
+}
+
+message PasswordResetRequest {
+  string email = 1;
+}
+
+message EmailChangeRequest {
+  string uuid = 1;
+  string email = 2;
+}
+
+message EmailConfirmation {
+  string uuid = 1;
+  string email = 2;
+}
+
+message GetOrCreateRequest {
+  string name = 1;
+  string email = 2;
+  string phonenumber = 3;
+}
+
+message TrackEventRequest {
+	string uuid = 1;
+	string event = 2;
+}
+
+message SyncUserRequest {
+	string uuid = 1;
+}
+
+service AccountService {
+	rpc Create(CreateAccountRequest) returns (Account) {
+		option (google.api.http) = {
+			post: "/v1/accounts"
+            body: "*"
+		};
+	}
+	rpc List(GetAccountListRequest) returns (AccountList) {
+	    option (google.api.http) = {
+		    get: "/v1/accounts"
+		};
+	}
+	rpc Get(GetAccountRequest) returns (Account) {
+		option (google.api.http) = {
+			get: "/v1/accounts/{uuid}"
+		};
+	}
+	rpc Update(Account) returns (Account) {
+		option (google.api.http) = {
+			put: "/v1/accounts/{uuid}"
+			body: "*"
+		};
+	}
+	rpc UpdatePassword(UpdatePasswordRequest) returns (google.protobuf.Empty) {
+		option (google.api.http) = {
+			put: "/v1/accounts/{uuid}/password"
+			body: "*"
+		};
+	}
+
+	rpc RequestPasswordReset(PasswordResetRequest) returns (google.protobuf.Empty) {}
+
+	rpc RequestEmailChange(EmailChangeRequest) returns (google.protobuf.Empty) {}
+
+	rpc VerifyPassword(VerifyPasswordRequest) returns (Account) {}
+
+	rpc ChangeEmail(EmailConfirmation) returns (google.protobuf.Empty) {}
+	
+	rpc GetOrCreate(GetOrCreateRequest) returns (Account) {}
+
+	rpc GetAccountByPhonenumber(GetAccountByPhonenumberRequest) returns (Account) {}
+
+	rpc TrackEvent(TrackEventRequest) returns (google.protobuf.Empty) {}
+
+	rpc SyncUser(SyncUserRequest) returns (google.protobuf.Empty) {}
+}

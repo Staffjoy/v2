@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: companyapi-service
+  labels:
+    app: companyapi
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: companyapi

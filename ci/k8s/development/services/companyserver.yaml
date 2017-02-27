@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: companyserver-service
+  labels:
+    app: companyserver
+spec:
+  ports:
+  - port: 80
+    name: healthcheck
+  - port: 1000
+    name: grpc
+  selector:
+    app: companyserver

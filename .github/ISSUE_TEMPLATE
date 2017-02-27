@@ -1,0 +1,29 @@
+We use Github to track bugs in Staffjoy. Please answer these questions before submitting your issue. All of our code is in one place, so please preface the title with the system where the bug is (e.g. "company api" or "www"). Thanks!
+
+### What environment did you encounter the issue in?
+
+development, staging, or production? (staffjoy.com is "production")
+
+### Which browser are you using?
+
+(if applicable)
+
+### What did you do?
+
+If possible, provide a recipe for reproducing the error. For web requests that fail, a `CURL` statement is best. Please try to include the request body. 
+
+### What did you expect to see?
+
+
+### What did you see instead?
+
+The response from the server contains information that will help us isolate the issue
+
+### Are there any logs indicating an issue?
+
+In staging and production, Sentry (https://sentry.io) will show error information. Please paste that link here. 
+
+In development, check the running pods and look at their logs. (For api errors, look at the "server" version of the application for the error - because the api is just a gateway).
+
+Development logs link: http://kubernetes.staffjoy-v2.local/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard/#/pod?namespace=development
+

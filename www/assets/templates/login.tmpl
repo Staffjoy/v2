@@ -1,0 +1,48 @@
+{{ template "header.tmpl" . }}
+
+<div class="login-panel">
+  <div class="back-button">
+    <a class="button button--outline white-bg" href="/"><i class="fa fa-arrow-left" aria-hidden="true"></i>Go Back</a>
+  </div>
+  <img src="/assets/images/staffjoy-logos/logo.svg?version={{ .Version }}" alt="Staffjoy Logo">
+  <h1>Create an online schedule that you can share with your team</h1>
+  <form action="/login/" class="login-form" method="post">
+    {{ if .Denied }}
+    <div class="warning-message">
+      Sorry, no account was found with that email and password. If you forgot your password, <a href="/password-reset/">click here to reset it</a>.
+    </div>
+    {{ end }}
+    <input type='hidden' name='return_to' value='{{.ReturnTo}}'/>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-field">
+      <input class="mdl-textfield__input" type="text" id="login-email" name="email" value="{{.PreviousEmail}}">
+      <label class="mdl-textfield__label" for="login-email">Email</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label login-field">
+      <input class="mdl-textfield__input" type="password" name="password" id="login-password">
+      <label class="mdl-textfield__label" for="login-password">Password</label>
+    </div>
+    <div class="remember-me-area login-field" for="remember-me-checkbox">
+      <input type="checkbox" id="remember-me-checkbox" class="mdl-checkbox__input" name="remember-me">
+      <span class="">Remember me</span>
+      <div class="password-reset">
+        <a href="/password-reset/">Reset Password</a>
+      </div>
+    </div>
+
+    {{ .CsrfField }}
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+      Login
+    </button>
+  </form>
+
+<p>Don't have an account? <a href="/sign-up/">Create an Account</a></p>
+
+  <ul class="login-nav">
+    <li><a href="https://blog.staffjoy.com/">Blog</a></li>
+    <li><a href="/pricing/">Pricing</a></li>
+    <li><a href="mailto:help@staffjoy.com" id="intercom-launcher">Support</a></li>
+  </ul>
+</div>
+{{ template "scripts.tmpl" . }}
+</body>
+</html>
