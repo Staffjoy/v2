@@ -7,11 +7,11 @@ import (
 
 	"golang.org/x/net/context"
 
-	"v2.staffjoy.com/auth"
-	"v2.staffjoy.com/company"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
+	"v2.staffjoy.com/auth"
+	"v2.staffjoy.com/company"
 )
 
 const (

@@ -5,8 +5,8 @@ import (
 
 	"v2.staffjoy.com/faraday/services"
 
-	"v2.staffjoy.com/environments"
 	"github.com/gorilla/context"
+	"v2.staffjoy.com/environments"
 )
 
 const (

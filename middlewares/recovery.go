@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"runtime"
 
-	"v2.staffjoy.com/environments"
-	"v2.staffjoy.com/errorpages"
 	"github.com/Sirupsen/logrus"
 	sentry "github.com/getsentry/raven-go"
+	"v2.staffjoy.com/environments"
+	"v2.staffjoy.com/errorpages"
 )
 
 // Recovery is a Negroni middleware that recovers from any panics and writes a 500 if there was one.

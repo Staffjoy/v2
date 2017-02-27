@@ -1,9 +1,9 @@
 package main
 
 import (
-	"v2.staffjoy.com/company"
 	"strings"
 	"time"
+	"v2.staffjoy.com/company"
 )
 
 // should eventually incorp. linting

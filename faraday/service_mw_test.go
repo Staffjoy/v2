@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"v2.staffjoy.com/environments"
 	"github.com/stretchr/testify/assert"
+	"v2.staffjoy.com/environments"
 )
 
 func TestApexRedirectsToWWW(t *testing.T) {

@@ -8,11 +8,11 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/golang/protobuf/ptypes/empty"
 
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"v2.staffjoy.com/auth"
 	"v2.staffjoy.com/environments"
 	pb "v2.staffjoy.com/sms"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/codes"
 )
 
 type smsServer struct {

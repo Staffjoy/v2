@@ -5,8 +5,8 @@ import (
 	"html/template"
 	"net/http"
 
-	"v2.staffjoy.com/errorpages"
 	"github.com/gorilla/mux"
+	"v2.staffjoy.com/errorpages"
 )
 
 type breaktimeEpisode struct {

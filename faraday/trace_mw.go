@@ -9,8 +9,8 @@ import (
 	"golang.org/x/net/context"
 
 	"cloud.google.com/go/trace"
-	"v2.staffjoy.com/environments"
 	"github.com/Sirupsen/logrus"
+	"v2.staffjoy.com/environments"
 )
 
 const (

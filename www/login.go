@@ -8,8 +8,8 @@ import (
 
 	"golang.org/x/net/context"
 
-	"v2.staffjoy.com/faraday/services"
 	"google.golang.org/grpc/metadata"
+	"v2.staffjoy.com/faraday/services"
 
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"

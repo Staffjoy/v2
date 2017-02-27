@@ -5,9 +5,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"v2.staffjoy.com/environments"
 	"github.com/stretchr/testify/assert"
 	"github.com/urfave/negroni"
+	"v2.staffjoy.com/environments"
 )
 
 func TestRecovery(t *testing.T) {

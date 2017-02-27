@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"os"
 
-	"v2.staffjoy.com/environments"
 	"github.com/Sirupsen/logrus"
+	"v2.staffjoy.com/environments"
 )
 
 const (

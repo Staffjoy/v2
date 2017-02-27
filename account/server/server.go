@@ -18,6 +18,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 
+	"github.com/golang/protobuf/ptypes/empty"
 	pb "v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"
 	"v2.staffjoy.com/company"
@@ -26,7 +27,6 @@ import (
 	"v2.staffjoy.com/environments"
 	"v2.staffjoy.com/helpers"
 	"v2.staffjoy.com/sms"
-	"github.com/golang/protobuf/ptypes/empty"
 )
 
 const (

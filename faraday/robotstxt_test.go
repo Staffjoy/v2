@@ -1,15 +1,15 @@
 package main
 
 import (
-	"v2.staffjoy.com/faraday/services"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"v2.staffjoy.com/faraday/services"
 
-	"v2.staffjoy.com/environments"
 	"github.com/gorilla/context"
 	"github.com/stretchr/testify/assert"
+	"v2.staffjoy.com/environments"
 )
 
 func TestNotRobotsGoesNext(t *testing.T) {

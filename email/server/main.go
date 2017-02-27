@@ -18,10 +18,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
+	"github.com/keighl/mandrill"
 	pb "v2.staffjoy.com/email"
 	"v2.staffjoy.com/environments"
 	"v2.staffjoy.com/healthcheck"
-	"github.com/keighl/mandrill"
 )
 
 const (

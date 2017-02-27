@@ -7,19 +7,19 @@ import (
 	"os"
 	"time"
 
+	"golang.org/x/net/context"
 	"v2.staffjoy.com/auth"
 	"v2.staffjoy.com/company"
 	pb "v2.staffjoy.com/company"
-	"golang.org/x/net/context"
 
-	"v2.staffjoy.com/environments"
-	"v2.staffjoy.com/errorpages"
-	"v2.staffjoy.com/healthcheck"
-	"v2.staffjoy.com/middlewares"
 	"github.com/Sirupsen/logrus"
 	"github.com/gorilla/mux"
 	"github.com/urfave/negroni"
 	"google.golang.org/grpc/metadata"
+	"v2.staffjoy.com/environments"
+	"v2.staffjoy.com/errorpages"
+	"v2.staffjoy.com/healthcheck"
+	"v2.staffjoy.com/middlewares"
 )
 
 const (

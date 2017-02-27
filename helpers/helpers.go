@@ -3,9 +3,9 @@ package helpers
 import (
 	"context"
 
+	"google.golang.org/grpc/metadata"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"
-	"google.golang.org/grpc/metadata"
 )
 
 // TrackEventFromMetadata determines the current user from gRPC context metadata

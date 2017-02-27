@@ -6,12 +6,12 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
+	"github.com/golang/protobuf/ptypes/empty"
+	"golang.org/x/net/context"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/bot"
 	"v2.staffjoy.com/company"
 	"v2.staffjoy.com/sms"
-	"github.com/golang/protobuf/ptypes/empty"
-	"golang.org/x/net/context"
 
 	"time"
 )

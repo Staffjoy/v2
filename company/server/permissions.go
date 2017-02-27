@@ -1,10 +1,10 @@
 package main
 
 import (
-	"v2.staffjoy.com/auth"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
+	"v2.staffjoy.com/auth"
 )
 
 // Each permission has a public convenience checker, and a private relationship checker.

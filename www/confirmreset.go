@@ -7,15 +7,15 @@ import (
 
 	"google.golang.org/grpc/metadata"
 
+	"github.com/Sirupsen/logrus"
+	"github.com/gorilla/csrf"
+	"github.com/gorilla/mux"
+	"golang.org/x/net/context"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"
 	"v2.staffjoy.com/company"
 	"v2.staffjoy.com/crypto"
 	"v2.staffjoy.com/errorpages"
-	"github.com/Sirupsen/logrus"
-	"github.com/gorilla/csrf"
-	"github.com/gorilla/mux"
-	"golang.org/x/net/context"
 )
 
 type confirmResetPage struct {

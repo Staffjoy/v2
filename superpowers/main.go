@@ -13,15 +13,15 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
 
+	"github.com/Sirupsen/logrus"
+	"github.com/gorilla/mux"
+	"github.com/urfave/negroni"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"
 	"v2.staffjoy.com/environments"
 	"v2.staffjoy.com/errorpages"
 	"v2.staffjoy.com/healthcheck"
 	"v2.staffjoy.com/middlewares"
-	"github.com/Sirupsen/logrus"
-	"github.com/gorilla/mux"
-	"github.com/urfave/negroni"
 )
 
 const (

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"v2.staffjoy.com/auth"
-	pb "v2.staffjoy.com/company"
-	"v2.staffjoy.com/helpers"
 	"github.com/golang/protobuf/ptypes/empty"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
+	"v2.staffjoy.com/auth"
+	pb "v2.staffjoy.com/company"
+	"v2.staffjoy.com/helpers"
 )
 
 func (s *companyServer) ListAdmins(ctx context.Context, req *pb.AdminListRequest) (*pb.Admins, error) {

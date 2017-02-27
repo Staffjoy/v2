@@ -8,13 +8,13 @@ import (
 
 	"golang.org/x/net/context"
 
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/metadata"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auditlog"
 	"v2.staffjoy.com/auth"
 	pb "v2.staffjoy.com/company"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/metadata"
 )
 
 var (

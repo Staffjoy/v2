@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"v2.staffjoy.com/auth"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
+	"v2.staffjoy.com/auth"
 )
 
 func getAuth(ctx context.Context) (md metadata.MD, authz string, err error) {

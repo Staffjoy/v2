@@ -7,11 +7,11 @@ import (
 
 	"golang.org/x/net/context"
 
+	"github.com/golang/protobuf/ptypes/empty"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/bot"
 	"v2.staffjoy.com/company"
 	"v2.staffjoy.com/sms"
-	"github.com/golang/protobuf/ptypes/empty"
 )
 
 func (s *botServer) OnboardWorker(ctx context.Context, req *bot.OnboardWorkerRequest) (*empty.Empty, error) {
