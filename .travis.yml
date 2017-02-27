@@ -19,7 +19,7 @@ install:
   - go get -u github.com/golang/lint/golint
   - go get -u golang.org/x/tools/cmd/cover
   - go get -u golang.org/x/tools/cmd/goimports
-  - go get -d -u github.com/bazelbuild/buildifier/buildifier
+  - go get -d -u github.com/bazelbuild/buildifier/...
   - go generate github.com/bazelbuild/buildifier/core
   - go install github.com/bazelbuild/buildifier/buildifier
 script:
