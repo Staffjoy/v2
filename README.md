@@ -49,7 +49,7 @@ If you are running Go code, you should [set up your $GOPATH](https://golang.org/
 
 ```
 mkdir -p $GOPATH/src/
-git clone git@github.com:Staffjoy/staffjoy.git $GOPATH/src/v2.staffjoy.com/
+git clone git@github.com:Staffjoy/v2.git $GOPATH/src/v2.staffjoy.com/
 ```
 
 ### One-time dependencies on host machine (laptop)
