@@ -20,5 +20,6 @@ install:
   - go get -u golang.org/x/tools/cmd/cover
   - go get -u golang.org/x/tools/cmd/goimports
   - go get github.com/bazelbuild/buildifier/buildifier
+  - make build
 script:
   - make test
