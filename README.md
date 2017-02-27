@@ -16,7 +16,7 @@ The authors of the original code were [@philipithomas](https://github.com/philip
 
 [Read about the V2 architecture on our blog](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw)
 
-[![Staffjoy V2 Architecture](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw)](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw)
+[![Staffjoy V2 Architecture](https://i.imgur.com/W9UQMuk.jpg)](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw)
 
 * Faraday proxies all traffic from external services to internal ones. It also tells backend services whether a user is logged in. It's the only service that has a public IP address!
 * www (www.staffjoy.com) is the main marketing website. It also handles login and logout.
