@@ -1,6 +1,7 @@
 # Staffjoy V2
 
-[![Build Status](https://travis-ci.org/Staffjoy/v2.svg?branch=master)](https://travis-ci.org/Staffjoy/v2) [![Moonlight](https://img.shields.io/badge/contractors-1-brightgreen.svg)](https://moonlightwork.com/staffjoy) 
+[![Build Status](https://travis-ci.org/Staffjoy/v2.svg?branch=master)](https://travis-ci.org/Staffjoy/v2) [![Moonlight](https://img.shields.io/badge/contractors-1-brightgreen.svg)](https://moonlightwork.com/staffjoy) [![Godoc Reference](https://godoc.org/v2.staffjoy.com?status.svg)](https://godoc.org/v2.staffjoy.com)
+
 
 [Staffjoy is shutting down](https://blog.staffjoy.com/staffjoy-is-shutting-down-39f7b5d66ef6#.ldsdqb1kp), so we are open-sourcing our code. This the second version of our product, a ground-up rewrite intended for small businesses, like restaurants. You can learn about the design journey from V1 to V2 in [this blog post](https://blog.staffjoy.com/staffjoy-v2-ca15ff1a1169#.e7lmhde6v). 
 
@@ -16,7 +17,7 @@ The authors of the original code were [@philipithomas](https://github.com/philip
 
 [Read about the V2 architecture on our blog](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw)
 
-[![Staffjoy V2 Architecture](https://i.imgur.com/W9UQMuk.jpg)](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw) [![Godoc Reference](https://godoc.org/v2.staffjoy.com?status.svg)](https://godoc.org/v2.staffjoy.com)
+[![Staffjoy V2 Architecture](https://i.imgur.com/W9UQMuk.jpg)](https://blog.staffjoy.com/staffjoys-v2-architecture-9d2fcb4015fd#.pggmlbtmw)
 
 * Faraday proxies all traffic from external services to internal ones. It also tells backend services whether a user is logged in. It's the only service that has a public IP address!
 * www (www.staffjoy.com) is the main marketing website. It also handles login and logout.
@@ -109,7 +110,7 @@ If things are really goofing, run `vagrant destroy -f` then rebuild.
 
 * There is a **known bug** where kubernetes does not come back after vagrant halts. To identify this, ssh into vagrant (`vagrant ssh`), then examine running docker containers (`docker ps`). If it's not running dozens of contianers, there's a problem. **To fix this:**, run `make dev-k8s-fix`. (Your local data may be wiped out).
 * If files are not syncing between your laptop and vagrant (to Vagrant's `$STAFFJOY` directory) - try running `make dev` again, or manually running unison (the syncer) on the host machine with `./vagrant/unison.sh`.
-* If your machine can't keep up with autobuilding on changes, it may be preferred to stop using `make dev` and to instead call its two subcommands  separately (manually): `./vagrant/unison.sh` to sync files on your computer, then SSHing into Vagrant and manually triggering builds (`cd $STAFFJOY && make dev-build`)
+* If your machine can't keep up with autobuilding on changes, it may be preferred to stop using `make dev` and to instead call its two subcommands separately (manually): `./vagrant/unison.sh` to sync files on your computer, then SSHing into Vagrant and manually triggering builds (`cd $STAFFJOY && make dev-build`)
 
 ### Development resources
 
