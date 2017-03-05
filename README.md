@@ -11,7 +11,7 @@ This is a *monorepo*, so all of the code for all of the services are in this rep
 
 ## Credit
 
-The authors of the original code were [@philipithomas](https://github.com/philipithomas), [@samdturner](https://github.com/samdturner), [@andhess](https://github.com/andhess), and some contractors. [@kootommy](https://github.com/kootommy) designed the application and most of the marketing sites, and worked closely with engineering on implementation. This is a fork of the internal repository. For security purposes, the Git history has been squashed.
+The authors of the original code were [@philipithomas](https://github.com/philipithomas), [@samdturner](https://github.com/samdturner), [@andhess](https://github.com/andhess), and some contractors. [@kootommy](https://github.com/kootommy) designed the application and most of the marketing pages, and worked closely with engineering on implementation. This is a fork of the internal repository. For security purposes, the Git history has been squashed.
 
 ## Services
 
