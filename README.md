@@ -141,6 +141,19 @@ The tool [GoConvey](https://github.com/smartystreets/goconvey) is great for seei
 
 If you modify the files in `protobuf/`, run `make protobuf` to recompile all of the generated files.
 
+⚠️ Please make sure that the version of protobuf matches the runtime version ([see this issue](https://github.com/Staffjoy/v2/issues/5#issuecomment-305704425)):
+
+  ```sh
+  go get github.com/golang/protobuf/...
+  cd $GOPATH/src/github.com/golang/protobuf/
+  # Switch to version that is packaged in app
+  git checkout df1d3ca07d2d07bba352d5b73c4313b4e2a6203e
+  # Re-install
+  go install github.com/golang/protobuf/proto
+  cd $GOPATH/src/v2.staffjoy.com/
+  make protobuf
+  ```
+
 If you're getting started with protocol buffers, here are some resources:
 
 * [Protocol Buffers](https://developers.google.com/protocol-buffers/)
