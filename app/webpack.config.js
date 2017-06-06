@@ -54,7 +54,7 @@ module.exports = {
         ],
     },
     resolveLoader: {
-        root: path.join(__dirname + "node_modules")
+        root: path.join(__dirname + "/node_modules")
     },
     output: {
         path: __dirname + "/dist",
