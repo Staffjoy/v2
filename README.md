@@ -3,7 +3,9 @@
 [![Build Status](https://travis-ci.org/Staffjoy/v2.svg?branch=master)](https://travis-ci.org/Staffjoy/v2) [![Moonlight contractors](https://img.shields.io/badge/contractors-1147-brightgreen.svg)](https://moonlightwork.com/for/staffjoy) [![Godoc Reference](https://godoc.org/v2.staffjoy.com?status.svg)](https://godoc.org/v2.staffjoy.com)
 
 
-[Staffjoy is shutting down](https://blog.staffjoy.com/staffjoy-is-shutting-down-39f7b5d66ef6#.ldsdqb1kp), so we are open-sourcing our code. This the second version of our product, a ground-up rewrite intended for small businesses, like restaurants. You can learn about the design journey from V1 to V2 in [this blog post](https://blog.staffjoy.com/staffjoy-v2-ca15ff1a1169#.e7lmhde6v). 
+[Staffjoy is shutting down](https://blog.staffjoy.com/staffjoy-is-shutting-down-39f7b5d66ef6#.ldsdqb1kp), so we are open-sourcing our code. This the second version of our product, a ground-up rewrite intended for small businesses, like restaurants. This product was very simple and did *not* provide features like allowing workers to log in, clock-in, etc. If you want those features, please use [Staffjoy Suite](https://github.com/staffjoy/suite) You can learn about the design journey from V1 to V2 in [this blog post](https://blog.staffjoy.com/staffjoy-v2-ca15ff1a1169#.e7lmhde6v). 
+
+![Staffjoy V2](https://user-images.githubusercontent.com/1312414/29037396-1f0913ba-7b69-11e7-983f-65bea21718d2.png)
 
 We started building V2 in August 2016, became feature complete in November 2016, and [launched to the press in January 2017](http://venturebeat.com/2017/01/10/staffjoy-raises-1-2-million-to-help-small-businesses-manage-workflow-scheduling/). 
 
