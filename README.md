@@ -1,6 +1,6 @@
 # Staffjoy V2
 
-[![Build Status](https://travis-ci.org/Staffjoy/v2.svg?branch=master)](https://travis-ci.org/Staffjoy/v2) [![Moonlight contractors](https://www.moonlightwork.com/shields/staffjoy.svg)](https://www.moonlightwork.com/?referredByUserID=1&referralProgram=maintainer&referrerName=Staffjoy) [![Godoc Reference](https://godoc.org/v2.staffjoy.com?status.svg)](https://godoc.org/v2.staffjoy.com)
+[![Build Status](https://travis-ci.org/Staffjoy/v2.svg?branch=master)](https://travis-ci.org/Staffjoy/v2) [![Moonlight contractors](https://www.moonlightwork.com/shields/staffjoy.svg)](https://www.moonlightwork.com/for/staffjoy?referredByUserID=1&referralProgram=maintainer&referrerName=Staffjoy) [![Godoc Reference](https://godoc.org/v2.staffjoy.com?status.svg)](https://godoc.org/v2.staffjoy.com)
 
 
 [Staffjoy is shutting down](https://blog.staffjoy.com/staffjoy-is-shutting-down-39f7b5d66ef6#.ldsdqb1kp), so we are open-sourcing our code. This the second version of our product, a ground-up rewrite intended for small businesses, like restaurants. This product was very simple and did *not* provide features like allowing workers to log in, clock-in, etc. If you want those features, please use [Staffjoy Suite](https://github.com/staffjoy/suite) You can learn about the design journey from V1 to V2 in [this blog post](https://blog.staffjoy.com/staffjoy-v2-ca15ff1a1169#.e7lmhde6v). 
