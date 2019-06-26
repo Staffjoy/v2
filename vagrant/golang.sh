@@ -21,7 +21,10 @@ if ! command -V golint ; then
 fi
 
 if ! command -V protoc-gen-go ; then 
-    go get -u github.com/golang/protobuf/...
+    #go get -u github.com/golang/protobuf/...
+    go get -u github.com/golang/protobuf/protoc-gen-go
+    go get -u golang.org/x/tools/cmd/cover
+    go get -u golang.org/x/tools/cmd/goimports
     go get -u github.com/grpc-ecosystem/grpc-gateway/...
 fi
 
@@ -30,7 +33,12 @@ if ! command -V glide ; then
 fi
 
 if ! command -V migrate ; then 
-    go get github.com/mattes/migrate
+    go get -u github.com/golang-migrate/migrate/cli
+    cd $GOPATH/src/github.com/golang-migrate/migrate/cli
+    go get -u github.com/go-sql-driver/mysql
+    go build -tags 'mysql' -o migrate github.com/golang-migrate/migrate/cli
+    sudo mv ./migrate /usr/local/bin/migrate
+    cd ~/
 fi
 
 if ! command -V buildifier ; then

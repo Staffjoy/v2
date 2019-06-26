@@ -6,10 +6,10 @@ fi
 
 if ! command -V java >/dev/null 2>&1; then
     sudo apt-get install -y -q  python-software-properties debconf-utils
-    sudo add-apt-repository -y ppa:webupd8team/java
+    sudo add-apt-repository ppa:linuxuprising/java
     sudo apt-get update -y -q
-    echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
-    sudo apt-get install -y -q  oracle-java8-installer
+    echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 select true" | sudo /usr/bin/debconf-set-selections
+    sudo apt-get install -y -q  oracle-java12-installer
 fi
 
 # bazel deps

@@ -17,25 +17,24 @@ load("//docker:docker_pull.bzl", "docker_pull")
     dockerfile = "//docker:Dockerfile." + name,
     tag = "local:" + name,
 ) for name in [
-    "ubuntu-trusty",
     "ubuntu-xenial",
     "docker-nginx",
 ]]
 
 # NGINX
 
-http_file(
-    name='nginx',
-    url='http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.10.1-1~trusty_amd64.deb',
-    sha256='06b589dc9b3e064faa7fbc6b6c6de629a3ec59254ac8b54770fa3dc8dd1718f1',
-)
+#http_file(
+#    name = "nginx",
+#    urls = ["http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.10.1-1~xenial_amd64.deb"],
+#    sha256 = "18dc0565965bd569b98c575d75d0e130d9794a3f7e7642129c488b515cbdf02c",
+#)
 
 # NODEJS
 
 http_file(
-    name='nodejs',
-    url="https://deb.nodesource.com/node_6.x/pool/main/n/nodejs/nodejs-dbg_6.4.0-1nodesource1~trusty1_amd64.deb",
-    sha256="6a481ab1ec13849ca0465f2a97255ef3291760c7dd327a424a715c015aef1543",
+    name = "nodejs",
+    urls = ["https://deb.nodesource.com/node_6.x/pool/main/n/nodejs/nodejs-dbg_6.4.0-1nodesource1~xenial1_amd64.deb"],
+    sha256 = "895dab136994f95d4c7e162e7773239264165921097a7dbf94061dd0e794f538",
 )
 
 # GOLANG INIT

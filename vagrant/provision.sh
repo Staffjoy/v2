@@ -10,7 +10,8 @@ export GOPATH=$VHOME/golang
 export PROJECT_ROOT=$GOPATH/src/v2.staffjoy.com
 
 sudo apt-get update -y -q
-sudo apt-get install -y -q build-essential git curl ca-certificates bash-completion autoconf unison mysql-client
+sudo apt-get install -y -q build-essential git curl mc bash-completion autoconf unison mysql-client
+sudo apt-get install -y -q apt-transport-https ca-certificates gnupg-agent software-properties-common
 
 sudo mkdir -p $PROJECT_ROOT
 sudo chown -R vagrant $GOPATH
