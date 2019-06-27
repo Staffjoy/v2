@@ -32,4 +32,7 @@ fi
 # https://stackoverflow.com/questions/48568172/docker-sock-permission-denied
 sudo usermod -aG docker $(whoami)
 
+## not perfect, but makes it work - otherwise throws permission error on docker.sock
+sudo chmod 777 /var/run/docker.sock
+
 sudo systemctl status docker
