@@ -42,7 +42,7 @@ if ! command -V migrate ; then
 
     ## fallback
     curl -L https://packagecloud.io/mattes/migrate/gpgkey | sudo apt-key add -
-    sudo sh -c "echo 'deb https://packagecloud.io/mattes/migrate/ubuntu/ xenial main' >> /etc/apt/sources.list.d/migrate.list"
+    echo "deb https://packagecloud.io/mattes/migrate/ubuntu/ xenial main" | sudo tee /etc/apt/sources.list.d/migrate.list
     sudo apt update
     sudo apt-get install -y migrate
 fi
