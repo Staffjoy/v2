@@ -35,7 +35,7 @@ go_binary(
 
 docker_build(
     name = "docker",
-    base = "//docker:ubuntu-trusty",
+    base = "//docker:ubuntu-xenial",
     cmd = "./botserver",
     files = [
         ":botserver",

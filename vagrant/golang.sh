@@ -21,7 +21,6 @@ if ! command -V golint ; then
 fi
 
 if ! command -V protoc-gen-go ; then 
-    #go get -u github.com/golang/protobuf/...
     go get -u github.com/golang/protobuf/protoc-gen-go
     go get -u golang.org/x/tools/cmd/cover
     go get -u golang.org/x/tools/cmd/goimports
@@ -33,19 +32,23 @@ if ! command -V glide ; then
 fi
 
 if ! command -V migrate ; then 
-    go get -u github.com/golang-migrate/migrate/cli
-    cd $GOPATH/src/github.com/golang-migrate/migrate/cli
-    go get -u github.com/go-sql-driver/mysql
-    go build -tags 'mysql' -o migrate github.com/golang-migrate/migrate/cli
-    sudo mv ./migrate /usr/local/bin/migrate
-    cd ~/
+    #prefered solution.. install fresh
+    #go get -u github.com/golang-migrate/migrate/cli
+    #cd $GOPATH/src/github.com/golang-migrate/migrate/cli
+    #go get -u github.com/go-sql-driver/mysql
+    #go build -tags 'mysql' -o migrate github.com/golang-migrate/migrate/cli
+    #sudo mv ./migrate /usr/local/bin/migrate
+    #cd ~/
+
+    ## fallback
+    curl -L https://packagecloud.io/mattes/migrate/gpgkey | sudo apt-key add -
+    sudo sh -c "echo 'deb https://packagecloud.io/mattes/migrate/ubuntu/ xenial main' >> /etc/apt/sources.list.d/migrate.list"
+    sudo apt update
+    sudo apt-get install -y migrate
 fi
 
 if ! command -V buildifier ; then
-    go get -d -u github.com/bazelbuild/buildifier/buildifier
-    # generate step is why this isn't Glide-able
-    go generate github.com/bazelbuild/buildifier/core
-    go install github.com/bazelbuild/buildifier/buildifier
+    go get github.com/bazelbuild/buildtools/buildifier
 fi
 
 if ! command -V go-bindata ; then

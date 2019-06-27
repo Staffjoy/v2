@@ -19,7 +19,7 @@ do
     service=$(echo $target | sed 's/\///g')
     export service
     # Run the build and upload to GKE
-    bazel run //$target:docker
+    bazel run --incompatible_disallow_set_constructor=false //$target:docker
     # Tag so we can track the deploy in Kubernetes
     # (bazel converts slash to an underscore)
     docker tag bazel/$(echo $target):docker localhost:5000/$service:$VERSION
