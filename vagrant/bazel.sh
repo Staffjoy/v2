@@ -31,4 +31,4 @@ sudo apt-get update -y -q
 
 # use older bazel
 sudo curl https://github.com/bazelbuild/bazel/releases/download/0.6.0/bazel_0.6.0-linux-x86_64.deb --output /usr/src/bazel_0.6.0-linux-x86_64.deb -L --max-redirs 5
-sudo dkpg -i /usr/src/bazel_0.6.0-linux-x86_64.deb
+sudo dpkg -i /usr/src/bazel_0.6.0-linux-x86_64.deb
