@@ -1,24 +1,25 @@
-dist: precise
+dist: xenial
 sudo: required
 language: go
 go:
-  - 1.7
-  - 1.8
+  - 1.9
 go_import_path: v2.staffjoy.com
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
+      - openjdk-8-jdk
       - wget
       - pkg-config
 before_install:
-  - wget https://github.com/bazelbuild/bazel/releases/download/0.4.4/bazel_0.4.4-linux-x86_64.deb
-  - sudo dpkg -i bazel_0.4.4-linux-x86_64.deb
+  - wget https://github.com/bazelbuild/bazel/releases/download/0.6.0/bazel_0.6.0-linux-x86_64.deb
+  - sudo dpkg -i bazel_0.6.0-linux-x86_64.deb
 install:
+  - mkdir $GOPATH/bin
   - curl https://glide.sh/get | sh
   - go get github.com/PuerkitoBio/goquery
-  - go get -u github.com/golang/lint/golint
+  - go get -u golang.org/x/lint/golint
   - go get -u golang.org/x/tools/cmd/cover
   - go get -u golang.org/x/tools/cmd/goimports
   - go get github.com/bazelbuild/buildifier/buildifier
