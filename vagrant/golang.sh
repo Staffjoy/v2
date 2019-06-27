@@ -43,8 +43,8 @@ if ! command -V migrate ; then
     ## fallback
     curl -L https://packagecloud.io/mattes/migrate/gpgkey | sudo apt-key add -
     echo "deb https://packagecloud.io/mattes/migrate/ubuntu/ xenial main" | sudo tee /etc/apt/sources.list.d/migrate.list
-    sudo apt update
-    sudo apt-get install -y migrate
+    sudo apt-get update -y -q
+    sudo apt-get install -y -q  migrate
 fi
 
 if ! command -V buildifier ; then
