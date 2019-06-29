@@ -22,7 +22,7 @@ container_image(
 
 pkg_tar(
     name = "app-tar-src",
-    files = glob([
+    srcs = glob([
         "src/*",
     ]) + [
         "index.template.ejs",
@@ -35,7 +35,7 @@ pkg_tar(
 
 pkg_tar(
     name = "app-tar",
-    files = glob([
+    srcs = glob([
         "dist/bundle*.js",
         "dist/assets/*",
     ]) + ["dist/index.html"],

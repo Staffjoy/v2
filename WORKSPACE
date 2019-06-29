@@ -1,24 +1,25 @@
-io_rules_docker_version="4d49182a85c745065e621c145238c5e9420ed91b" #update this as needed
+# The native http_archive rule is deprecated in Bazel 0.20.0
+# we need to load the new rule from the following package
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
 
-
-## Load the scala docker rules
-
-http_archive(
+git_repository(
     name = "io_bazel_rules_docker",
-    url = "https://github.com/bazelbuild/rules_docker/archive/%s.zip"% io_rules_docker_version,
-    type="zip",
-    strip_prefix="rules_docker-%s" % io_rules_docker_version
+    remote = "https://github.com/bazelbuild/rules_docker.git",
+    tag = "v0.8.1",
 )
 
 #DOCKER STUFF
 load(
-    "@io_bazel_rules_docker//container:container.bzl",
-    "container_pull",
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
     container_repositories = "repositories",
 )
-
-# This is NOT needed when going through the language lang_image "repositories" function(s).
 container_repositories()
+
+load(
+    "@io_bazel_rules_docker//container:container.bzl",
+    "container_pull",
+)
 
 container_pull(
     name = "nginx",
@@ -35,7 +36,7 @@ container_pull(
 )
 
 
-
+# what is that good for anyway?
 #new_http_archive(
 #  name = "docker_ubuntu",
 #  build_file = "BUILD.ubuntu",

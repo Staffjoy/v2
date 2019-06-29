@@ -7,7 +7,6 @@ set -x
 export VERSION="dev-$(date +%s)"
 export NAMESPACE="development"
 declare -a targets=("www" "faraday" "account/api" "account/server" "email/server" "myaccount" "whoami" "company/server" "company/api" "ical" "superpowers" "sms/server" "bot/server" "app")
-#declare -a targets=("www")
 
 echo "Running database migration"
 migrate -database=$ACCOUNT_MYSQL_CONFIG -path=$STAFFJOY/account/migrations/ up
