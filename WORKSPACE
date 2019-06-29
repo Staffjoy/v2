@@ -82,7 +82,7 @@ bind(
 new_git_repository(
     name = "go_recaptcha",
     build_file = "//:third_party/go/dpapathanasiou_recaptcha.BUILD",
-    commit = "962f1d77fed91285eb86c988e3ae8e7948e554c8",
+    commit = "be5090b17804c90a577d345b6d67acbf01dc90ed", # Jan 21 2019
     remote = "https://github.com/dpapathanasiou/go-recaptcha.git",
 )
 

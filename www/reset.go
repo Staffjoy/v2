@@ -54,8 +54,8 @@ func resetHandler(res http.ResponseWriter, req *http.Request) {
 			// Cloudflare proxy
 			remoteIP = req.Header.Get("CF-Connecting-IP")
 		}
-		ok = recaptcha.Confirm(remoteIP, recaptchaResponse[0])
-		if !ok {
+		result, err:= recaptcha.Confirm(remoteIP, recaptchaResponse[0])
+		if !result {
 			res.Write([]byte("Recaptcha incorrect."))
 			return
 		}
