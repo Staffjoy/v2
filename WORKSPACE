@@ -218,42 +218,42 @@ new_git_repository(
 new_git_repository(
     name = "go_glog",
     build_file = "//:third_party/go/glog.BUILD",
-    commit = "23def4e6c14b4da8ac2ed8007337bc5eb5007998",
+    commit = "23def4e6c14b4da8ac2ed8007337bc5eb5007998", # Jan 27, 2016 (LATEST!)
     remote = "https://github.com/golang/glog.git",
 )
 
 new_git_repository(
     name = "go_protobuf",
     build_file = "//:third_party/go/protobuf.BUILD",
-    commit = "1f49d83d9aa00e6ce4fc8258c71cc7786aec968a",
+    commit = "2bba0603135d7d7f5cb73b2125beeda19c09f4ef", # Mar 31, 2017 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/golang/protobuf.git",
 )
 
 new_git_repository(
     name = "go_certifi",
     build_file = "//:third_party/go/certifi_gocertifi.BUILD",
-    commit = "ec89d50f00d39494f5b3ec5cf2fe75c53467a937",
+    commit = "deb3ae2ef2610fde3330947281941c562861188b", # 2018.01.18 - Jan 18, 2018 (LATEST OFFICIAL RELEASE)
     remote = "https://github.com/certifi/gocertifi.git",
 )
 
 new_git_repository(
     name = "go_cloud",
     build_file = "//:third_party/go/google_cloud.BUILD",
-    commit = "c033d081db673449a5095963f987693c186fcf34",
+    commit = "9c1098a4debc9bf1073ed0e4872b12bd916243d8", # Sep 20, 2016 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/GoogleCloudPlatform/google-cloud-go.git",
 )
 
 new_git_repository(
     name = "go_intercom",
     build_file = "//:third_party/go/intercom.BUILD",
-    commit = "2f809a5bfee1c01cbef2dd76453ef0f9123e289e",
+    commit = "1dbafb072bcdb981cad04ad4a0e6e29afbfc0c42", # Mar 19, 2019 (LATEST)
     remote = "https://github.com/intercom/intercom-go.git"
 )
 
 new_git_repository(
     name = "go_querystring",
     build_file = "//:third_party/go/google_querystring.BUILD",
-    commit = "9235644dd9e52eeae6fa48efd539fdc351a0af53",
+    commit = "c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80", # Mar 18, 2019 (LATEST)
     remote = "https://github.com/google/go-querystring",
 )
 
@@ -267,7 +267,7 @@ new_git_repository(
 new_git_repository(
     name = "go_appengine",
     build_file = "//:third_party/go/golang_appengine.BUILD",
-    commit = "4f7eeb5305a4ba1966344836ba4af9996b7b4e05",
+    commit = "9d8544a6b2c7df9cff240fcf92d7b2f59bc13416", # Oct 31, 2017 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/golang/appengine.git",
 )
 
@@ -302,7 +302,7 @@ new_git_repository(
 new_git_repository(
     name = "go_mysql",
     build_file = "//:third_party/go/mysql.BUILD",
-    commit = "0b58b37b664c21f3010e836f1b931e1d0b0b0685",
+    commit = "382e13d099fcf5f5994290892ab258fbebbdc5e3", # May 12, 2017 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/go-sql-driver/mysql.git",
 )
 
