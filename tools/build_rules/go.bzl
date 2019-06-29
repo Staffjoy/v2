@@ -428,7 +428,7 @@ binary_attrs = base_attrs + {
     ),
     "data": attr.label_list(
         allow_files = True,
-        cfg = "data",
+        cfg = "target",
     ),
 }
 

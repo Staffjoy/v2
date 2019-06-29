@@ -30,5 +30,5 @@ sudo apt-get update -y -q
 #sudo apt-get install -y -q bazel
 
 # latest bazel 0.27.0, to date
-sudo curl https://github.com/bazelbuild/bazel/releases/download/0.27.0/bazel_0.27.0-linux-x86_64.deb --output /usr/src/bazel_0.27.0-linux-x86_64.deb -L
+sudo curl -L https://github.com/bazelbuild/bazel/releases/download/0.27.0/bazel_0.27.0-linux-x86_64.deb --output /usr/src/bazel_0.27.0-linux-x86_64.deb
 sudo dpkg -i /usr/src/bazel_0.27.0-linux-x86_64.deb
