@@ -1,19 +1,22 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@bazel_tools//tools/build_defs/docker:docker.bzl", "docker_build")
-load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar", "pkg_deb")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image")
+load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_deb", "pkg_tar")
 
-docker_build(
+container_image(
     name = "docker",
-    base = "//docker:nginx",
-    debs = [
-        ":deb",
-    ],
+    base = "@nginx//image",
+    #debs = [
+    #    ":deb",
+    #],
     files = [
         ":tar-src",
     ],
     ports = [
         "80",
+    ],
+    tars = [
+        ":tar",
     ],
 )
 

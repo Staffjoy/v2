@@ -4,12 +4,12 @@
 
 package(default_visibility = ["//visibility:public"])
 
-load("@bazel_tools//tools/build_defs/docker:docker.bzl", "docker_build")
+load("@io_bazel_rules_docker//container:container.bzl", "container_image")
 
 # XENIAL (16.04) BASE
-docker_build(
-    name = "ubuntu-xenial",
-    base = "@ubuntu-xenial//:image",
+container_image(
+    name = "ubuntu",
+    base = "@ubuntu//:image",
     directory = "/etc/ssl/certs/",
     files = [
         "//third_party:ubuntu/ca-certificates.crt",
@@ -17,7 +17,7 @@ docker_build(
 )
 
 # https://hub.docker.com/_/nginx/
-docker_build(
+container_image(
     name = "nginx",
     base = "@docker-nginx//:image",
     directory = "/etc/ssl/certs/",

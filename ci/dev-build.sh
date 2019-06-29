@@ -7,6 +7,7 @@ set -x
 export VERSION="dev-$(date +%s)"
 export NAMESPACE="development"
 declare -a targets=("www" "faraday" "account/api" "account/server" "email/server" "myaccount" "whoami" "company/server" "company/api" "ical" "superpowers" "sms/server" "bot/server" "app")
+#declare -a targets=("www")
 
 echo "Running database migration"
 migrate -database=$ACCOUNT_MYSQL_CONFIG -path=$STAFFJOY/account/migrations/ up
@@ -19,7 +20,7 @@ do
     service=$(echo $target | sed 's/\///g')
     export service
     # Run the build and upload to GKE
-    bazel run --incompatible_disallow_set_constructor=false //$target:docker
+    bazel run //$target:docker
     # Tag so we can track the deploy in Kubernetes
     # (bazel converts slash to an underscore)
     docker tag bazel/$(echo $target):docker localhost:5000/$service:$VERSION

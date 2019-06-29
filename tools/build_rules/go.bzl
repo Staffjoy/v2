@@ -75,7 +75,7 @@ def _construct_package_map(packages):
 
 # TODO(schroederc): remove this if https://github.com/bazelbuild/bazel/issues/539 is ever fixed
 def _dedup_packages(packages):
-  seen = set()
+  seen = depset()
   filtered = []
   for pkg in packages:
     if pkg.name not in seen:
@@ -84,9 +84,9 @@ def _dedup_packages(packages):
   return filtered
 
 def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
-  cgo_link_flags = set([], order="link")
+  cgo_link_flags = depset([], order="topological")
   transitive_deps = []
-  transitive_cc_libs = set()
+  transitive_cc_libs = depset()
   deps = []
   for dep in ctx.attr.deps:
     deps += [dep.go.package]
@@ -110,7 +110,7 @@ def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
   ] + _construct_go_path(go_path, package_map) + [
       gotool.path + " tool compile " + ' '.join(args) + " -p " + pkg +
       ' -complete -pack -o ' + archive.path + " " + '-trimpath "$PWD" ' +
-      '-I "' + go_path + '" ' + cmd_helper.join_paths(" ", set(srcs)),
+      '-I "' + go_path + '" ' + cmd_helper.join_paths(" ", depset(srcs)),
   ])
 
   ctx.action(
@@ -123,9 +123,9 @@ def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
   return transitive_deps, cgo_link_flags, transitive_cc_libs
 
 def _go_build(ctx, archive):
-  cgo_link_flags = set([], order="link")
+  cgo_link_flags = depset([], order="topological")
   transitive_deps = []
-  transitive_cc_libs = set()
+  transitive_cc_libs = depset()
   deps = []
   for dep in ctx.attr.deps:
     deps += [dep.go.package]
@@ -135,8 +135,8 @@ def _go_build(ctx, archive):
 
   transitive_deps = _dedup_packages(transitive_deps)
 
-  cc_inputs = set()
-  cgo_compile_flags = set([], order="compile")
+  cc_inputs = depset()
+  cgo_compile_flags = depset([], order="compile")
   if hasattr(ctx.attr, "cc_deps"):
     for dep in ctx.attr.cc_deps:
       cc_inputs += dep.cc.transitive_headers
@@ -324,7 +324,7 @@ def _go_test_impl(ctx):
   cmd = (
       'set -e;' +
       testmain_generator.path + ' ' + pkg + ' ' + testmain.path + ' ' +
-      cmd_helper.join_paths(' ', set(test_srcs)) + ';')
+      cmd_helper.join_paths(' ', depset(test_srcs)) + ';')
   ctx.action(
       inputs = test_srcs + [testmain_generator],
       outputs = [testmain],

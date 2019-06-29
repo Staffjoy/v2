@@ -1,25 +1,49 @@
-#DOCKER STUFF
+io_rules_docker_version="4d49182a85c745065e621c145238c5e9420ed91b" #update this as needed
 
-new_http_archive(
-  name = "docker_ubuntu",
-  build_file = "BUILD.ubuntu",
-  url = "https://codeload.github.com/tianon/docker-brew-ubuntu-core/zip/52c8214ecac89d45592d16ce7c14ef82ac7b0822",
-  sha256 = "a7386a64ad61298ee518885b414f70f9dba86eda61aebc1bca99bd91b07dd32c",
-  type = "zip",
-  strip_prefix = "docker-brew-ubuntu-core-52c8214ecac89d45592d16ce7c14ef82ac7b0822"
+
+## Load the scala docker rules
+
+http_archive(
+    name = "io_bazel_rules_docker",
+    url = "https://github.com/bazelbuild/rules_docker/archive/%s.zip"% io_rules_docker_version,
+    type="zip",
+    strip_prefix="rules_docker-%s" % io_rules_docker_version
 )
 
-# Docker base images(s)
-load("//docker:docker_pull.bzl", "docker_pull")
+#DOCKER STUFF
+load(
+    "@io_bazel_rules_docker//container:container.bzl",
+    "container_pull",
+    container_repositories = "repositories",
+)
 
-[docker_pull(
-    name = name,
-    dockerfile = "//docker:Dockerfile." + name,
-    tag = "local:" + name,
-) for name in [
-    "ubuntu-xenial",
-    "docker-nginx",
-]]
+# This is NOT needed when going through the language lang_image "repositories" function(s).
+container_repositories()
+
+container_pull(
+    name = "nginx",
+    registry ="index.docker.io",
+    repository = "library/nginx",
+    tag = "latest",
+)
+
+container_pull(
+    name = "ubuntu",
+    registry ="index.docker.io",
+    repository = "library/ubuntu",
+    tag = "xenial",
+)
+
+
+
+#new_http_archive(
+#  name = "docker_ubuntu",
+#  build_file = "BUILD.ubuntu",
+#  url = "https://codeload.github.com/tianon/docker-brew-ubuntu-core/zip/52c8214ecac89d45592d16ce7c14ef82ac7b0822",
+#  sha256 = "a7386a64ad61298ee518885b414f70f9dba86eda61aebc1bca99bd91b07dd32c",
+#  type = "zip",
+#  strip_prefix = "docker-brew-ubuntu-core-52c8214ecac89d45592d16ce7c14ef82ac7b0822"
+#)
 
 # NGINX
 
