@@ -1,9 +1,9 @@
 # The native http_archive rule is deprecated in Bazel 0.20.0
 # we need to load the new rule from the following package
-#load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 #load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
 
-io_rules_docker_version="c66358ef1e9ccc9a540ea604e67619249c9ac144" # v0.5.1
+io_rules_docker_version="3732c9d05315bef6a3dbd195c545d6fea3b86880" # v0.7.0
 ## Load docker rules
 http_archive(
     name = "io_bazel_rules_docker",
@@ -14,9 +14,14 @@ http_archive(
 
 #DOCKER STUFF
 load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
+)
+container_repositories()
+
+load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_pull",
-    container_repositories = "repositories",
 )
 
 container_repositories()
