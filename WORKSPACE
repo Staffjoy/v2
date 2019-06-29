@@ -7,9 +7,9 @@ io_rules_docker_version="3732c9d05315bef6a3dbd195c545d6fea3b86880" # v0.7.0
 ## Load docker rules
 http_archive(
     name = "io_bazel_rules_docker",
-    url = "https://github.com/bazelbuild/rules_docker/archive/%s.zip"% io_rules_docker_version,
-    type="zip",
-    strip_prefix="rules_docker-%s" % io_rules_docker_version
+    urls = ["https://github.com/bazelbuild/rules_docker/archive/%s.zip"% io_rules_docker_version],
+    type = "zip",
+    strip_prefix = "rules_docker-%s" % io_rules_docker_version
 )
 
 #DOCKER STUFF
@@ -45,7 +45,7 @@ container_pull(
 #new_http_archive(
 #  name = "docker_ubuntu",
 #  build_file = "//:BUILD.ubuntu",
-#  url = "https://codeload.github.com/tianon/docker-brew-ubuntu-core/zip/52c8214ecac89d45592d16ce7c14ef82ac7b0822",
+#  urls = ["https://codeload.github.com/tianon/docker-brew-ubuntu-core/zip/52c8214ecac89d45592d16ce7c14ef82ac7b0822"],
 #  sha256 = "a7386a64ad61298ee518885b414f70f9dba86eda61aebc1bca99bd91b07dd32c",
 #  type = "zip",
 #  strip_prefix = "docker-brew-ubuntu-core-52c8214ecac89d45592d16ce7c14ef82ac7b0822"
