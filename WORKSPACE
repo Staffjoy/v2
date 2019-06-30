@@ -274,28 +274,30 @@ new_git_repository(
 new_git_repository(
     name = "go_gorp",
     build_file = "//:third_party/go/gorp.BUILD",
-    commit = "c87af80f3cc5036b55b83d77171e156791085e2e",
+    commit = "2ae7d174a4cf270240c4561092402affba25da5e", # Jun 26, 2017 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/go-gorp/gorp.git",
 )
 
+# BASE - 5f33e7b7878355cd2b7e6b8eefc48a5472c69f70
+# STABLE - 
 new_git_repository(
     name = "go_blackfriday",
     build_file = "//:third_party/go/russross_blackfriday.BUILD",
-    commit = "5f33e7b7878355cd2b7e6b8eefc48a5472c69f70",
+    commit = "a925a152c144ea7de0f451eaf2f7db9e52fa005a", # Jun 17, 2019 (LATEST)
     remote = "https://github.com/russross/blackfriday.git",
 )
 
 new_git_repository(
     name = "go_sanitized_anchor_name",
     build_file = "//:third_party/go/shurcool_sanitized_anchor_name.BUILD",
-    commit = "1dba4b3954bc059efc3991ec364f9f9a35f597d2",
+    commit = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615", # Dec 26, 2018 (LATEST)
     remote = "https://github.com/shurcool/sanitized_anchor_name.git",
 )
 
 new_git_repository(
     name = "go_structs",
     build_file = "//:third_party/go/fatih_structs.BUILD",
-    commit = "dc3312cb1a4513a366c4c9e622ad55c32df12ed3",
+    commit = "878a968ab22548362a09bdb3322f98b00f470d46", # Oct 11, 2018 (LATEST)
     remote = "https://github.com/fatih/structs.git",
 )
 
