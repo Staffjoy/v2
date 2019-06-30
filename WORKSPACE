@@ -135,10 +135,12 @@ new_git_repository(
     remote = "https://github.com/gorilla/csrf.git",
 )
 
+
+# NOT RUNNING but BUILD PASSING - 0eeaf8392f5b04950925b8a69fe70f110fa7cbfc - # v1.7.2 May 17, 2019
 new_git_repository(
     name = "go_gorilla_mux",
     build_file = "//:third_party/go/gorilla_mux.BUILD",
-    commit = "ed099d42384823742bba0bf9a72b53b55c9e2e38", # v1.7.2 May 17, 2019
+    commit = "0eeaf8392f5b04950925b8a69fe70f110fa7cbfc",
     remote = "https://github.com/gorilla/mux.git",
 )
 
