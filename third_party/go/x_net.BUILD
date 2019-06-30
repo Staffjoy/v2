@@ -54,12 +54,7 @@ external_go_package(
         "@go_x_net//:context",
     ],
     exclude_srcs = [
-        "not_go16.go",
-        "not_go17.go",
-        "not_go16.go",
-        "not_go18.go",
-        "not_go19.go",
-        "go17_not18.go",
+        "not_go111.go",
     ],
 )
 
@@ -85,7 +80,9 @@ external_go_package(
         "@go_x_text//:secure/bidirule",
     ],
     exclude_srcs = [
-        "*_test.go",
+        "tables9.0.0.go",
+        "tables10.0.0.go",
+        "idna9.0.0.go",
     ],
 )
 
