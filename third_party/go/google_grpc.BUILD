@@ -109,10 +109,6 @@ external_go_package(
 external_go_package(
     name = "keepalive",
     base_pkg = "google.golang.org/grpc",
-    deps = [
-      "@go_x_net//:context",
-      "@go_grpc//:credentials",
-    ],
 )
 
 external_go_package(
