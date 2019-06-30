@@ -306,31 +306,30 @@ new_git_repository(
     remote = "https://github.com/go-sql-driver/mysql.git",
 )
 
-
 new_git_repository(
     name = "go_x_net",
     build_file = "//:third_party/go/x_net.BUILD",
-    commit = "6250b412798208e6c90b03b7c4f226de5aa299e2",
+    commit = "9bc2a3340c92c17a20edcd0080e93851ed58f5d5", # Aug 30, 2016 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/golang/net.git"
 )
 
 new_git_repository(
     name = "go_x_oauth2",
     build_file = "//:third_party/go/x_oauth2.BUILD",
-    commit = "3c3a985cb79f52a3190fbc056984415ca6763d01",
+    commit = "5432cc9688e6250a0dd8f5a5f4c781d92b398be6", # Jun 29, 2017 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/golang/oauth2.git"
 )
 
 new_git_repository(
     name = "go_x_time",
     build_file = "//:third_party/go/x_time.BUILD",
-    commit = "a4bde12657593d5e90d0533a3e4fd95e635124cb",
+    commit = "9d24e82272b4f38b78bc8cff74fa936d31ccd8ef", # Feb 16, 2019 (LATEST)
     remote = "https://github.com/golang/time.git"
 )
 
 new_git_repository(
     name = "go_x_crypto",
     build_file = "//:third_party/go/x_crypto.BUILD",
-    commit = "6ab629be5e31660579425a738ba8870beb5b7404",
+    commit = "cc06ce4a13d484c0101a9e92913248488a75786d", # Jun 21, 2019 (LATEST)
     remote = "https://github.com/golang/crypto.git"
 )
