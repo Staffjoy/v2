@@ -194,12 +194,10 @@ new_git_repository(
 new_git_repository(
     name = "go_grpc",
     build_file = "//:third_party/go/google_grpc.BUILD",
-    commit = "4ad16bc34a278f301153df9f06a506080730dec6", # Feb 13, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "9d2357661814c2605430d2eb1567970ad5fff86e", # Mar 6, 2017 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/grpc/grpc-go.git",
 )
 
-# BASE PASSING - 84398b94e188ee336f307779b57b3aa91af7063c
-# LAST PASSING - ?
 new_git_repository(
     name = "go_grpc_gateway",
     build_file = "//:third_party/go/grpc_gateway.BUILD",

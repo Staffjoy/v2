@@ -10,6 +10,8 @@ external_go_package(
         "@go_x_net//:http2",
         "@go_grpc//:grpclog",
         "@go_grpc//:naming",
+        "@go_grpc//:keepalive",
+        "@go_grpc//:peer",
         "@go_grpc//:codes",
         "@go_grpc//:transport",
         "@go_grpc//:credentials",
@@ -62,10 +64,11 @@ external_go_package(
         "@go_x_net//:context",
         "@go_x_net//:trace",
         "@go_x_net//:http2/hpack",
+        "@go_grpc//:keepalive",
+        "@go_grpc//:peer",
         "@go_grpc//:codes",
         "@go_grpc//:credentials",
         "@go_grpc//:metadata",
-        "@go_grpc//:peer",
         "@go_grpc//:grpclog",
         "@go_grpc//:stats",
         "@go_grpc//:tap",
@@ -101,6 +104,15 @@ external_go_package(
 external_go_package(
     name = "internal",
     base_pkg = "google.golang.org/grpc",
+)
+
+external_go_package(
+    name = "keepalive",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+      "@go_x_net//:context",
+      "@go_grpc//:credentials",
+    ],
 )
 
 external_go_package(
