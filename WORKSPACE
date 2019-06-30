@@ -89,49 +89,49 @@ new_git_repository(
 new_git_repository(
     name = "go_libphonenumber",
     build_file = "//:third_party/go/ttacon_libphonenumber.BUILD",
-    commit = "23ddf903e8f8800d2857645eb155ffbe15cd02ee", ## Jan 8, 2019
+    commit = "23ddf903e8f8800d2857645eb155ffbe15cd02ee", ## Jan 8, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/ttacon/libphonenumber.git",
 )
 
 new_git_repository(
     name = "go_builder",
     build_file = "//:third_party/go/ttacon_builder.BUILD",
-    commit = "c099f663e1c235176c175644792c5eb282017ad7", # May 18, 2017
+    commit = "c099f663e1c235176c175644792c5eb282017ad7", # May 18, 2017 (LATEST GIT COMMIT)
     remote = "https://github.com/ttacon/builder.git",
 )
 
 new_git_repository(
     name = "go_jwt",
     build_file = "//:third_party/go/dgrijalva_jwt.BUILD",
-    commit = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e", # v3.2.0 Mar 9, 2018
+    commit = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e", # v3.2.0 Mar 9, 2018 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/dgrijalva/jwt-go.git",
 )
 
 new_git_repository(
     name = "go_gorilla_sessions",
     build_file = "//:third_party/go/gorilla_sessions.BUILD",
-    commit = "f57b7e2d29c6211d16ffa52a0998272f75799030", # v1.1.3 Sep 28, 2018
+    commit = "f57b7e2d29c6211d16ffa52a0998272f75799030", # v1.1.3 Sep 28, 2018 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/gorilla/sessions.git",
 )
 
 new_git_repository(
     name = "go_gorilla_securecookie",
     build_file = "//:third_party/go/gorilla_securecookie.BUILD",
-    commit = "e59506cc896acb7f7bf732d4fdf5e25f7ccd8983", # v1.1.1 Feb 24, 2017
+    commit = "e59506cc896acb7f7bf732d4fdf5e25f7ccd8983", # v1.1.1 Feb 24, 2017 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/gorilla/securecookie.git",
 )
 
 new_git_repository(
     name = "go_gorilla_context",
     build_file = "//:third_party/go/gorilla_context.BUILD",
-    commit = "8559d4a6b87e4f517ec1846eb90a192b8748cc89", # Jun 27, 2019
+    commit = "8559d4a6b87e4f517ec1846eb90a192b8748cc89", # Jun 27, 2019 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/gorilla/context.git",
 )
 
 new_git_repository(
     name = "go_gorilla_csrf",
     build_file = "//:third_party/go/gorilla_csrf.BUILD",
-    commit = "9b0e3acb4f79e4bf9415d6144123987e7b8527cb", # Jun 25, 2019
+    commit = "9b0e3acb4f79e4bf9415d6144123987e7b8527cb", # Jun 25, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/gorilla/csrf.git",
 )
 
@@ -145,14 +145,14 @@ new_git_repository(
 new_git_repository(
     name = "go_pkg_errors",
     build_file = "//:third_party/go/pkg_errors.BUILD",
-    commit = "27936f6d90f9c8e1145f11ed52ffffbfdb9e0af7", # Feb 27, 2019
+    commit = "27936f6d90f9c8e1145f11ed52ffffbfdb9e0af7", # Feb 27, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/pkg/errors.git",
 )
 
 new_git_repository(
     name = "go_mandrill",
     build_file = "//:third_party/go/keighl_mandrill.BUILD",
-    commit = "1775dd4b3b4121aa2731132552ebcff17253d103", # Jun 5, 2017
+    commit = "1775dd4b3b4121aa2731132552ebcff17253d103", # Jun 5, 2017 (LATEST GIT COMMIT)
     remote = "https://github.com/keighl/mandrill.git",
 )
 
@@ -166,28 +166,28 @@ new_git_repository(
 new_git_repository(
     name = "go_testify",
     build_file = "//:third_party/go/stretchr_testify.BUILD",
-    commit = "ffdc059bfe9ce6a4e144ba849dbedead332c6053", # v1.3.0 Dec 5, 2018
+    commit = "ffdc059bfe9ce6a4e144ba849dbedead332c6053", # v1.3.0 Dec 5, 2018 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/stretchr/testify.git",
 )
 
 new_git_repository(
     name = "go_negroni",
     build_file = "//:third_party/go/urfave_negroni.BUILD",
-    commit = "c6a59be0ce122566695fbd5e48a77f8f10c8a63a", # v1.0.0 Sep 2, 2018
+    commit = "c6a59be0ce122566695fbd5e48a77f8f10c8a63a", # v1.0.0 Sep 2, 2018 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/urfave/negroni.git",
 )
 
 new_git_repository(
     name = "go_assetfs",
     build_file = "//:third_party/go/elazarl_assetfs.BUILD",
-    commit = "38087fe4dafb822e541b3f7955075cc1c30bd294", # Feb 23, 2018
+    commit = "38087fe4dafb822e541b3f7955075cc1c30bd294", # Feb 23, 2018 (LATEST GIT COMMIT)
     remote = "https://github.com/elazarl/go-bindata-assetfs.git",
 )
 
 new_git_repository(
     name = "go_raven",
     build_file = "//:third_party/go/getsentry_raven.BUILD",
-    commit = "5c24d5110e0e198d9ae16f1f3465366085001d92", # Jun 19, 2019
+    commit = "5c24d5110e0e198d9ae16f1f3465366085001d92", # Jun 19, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/getsentry/raven-go.git",
 )
 
@@ -217,7 +217,7 @@ new_git_repository(
 new_git_repository(
     name = "go_glog",
     build_file = "//:third_party/go/glog.BUILD",
-    commit = "23def4e6c14b4da8ac2ed8007337bc5eb5007998", # Jan 27, 2016 (LATEST!)
+    commit = "23def4e6c14b4da8ac2ed8007337bc5eb5007998", # Jan 27, 2016 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/glog.git",
 )
 
@@ -245,14 +245,14 @@ new_git_repository(
 new_git_repository(
     name = "go_intercom",
     build_file = "//:third_party/go/intercom.BUILD",
-    commit = "1dbafb072bcdb981cad04ad4a0e6e29afbfc0c42", # Mar 19, 2019 (LATEST)
+    commit = "1dbafb072bcdb981cad04ad4a0e6e29afbfc0c42", # Mar 19, 2019  (LATEST GIT COMMIT)
     remote = "https://github.com/intercom/intercom-go.git"
 )
 
 new_git_repository(
     name = "go_querystring",
     build_file = "//:third_party/go/google_querystring.BUILD",
-    commit = "c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80", # Mar 18, 2019 (LATEST)
+    commit = "c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80", # Mar 18, 2019  (LATEST GIT COMMIT)
     remote = "https://github.com/google/go-querystring",
 )
 
@@ -282,21 +282,21 @@ new_git_repository(
 new_git_repository(
     name = "go_blackfriday",
     build_file = "//:third_party/go/russross_blackfriday.BUILD",
-    commit = "a925a152c144ea7de0f451eaf2f7db9e52fa005a", # Jun 17, 2019 (LATEST)
+    commit = "a925a152c144ea7de0f451eaf2f7db9e52fa005a", # Jun 17, 2019  (LATEST GIT COMMIT)
     remote = "https://github.com/russross/blackfriday.git",
 )
 
 new_git_repository(
     name = "go_sanitized_anchor_name",
     build_file = "//:third_party/go/shurcool_sanitized_anchor_name.BUILD",
-    commit = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615", # Dec 26, 2018 (LATEST)
+    commit = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615", # Dec 26, 2018  (LATEST GIT COMMIT)
     remote = "https://github.com/shurcool/sanitized_anchor_name.git",
 )
 
 new_git_repository(
     name = "go_structs",
     build_file = "//:third_party/go/fatih_structs.BUILD",
-    commit = "878a968ab22548362a09bdb3322f98b00f470d46", # Oct 11, 2018 (LATEST)
+    commit = "878a968ab22548362a09bdb3322f98b00f470d46", # Oct 11, 2018  (LATEST GIT COMMIT)
     remote = "https://github.com/fatih/structs.git",
 )
 
@@ -324,13 +324,13 @@ new_git_repository(
 new_git_repository(
     name = "go_x_time",
     build_file = "//:third_party/go/x_time.BUILD",
-    commit = "9d24e82272b4f38b78bc8cff74fa936d31ccd8ef", # Feb 16, 2019 (LATEST)
+    commit = "9d24e82272b4f38b78bc8cff74fa936d31ccd8ef", # Feb 16, 2019  (LATEST GIT COMMIT)
     remote = "https://github.com/golang/time.git"
 )
 
 new_git_repository(
     name = "go_x_crypto",
     build_file = "//:third_party/go/x_crypto.BUILD",
-    commit = "cc06ce4a13d484c0101a9e92913248488a75786d", # Jun 21, 2019 (LATEST)
+    commit = "cc06ce4a13d484c0101a9e92913248488a75786d", # Jun 21, 2019  (LATEST GIT COMMIT)
     remote = "https://github.com/golang/crypto.git"
 )
