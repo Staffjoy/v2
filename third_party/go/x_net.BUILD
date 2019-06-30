@@ -44,6 +44,7 @@ external_go_package(
     name = "http2",
     base_pkg = "golang.org/x/net",
     deps = [
+        "@go_x_net//:idna",
         "@go_x_net//:http2/hpack",
         "@go_x_net//:lex/httplex",
         "@go_x_net//:context",
@@ -51,6 +52,8 @@ external_go_package(
     exclude_srcs = [
         "not_go17.go",
         "not_go16.go",
+        "not_go18.go",
+        "go17_not18.go",
     ],
 )
 
@@ -62,6 +65,21 @@ external_go_package(
 external_go_package(
     name = "lex/httplex",
     base_pkg = "golang.org/x/net",
+    deps = [
+        "@go_x_net//:idna",
+    ],
+)
+
+external_go_package(
+    name = "idna",
+    base_pkg = "golang.org/x/net",
+    deps = [
+        "@go_x_text//:unicode/norm",
+        "@go_x_text//:secure/bidirule",
+    ],
+    exclude_srcs = [
+        "*_test.go",
+    ],
 )
 
 external_go_package(

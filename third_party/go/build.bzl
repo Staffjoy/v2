@@ -18,6 +18,7 @@ def gopath_package(deps=[], visibility=None, exclude_srcs=[], tests=None):
 
 # Simple wrapper around go_package for Go packages in external repositories.
 def external_go_package(base_pkg, name=None, deps=[], exclude_srcs=[]):
+  exclude_files = ["*_test.go"] + exclude_srcs
   if name:
     srcs = name
     full_pkg = base_pkg + "/" + name
@@ -29,7 +30,7 @@ def external_go_package(base_pkg, name=None, deps=[], exclude_srcs=[]):
       name = name,
       srcs = srcs,
       package = full_pkg,
-      exclude_srcs = exclude_srcs,
+      exclude_srcs = exclude_files,
       deps = deps,
       tests = 0,
   )
