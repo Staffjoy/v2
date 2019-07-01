@@ -38,7 +38,7 @@ func (s *companyServer) CreateDirectory(ctx context.Context, req *pb.NewDirector
 		return nil, err
 	}
 	createMd := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationWWWService})
-	newCtx, cancel := context.WithCancel(metadata.NewContext(context.Background(), createMd))
+	newCtx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), createMd))
 	defer cancel()
 
 	accountClient, close, err := account.NewClient()
@@ -124,7 +124,7 @@ func (s *companyServer) Directory(ctx context.Context, req *pb.DirectoryListRequ
 		}
 
 		md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationCompanyService})
-		newCtx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+		newCtx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 		defer cancel()
 
 		accountClient, close, err := account.NewClient()
@@ -177,7 +177,7 @@ func (s *companyServer) GetDirectoryEntry(ctx context.Context, req *pb.Directory
 	}
 
 	newMD := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationCompanyService})
-	newCtx, cancel := context.WithCancel(metadata.NewContext(context.Background(), newMD))
+	newCtx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), newMD))
 	defer cancel()
 
 	accountClient, close, err := account.NewClient()
@@ -212,7 +212,7 @@ func (s *companyServer) UpdateDirectoryEntry(ctx context.Context, req *pb.Direct
 	}
 
 	authMd := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationCompanyService})
-	newCtx, cancel := context.WithCancel(metadata.NewContext(context.Background(), authMd))
+	newCtx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), authMd))
 	defer cancel()
 
 	accountClient, close, err := account.NewClient()

@@ -44,7 +44,7 @@ func newCompanyHandler(res http.ResponseWriter, req *http.Request) {
 		}
 
 		md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationWWWService})
-		ctx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+		ctx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 		defer cancel()
 
 		// fetch current user Infof
@@ -123,7 +123,7 @@ func newCompanyHandler(res http.ResponseWriter, req *http.Request) {
 				}
 				defer close()
 
-				ctx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+				ctx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 				defer cancel()
 
 				if _, err = mailer.Send(ctx, msg); err != nil {

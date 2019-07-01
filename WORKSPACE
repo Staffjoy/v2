@@ -194,14 +194,27 @@ new_git_repository(
 new_git_repository(
     name = "go_grpc",
     build_file = "//:third_party/go/google_grpc.BUILD",
-    commit = "9d2357661814c2605430d2eb1567970ad5fff86e", # Mar 6, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "73b304d882a0822aaeb3c982c747563777e79586", # Jun 28, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/grpc/grpc-go.git",
 )
 
 new_git_repository(
+    name = "go_genproto",
+    build_file = "//:third_party/go/google_genproto.BUILD",
+    commit = "eb59cef1c072c61ea4f7623910448d5e9c6a4455", # Jun 27, 2019 (LATEST GIT COMMIT)
+    remote = "https://github.com/googleapis/go-genproto.git"
+)
+
+## slight bug, BUILD.bazel messing up the build. After build fails need to remove these files:
+## rm -rf /home/vagrant/.cache/bazel/_bazel_vagrant/1234567890/external/go_grpc_gateway/utilities/BUILD.bazel && rm -rf /home/vagrant/.cache/bazel/_bazel_vagrant/1234567890/external/go_grpc_gateway/runtime/BUILD.bazel && rm -rf ~/.cache/bazel/_bazel_vagrant/1234567890/external/go_grpc_gateway/internal/BUILD.bazel
+## third_party/googleapis/google/api missing .go files, need to generate from .proto. CMD: 
+##  1. protoc --go_out=. google/api/http.proto
+##  2. protoc --go_out=. google/api/annotations.proto
+## need to find a way to make it neatly via BUILD.bazel
+new_git_repository(
     name = "go_grpc_gateway",
     build_file = "//:third_party/go/grpc_gateway.BUILD",
-    commit = "ecf1225d8137a06a939b2129606acf4da9b25188", # Nov 19, 2016 (UPDATE REQUIRED! above, breaks)
+    commit = "740ef2ee80c49ed4a272e8c3b54ebf352109f572", # Jun 26, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/grpc-ecosystem/grpc-gateway.git",
 )
 
@@ -222,7 +235,7 @@ new_git_repository(
 new_git_repository(
     name = "go_protobuf",
     build_file = "//:third_party/go/protobuf.BUILD",
-    commit = "2bba0603135d7d7f5cb73b2125beeda19c09f4ef", # Mar 31, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "b285ee9cfc6c881bb20c0d8dc73370ea9b9ec90f", # May 17, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/protobuf.git",
 )
 
@@ -251,13 +264,13 @@ new_git_repository(
     name = "go_querystring",
     build_file = "//:third_party/go/google_querystring.BUILD",
     commit = "c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80", # Mar 18, 2019  (LATEST GIT COMMIT)
-    remote = "https://github.com/google/go-querystring",
+    remote = "https://github.com/google/go-querystring.git",
 )
 
 new_git_repository(
     name = "go_google_api",
     build_file = "//:third_party/go/google_api.BUILD",
-    commit = "a69f0f19d246419bb931b0ac8f4f8d3f3e6d4feb",
+    commit = "a69f0f19d246419bb931b0ac8f4f8d3f3e6d4feb", # Sep 9, 2016 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/google/google-api-go-client.git",
 )
 
@@ -275,8 +288,6 @@ new_git_repository(
     remote = "https://github.com/go-gorp/gorp.git",
 )
 
-# BASE - 5f33e7b7878355cd2b7e6b8eefc48a5472c69f70
-# STABLE - 
 new_git_repository(
     name = "go_blackfriday",
     build_file = "//:third_party/go/russross_blackfriday.BUILD",

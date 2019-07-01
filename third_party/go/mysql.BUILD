@@ -4,8 +4,7 @@ load("@//third_party:go/build.bzl", "external_go_package")
 
 external_go_package(
     base_pkg = "github.com/go-sql-driver/mysql",
-        exclude_srcs = [
+    exclude_srcs = [
         "appengine.go",
     ],
-
 )

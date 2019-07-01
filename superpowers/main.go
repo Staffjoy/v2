@@ -133,7 +133,7 @@ func superpowerHandler(res http.ResponseWriter, req *http.Request) {
 		panic("Could not get user id")
 	}
 	md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationSuperpowersService})
-	ctx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+	ctx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 	defer cancel()
 	a, err := c.Get(ctx, &account.GetAccountRequest{Uuid: uuid})
 	if err != nil {

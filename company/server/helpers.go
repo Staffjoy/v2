@@ -75,7 +75,7 @@ func validColor(input string) error {
 }
 
 func getAuth(ctx context.Context) (md metadata.MD, authz string, err error) {
-	md, ok := metadata.FromContext(ctx)
+	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return nil, "", fmt.Errorf("Context missing metadata")
 	}
@@ -98,5 +98,5 @@ func copyAccountToDirectory(a *account.Account, d *pb.DirectoryEntry) {
 
 func asyncContext() context.Context {
 	md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationCompanyService})
-	return metadata.NewContext(context.Background(), md)
+	return metadata.NewOutgoingContext(context.Background(), md)
 }

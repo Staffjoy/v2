@@ -74,7 +74,7 @@ func newAuditEntry(md metadata.MD, targetType, targetUUID string) *auditlog.Entr
 }
 
 func getAuth(ctx context.Context) (md metadata.MD, authz string, err error) {
-	md, ok := metadata.FromContext(ctx)
+	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return nil, "", fmt.Errorf("Context missing metadata")
 	}
@@ -88,7 +88,7 @@ func getAuth(ctx context.Context) (md metadata.MD, authz string, err error) {
 func (s *accountServer) sendSmsGreeting(phonenumber string) {
 	go func() {
 		md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationAccountService})
-		ctx, cancel := context.WithTimeout(metadata.NewContext(context.Background(), md), 2*time.Second)
+		ctx, cancel := context.WithTimeout(metadata.NewOutgoingContext(context.Background(), md), 2*time.Second)
 		defer cancel()
 		_, err := s.smsClient.QueueSend(ctx, &sms.SmsRequest{To: phonenumber, Body: "Welcome to Staffjoy!"})
 		if err != nil {

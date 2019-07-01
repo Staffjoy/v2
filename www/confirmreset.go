@@ -53,7 +53,7 @@ func confirmResetHandler(res http.ResponseWriter, req *http.Request) {
 		password := req.FormValue("password")
 		if len(password) >= 6 {
 			md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationWWWService})
-			ctx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+			ctx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 			defer cancel()
 			accountClient, close, err := account.NewClient()
 			if err != nil {

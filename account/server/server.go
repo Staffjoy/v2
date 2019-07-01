@@ -667,7 +667,7 @@ func (s *accountServer) SyncUser(ctx context.Context, req *pb.SyncUserRequest) (
 
 	// Setup for communication
 	md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationAccountService})
-	newCtx := metadata.NewContext(context.Background(), md)
+	newCtx := metadata.NewOutgoingContext(context.Background(), md)
 
 	u, err := s.Get(newCtx, &pb.GetAccountRequest{Uuid: req.Uuid})
 	if err != nil {

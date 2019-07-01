@@ -30,7 +30,7 @@ func (u *user) FirstName() string {
 
 func botContext() context.Context {
 	md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationBotService})
-	return metadata.NewContext(context.Background(), md)
+	return metadata.NewOutgoingContext(context.Background(), md)
 }
 
 func (s *botServer) internalError(err error, format string, a ...interface{}) error {

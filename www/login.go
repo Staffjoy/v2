@@ -79,7 +79,7 @@ func loginHandler(res http.ResponseWriter, req *http.Request) {
 		rememberMe := len(req.FormValue("remember-me")) > 0
 
 		md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationWWWService})
-		ctx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+		ctx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 		defer cancel()
 
 		accountClient, close, err := account.NewClient()

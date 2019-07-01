@@ -50,7 +50,7 @@ func init() {
 
 func icalContext() context.Context {
 	md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationICalService})
-	return metadata.NewContext(context.Background(), md)
+	return metadata.NewOutgoingContext(context.Background(), md)
 }
 
 // NewRouter builds the mux router for the site

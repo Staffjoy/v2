@@ -11,7 +11,7 @@ import (
 )
 
 func getAuth(ctx context.Context) (md metadata.MD, authz string, err error) {
-	md, ok := metadata.FromContext(ctx)
+	md, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return nil, "", fmt.Errorf("Context missing metadata")
 	}

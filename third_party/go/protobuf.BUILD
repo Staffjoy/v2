@@ -6,7 +6,6 @@ external_go_package(
     base_pkg = "github.com/golang/protobuf",
 )
 
-
 external_go_package(
     name = "proto",
     base_pkg = "github.com/golang/protobuf",
@@ -28,9 +27,15 @@ external_go_package(
     base_pkg = "github.com/golang/protobuf",
     deps = [
       "@go_protobuf//:proto",
-      #"@go_protobuf//:protoc-gen-go/descriptor",
+      "@go_protobuf//:protoc-gen-go/descriptor",
       "@go_protobuf//:protoc-gen-go/plugin",
+      "@go_protobuf//:protoc-gen-go/generator/internal/remap",
     ],
+)
+
+external_go_package(
+    name = "protoc-gen-go/generator/internal/remap",
+    base_pkg = "github.com/golang/protobuf",
 )
 
 external_go_package(
@@ -47,8 +52,10 @@ external_go_package(
     base_pkg = "github.com/golang/protobuf",
     deps = [
       "@go_protobuf//:proto",
+      "@go_protobuf//:ptypes/struct",
     ],
 )
+
 external_go_package(
     name = "ptypes",
     base_pkg = "github.com/golang/protobuf",
@@ -69,6 +76,14 @@ external_go_package(
 )
 
 external_go_package(
+    name = "ptypes/struct",
+    base_pkg = "github.com/golang/protobuf",
+    deps = [
+          "@go_protobuf//:proto",
+    ],
+)
+
+external_go_package(
     name = "ptypes/empty",
     base_pkg = "github.com/golang/protobuf",
     deps = [
@@ -78,6 +93,14 @@ external_go_package(
 
 external_go_package(
     name = "ptypes/duration",
+    base_pkg = "github.com/golang/protobuf",
+    deps = [
+          "@go_protobuf//:proto",
+    ],
+)
+
+external_go_package(
+    name = "ptypes/wrappers",
     base_pkg = "github.com/golang/protobuf",
     deps = [
           "@go_protobuf//:proto",

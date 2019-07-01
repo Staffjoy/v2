@@ -23,7 +23,7 @@ func signUpHandler(res http.ResponseWriter, req *http.Request) {
 		http.Redirect(res, req, signUpPath, http.StatusFound)
 	}
 	md := metadata.New(map[string]string{auth.AuthorizationMetadata: auth.AuthorizationWWWService})
-	ctx, cancel := context.WithCancel(metadata.NewContext(context.Background(), md))
+	ctx, cancel := context.WithCancel(metadata.NewOutgoingContext(context.Background(), md))
 	defer cancel()
 
 	accountClient, close, err := account.NewClient()

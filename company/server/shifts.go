@@ -222,12 +222,12 @@ func (s *companyServer) BulkPublishShifts(ctx context.Context, req *pb.BulkPubli
 
 	// create a new context so we can suppress notifications in the "UpdateShift" endpoint
 	newMd := metadata.New(map[string]string{"suppressnotification": "true"})
-	oldMd, ok := metadata.FromContext(ctx)
+	oldMd, ok := metadata.FromIncomingContext(ctx)
 	if !ok {
 		return nil, s.internalError(err, "context missing metadata")
 	}
 	combinedMd := metadata.Join(oldMd, newMd)
-	newCtx := metadata.NewContext(context.Background(), combinedMd)
+	newCtx := metadata.NewOutgoingContext(context.Background(), combinedMd)
 
 	res := &pb.ShiftList{ShiftStartAfter: req.ShiftStartAfter, ShiftStartBefore: req.ShiftStartBefore}
 	// Keep track of notifications  - user to orig shift

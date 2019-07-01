@@ -483,7 +483,6 @@ def go_package(name=None, package=None,
       test_srcs += [src]
     else:
       lib_srcs += [src]
-
   go_library(
     name = name,
     srcs = lib_srcs,
