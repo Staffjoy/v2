@@ -24,7 +24,7 @@ external_go_package(
     exclude_srcs = [
         "pre_go17.go",
         "pre_go19.go",
-    ]
+    ],
 )
 
 external_go_package(
@@ -41,7 +41,7 @@ external_go_package(
     ],
     exclude_srcs = [
         "trace_go16.go",
-    ]
+    ],
 )
 
 external_go_package(

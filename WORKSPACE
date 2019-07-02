@@ -263,14 +263,14 @@ new_git_repository(
 new_git_repository(
     name = "go_querystring",
     build_file = "//:third_party/go/google_querystring.BUILD",
-    commit = "c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80", # Mar 18, 2019  (LATEST GIT COMMIT)
+    commit = "c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80", # Mar 18, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/google/go-querystring.git",
 )
 
 new_git_repository(
     name = "go_google_api",
     build_file = "//:third_party/go/google_api.BUILD",
-    commit = "fec78a008a92e9c515184bcfeb7f36900468dc38", # latest
+    commit = "cad4a65739ec9027249a05eec449fe57ff999d48", # Jul 2, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/google/google-api-go-client.git",
 )
 
@@ -284,7 +284,7 @@ new_git_repository(
 new_git_repository(
     name = "go_gorp",
     build_file = "//:third_party/go/gorp.BUILD",
-    commit = "2ae7d174a4cf270240c4561092402affba25da5e", # Jun 26, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "f3677d4a0a8838c846ed41bf41927f2c8713bd60", # Nov 4, 2018 (LATEST GIT COMMIT)
     remote = "https://github.com/go-gorp/gorp.git",
 )
 
