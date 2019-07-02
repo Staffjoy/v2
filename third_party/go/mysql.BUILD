@@ -6,5 +6,6 @@ external_go_package(
     base_pkg = "github.com/go-sql-driver/mysql",
     exclude_srcs = [
         "appengine.go",
+        "conncheck_dummy.go",
     ],
 )

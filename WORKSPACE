@@ -138,7 +138,7 @@ new_git_repository(
 new_git_repository(
     name = "go_gorilla_mux",
     build_file = "//:third_party/go/gorilla_mux.BUILD",
-    commit = "5dd56998c22c824ad2e13c50bc3213e85b125134", # Jun 4, 2016  (UPDATE REQUIRED! above, breaks)
+    commit = "5dd56998c22c824ad2e13c50bc3213e85b125134", # Jun 4, 2016 (UPDATE REQUIRED! above, breaks)
     remote = "https://github.com/gorilla/mux.git",
 )
 
@@ -256,7 +256,7 @@ new_git_repository(
 new_git_repository(
     name = "go_intercom",
     build_file = "//:third_party/go/intercom.BUILD",
-    commit = "1dbafb072bcdb981cad04ad4a0e6e29afbfc0c42", # Mar 19, 2019  (LATEST GIT COMMIT)
+    commit = "1dbafb072bcdb981cad04ad4a0e6e29afbfc0c42", # Mar 19, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/intercom/intercom-go.git"
 )
 
@@ -291,28 +291,28 @@ new_git_repository(
 new_git_repository(
     name = "go_blackfriday",
     build_file = "//:third_party/go/russross_blackfriday.BUILD",
-    commit = "a925a152c144ea7de0f451eaf2f7db9e52fa005a", # Jun 17, 2019  (LATEST GIT COMMIT)
+    commit = "a925a152c144ea7de0f451eaf2f7db9e52fa005a", # Jun 17, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/russross/blackfriday.git",
 )
 
 new_git_repository(
     name = "go_sanitized_anchor_name",
     build_file = "//:third_party/go/shurcool_sanitized_anchor_name.BUILD",
-    commit = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615", # Dec 26, 2018  (LATEST GIT COMMIT)
+    commit = "7bfe4c7ecddb3666a94b053b422cdd8f5aaa3615", # Dec 26, 2018 (LATEST GIT COMMIT)
     remote = "https://github.com/shurcool/sanitized_anchor_name.git",
 )
 
 new_git_repository(
     name = "go_structs",
     build_file = "//:third_party/go/fatih_structs.BUILD",
-    commit = "878a968ab22548362a09bdb3322f98b00f470d46", # Oct 11, 2018  (LATEST GIT COMMIT)
+    commit = "878a968ab22548362a09bdb3322f98b00f470d46", # Oct 11, 2018 (LATEST GIT COMMIT)
     remote = "https://github.com/fatih/structs.git",
 )
 
 new_git_repository(
     name = "go_mysql",
     build_file = "//:third_party/go/mysql.BUILD",
-    commit = "382e13d099fcf5f5994290892ab258fbebbdc5e3", # May 12, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "877a9775f06853f611fb2d4e817d92479242d1cd", # May 10, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/go-sql-driver/mysql.git",
 )
 
@@ -326,21 +326,21 @@ new_git_repository(
 new_git_repository(
     name = "go_x_oauth2",
     build_file = "//:third_party/go/x_oauth2.BUILD",
-    commit = "0f29369cfe4552d0e4bcddc57cc75f4d7e672a33", # 
+    commit = "0f29369cfe4552d0e4bcddc57cc75f4d7e672a33", # Jun 4, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/oauth2.git"
 )
 
 new_git_repository(
     name = "go_x_time",
     build_file = "//:third_party/go/x_time.BUILD",
-    commit = "9d24e82272b4f38b78bc8cff74fa936d31ccd8ef", # Feb 16, 2019  (LATEST GIT COMMIT)
+    commit = "9d24e82272b4f38b78bc8cff74fa936d31ccd8ef", # Feb 16, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/time.git"
 )
 
 new_git_repository(
     name = "go_x_crypto",
     build_file = "//:third_party/go/x_crypto.BUILD",
-    commit = "cc06ce4a13d484c0101a9e92913248488a75786d", # Jun 21, 2019  (LATEST GIT COMMIT)
+    commit = "cc06ce4a13d484c0101a9e92913248488a75786d", # Jun 21, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/crypto.git"
 )
 
