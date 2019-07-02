@@ -249,7 +249,7 @@ new_git_repository(
 new_git_repository(
     name = "go_cloud",
     build_file = "//:third_party/go/google_cloud.BUILD",
-    commit = "9c1098a4debc9bf1073ed0e4872b12bd916243d8", # Sep 20, 2016 (UPDATE REQUIRED! above, breaks)
+    commit = "cf81fad90a1a1de334c4fc27e23eb9a4224b627a", # v0.41.0 - Jul 1, 2019 (LATEST OFFICIAL RELEASE)
     remote = "https://github.com/GoogleCloudPlatform/google-cloud-go.git",
 )
 
@@ -352,6 +352,13 @@ new_git_repository(
 )
 
 new_git_repository(
+    name = "go_x_sync",
+    build_file = "//:third_party/go/x_sync.BUILD",
+    commit = "112230192c580c3556b8cee6403af37a4fc5f28c", # Apr 23, 2019 (LATEST GIT COMMIT)
+    remote = "https://github.com/golang/sync.git"
+)
+
+new_git_repository(
     name = "go_opencensus",
     build_file = "//:third_party/go/go_opencensus.BUILD",
     commit = "5897c5ce32247fc8af19c7710abd96e3304fb43c", # Jun 4, 2018 (UPDATE REQUIRED! above, breaks)
@@ -363,4 +370,11 @@ new_git_repository(
     build_file = "//:third_party/go/golang_lru.BUILD",
     commit = "59383c442f7d7b190497e9bb8fc17a48d06cd03f", # May 20, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/hashicorp/golang-lru.git"
+)
+
+new_git_repository(
+    name = "googleapis_gax",
+    build_file = "//:third_party/go/googleapis_gax.BUILD",
+    commit = "bd5b16380fd03dc758d11cef74ba2e3bc8b0e8c2", # May 13, 2019 (LATEST GIT COMMIT)
+    remote = "https://github.com/googleapis/gax-go.git",
 )

@@ -38,6 +38,14 @@ external_go_package(
 )
 
 external_go_package(
+    name = "support/bundler",
+    base_pkg = "google.golang.org/api",
+    deps = [
+        "@go_x_sync//:semaphore",
+    ]
+)
+
+external_go_package(
     name = "googleapi/transport",
     base_pkg = "google.golang.org/api",
 )
