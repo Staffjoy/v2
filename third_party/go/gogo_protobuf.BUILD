@@ -11,14 +11,13 @@ external_go_package(
     base_pkg = "github.com/gogo/protobuf",
     exclude_srcs = [
         "pointer_reflect.go",
+        "pointer_reflect_gogo.go",
     ]
 )
 
 external_go_package(
     name = "sortkeys",
     base_pkg = "github.com/gogo/protobuf",
-    deps = [
-    ],
 )
 
 external_go_package(
@@ -42,8 +41,7 @@ external_go_package(
 external_go_package(
     name = "protoc-gen-gogo/descriptor",
     base_pkg = "github.com/gogo/protobuf",
-        deps = [
+    deps = [
         "@go_gogo_protobuf//:proto",
-
     ],
 )

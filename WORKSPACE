@@ -221,7 +221,7 @@ new_git_repository(
 new_git_repository(
     name = "go_gogo_protobuf",
     build_file = "//:third_party/go/gogo_protobuf.BUILD",
-    commit = "70d0d0c9d3f673c850388c410e27ebb77ee21578", # Dec 1, 2016 (UPDATE REQUIRED! above, breaks)
+    commit = "dadb625850898f31a8e40e83492f4a7132e520a2", # Jun 11, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/gogo/protobuf.git",
 )
 
