@@ -277,7 +277,7 @@ new_git_repository(
 new_git_repository(
     name = "go_appengine",
     build_file = "//:third_party/go/golang_appengine.BUILD",
-    commit = "9d8544a6b2c7df9cff240fcf92d7b2f59bc13416", # Oct 31, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "b2f4a3cf3c67576a2ee09e1fe62656a5086ce880", # Jun 6, 2019 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/appengine.git",
 )
 
