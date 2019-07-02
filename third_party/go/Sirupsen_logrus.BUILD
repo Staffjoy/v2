@@ -5,9 +5,12 @@ load("@//third_party:go/build.bzl", "external_go_package")
 external_go_package(
     base_pkg = "github.com/Sirupsen/logrus",
     exclude_srcs = [
-        "terminal_bsd.go",
-        "terminal_solaris.go",
-        "terminal_windows.go",
+        "terminal_check_bsd.go",
+        "terminal_check_unix.go",
+        "terminal_check_solaris.go",
+        "terminal_check_windows.go",
+        "terminal_check_no_terminal.go",
+        "terminal_check_notappengine.go",
     ],
 )
 
