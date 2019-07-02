@@ -63,8 +63,8 @@ container_pull(
 
 http_file(
     name = "nodejs",
-    urls = ["https://deb.nodesource.com/node_6.x/pool/main/n/nodejs/nodejs-dbg_6.4.0-1nodesource1~xenial1_amd64.deb"],
-    sha256 = "895dab136994f95d4c7e162e7773239264165921097a7dbf94061dd0e794f538",
+    urls = ["https://deb.nodesource.com/node_10.x/pool/main/n/nodejs/nodejs_10.16.0-1nodesource1_arm64.deb"],
+    sha256 = "cca9736b02da747fd01b40a948ebc75aa92b6963f0c5b2477109dd93dd51aef8",
 )
 
 # GOLANG INIT
