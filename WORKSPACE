@@ -270,7 +270,7 @@ new_git_repository(
 new_git_repository(
     name = "go_google_api",
     build_file = "//:third_party/go/google_api.BUILD",
-    commit = "a69f0f19d246419bb931b0ac8f4f8d3f3e6d4feb", # Sep 9, 2016 (UPDATE REQUIRED! above, breaks)
+    commit = "fec78a008a92e9c515184bcfeb7f36900468dc38", # latest
     remote = "https://github.com/google/google-api-go-client.git",
 )
 
@@ -326,7 +326,7 @@ new_git_repository(
 new_git_repository(
     name = "go_x_oauth2",
     build_file = "//:third_party/go/x_oauth2.BUILD",
-    commit = "5432cc9688e6250a0dd8f5a5f4c781d92b398be6", # Jun 29, 2017 (UPDATE REQUIRED! above, breaks)
+    commit = "0f29369cfe4552d0e4bcddc57cc75f4d7e672a33", # 
     remote = "https://github.com/golang/oauth2.git"
 )
 
@@ -349,4 +349,18 @@ new_git_repository(
     build_file = "//:third_party/go/x_text.BUILD",
     commit = "342b2e1fbaa52c93f31447ad2c6abc048c63e475", # Dec 15, 2018 (LATEST GIT COMMIT)
     remote = "https://github.com/golang/text.git"
+)
+
+new_git_repository(
+    name = "go_opencensus",
+    build_file = "//:third_party/go/go_opencensus.BUILD",
+    commit = "5897c5ce32247fc8af19c7710abd96e3304fb43c", # Jun 4, 2018 (UPDATE REQUIRED! above, breaks)
+    remote = "https://github.com/census-instrumentation/opencensus-go.git"
+)
+
+new_git_repository(
+    name = "golang_lru",
+    build_file = "//:third_party/go/golang_lru.BUILD",
+    commit = "59383c442f7d7b190497e9bb8fc17a48d06cd03f", # May 20, 2019 (LATEST GIT COMMIT)
+    remote = "https://github.com/hashicorp/golang-lru.git"
 )

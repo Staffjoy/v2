@@ -18,6 +18,8 @@ external_go_package(
     name = "internal",
     deps = [
         "@go_x_net//:context",
+        "@go_x_net//:context/ctxhttp",
+        "@go_appengine//:urlfetch",
     ],
 )
 
@@ -32,6 +34,9 @@ external_go_package(
         "@go_x_oauth2//:jwt",
         "@go_x_oauth2//:jws",
         "@go_x_oauth2//:internal",
+    ],
+    exclude_srcs = [
+        "appengine_gen1.go",
     ],
 )
 

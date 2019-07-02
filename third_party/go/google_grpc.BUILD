@@ -140,8 +140,8 @@ external_go_package(
         "@go_grpc//:peer",
         "@go_grpc//:codes",
         "@go_grpc//:stats",
-        "@go_grpc//:grpclog",
         "@go_grpc//:status",
+        "@go_grpc//:grpclog",
         "@go_grpc//:internal",
         "@go_grpc//:metadata",
         "@go_grpc//:keepalive",
@@ -189,6 +189,43 @@ external_go_package(
         "@go_grpc//:balancer",
         "@go_grpc//:balancer/base",
         "@go_grpc//:internal/grpcrand",
+    ],
+)
+
+external_go_package(
+    name = "balancer/grpclb",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:grpc",
+        "@go_grpc//:codes",
+        "@go_grpc//:grpclog",
+        "@go_grpc//:status",
+        "@go_grpc//:internal",
+        "@go_grpc//:metadata",
+        "@go_grpc//:resolver",
+        "@go_grpc//:balancer",
+        "@go_grpc//:balancer/roundrobin",
+        "@go_grpc//:balancer/grpclb/grpc_lb_v1",
+        "@go_grpc//:internal/backoff",
+        "@go_grpc//:internal/grpcrand",
+        "@go_grpc//:internal/channelz",
+        "@go_grpc//:serviceconfig",
+        "@go_grpc//:connectivity",
+        "@go_grpc//:credentials",
+        "@go_protobuf//:ptypes/duration",
+        "@go_protobuf//:ptypes/timestamp",
+    ],
+)
+
+external_go_package(
+    name = "balancer/grpclb/grpc_lb_v1",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:grpc",
+        "@go_protobuf//:proto",
+        "@go_protobuf//:ptypes/duration",
+        "@go_protobuf//:ptypes/timestamp",
+        "@go_x_net//:context",
     ],
 )
 
@@ -266,6 +303,87 @@ external_go_package(
         "@go_x_net//:context",
         "@go_grpc//:credentials/internal",
         "@go_protobuf//:proto",
+    ],
+)
+
+external_go_package(
+    name = "credentials/google",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:credentials",
+        "@go_grpc//:credentials/alts",
+        "@go_grpc//:credentials/oauth",
+        "@go_grpc//:grpclog",
+        "@go_grpc//:internal",
+    ],
+)
+external_go_package(
+    name = "credentials/alts",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:grpclog",
+        "@go_grpc//:peer",
+        "@go_grpc//:credentials",
+        "@go_grpc//:credentials/alts/internal",
+        "@go_grpc//:credentials/alts/internal/handshaker",
+        "@go_grpc//:credentials/alts/internal/handshaker/service",
+        "@go_grpc//:credentials/alts/internal/proto/grpc_gcp",
+    ],
+)
+
+external_go_package(
+    name = "credentials/alts/internal",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:credentials",
+    ],
+)
+
+external_go_package(
+    name = "credentials/alts/internal/handshaker",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:grpc",
+        "@go_grpc//:codes",
+        "@go_grpc//:credentials",
+        "@go_grpc//:credentials/alts/internal",
+        "@go_grpc//:credentials/alts/internal/conn",
+        "@go_grpc//:credentials/alts/internal/authinfo",
+        "@go_grpc//:credentials/alts/internal/proto/grpc_gcp",
+    ],
+)
+external_go_package(
+    name = "credentials/alts/internal/handshaker/service",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:grpc",
+    ],
+)
+
+external_go_package(
+    name = "credentials/alts/internal/authinfo",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:credentials",
+        "@go_grpc//:credentials/alts/internal/proto/grpc_gcp",
+    ],
+)
+
+external_go_package(
+    name = "credentials/alts/internal/proto/grpc_gcp",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:grpc",
+        "@go_protobuf//:proto",
+        "@go_x_net//:context",
+    ],
+)
+
+external_go_package(
+    name = "credentials/alts/internal/conn",
+    base_pkg = "google.golang.org/grpc",
+    deps = [
+        "@go_grpc//:credentials/alts/internal",
     ],
 )
 

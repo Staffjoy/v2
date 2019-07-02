@@ -21,6 +21,15 @@ external_go_package(
         "@go_protobuf//:proto",
         "@go_x_net//:context",
         "@go_appengine//:internal",
+        "@go_appengine//:internal/urlfetch",
+    ],
+)
+
+external_go_package(
+    base_pkg = "google.golang.org/appengine",
+    name = "internal/urlfetch",
+    deps = [
+        "@go_protobuf//:proto",
     ],
 )
 
