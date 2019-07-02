@@ -55,8 +55,8 @@ container_pull(
 
 #http_file(
 #    name = "nginx",
-#    urls = ["http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.10.1-1~xenial_amd64.deb"],
-#    sha256 = "18dc0565965bd569b98c575d75d0e130d9794a3f7e7642129c488b515cbdf02c",
+#    urls = ["http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.16.0-1~xenial_amd64.deb"],
+#    sha256 = "83d821f514ae3c4f449bebd4b73b7e1dd15ec64bc25de73cf39aa59e457745a2",
 #)
 
 # NODEJS
