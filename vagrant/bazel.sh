@@ -1,34 +1,36 @@
 #!/bin/bash
 
 if ! command -V add-apt-repository >/dev/null 2>&1; then
-    sudo apt-get install -y -q  software-properties-common ca-certificates apt-transport-https
+    sudo apt install -y -q  software-properties-common ca-certificates apt-transport-https
 fi
 
 if ! command -V java >/dev/null 2>&1; then
-    sudo apt-get install -y -q  python-software-properties debconf-utils
+    sudo apt install -y -q  debconf-utils
     
     ## needs older java, @TODO: use v12
     #sudo add-apt-repository ppa:linuxuprising/java
-    #sudo apt-get update -y -q
+    #sudo apt update -y -q
     #echo "oracle-java12-installer shared/accepted-oracle-license-v1-2 select true" | sudo /usr/bin/debconf-set-selections
-    #sudo apt-get install -y -q  oracle-java12-installer
+    #sudo apt install -y -q  oracle-java12-installer
 
-    ## fallback to v1.8
-    sudo apt install -y -q  openjdk-8-jdk
+    sudo apt install -y -q  openjdk-11-jdk
 fi
 
-# bazel deps
-sudo apt-get install -y -q  pkg-config zip g++ zlib1g-dev unzip
+if ! command -V python3 >/dev/null 2>&1; then
+    sudo apt install -y -q  python3
+fi 
 
-if [ ! -f /etc/apt/sources.list.d/bazel.list ]; then
-    echo "deb http://storage.googleapis.com/bazel-apt testing jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
-    curl https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg | sudo apt-key add -
+if ! command -V python >/dev/null 2>&1; then
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2
 fi
 
-sudo apt-get update -y -q
-# latest bazel, 0.27rc5 - too new at that point
-#sudo apt-get install -y -q bazel
+if ! command -V bazel >/dev/null 2>&1; then
+    sudo apt install -y -q  pkg-config zip g++ zlib1g-dev unzip python3
 
-# bazel 0.27.0, stable build
-sudo curl -L https://github.com/bazelbuild/bazel/releases/download/0.27.0/bazel_0.27.0-linux-x86_64.deb --output /usr/src/bazel_0.27.0-linux-x86_64.deb
-sudo dpkg -i /usr/src/bazel_0.27.0-linux-x86_64.deb
+    if [ ! -f /etc/apt/sources.list.d/bazel.list ]; then
+        echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+        curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+        sudo apt update -y -q
+    fi
+    sudo apt install -y -q  bazel
+fi

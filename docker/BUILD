@@ -6,7 +6,7 @@ package(default_visibility = ["//visibility:public"])
 
 load("@io_bazel_rules_docker//container:container.bzl", "container_image")
 
-# XENIAL (16.04) BASE
+# BIONIC (18.04) BASE
 container_image(
     name = "ubuntu",
     base = "@ubuntu//:image",

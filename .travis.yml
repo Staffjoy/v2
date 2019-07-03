@@ -1,8 +1,9 @@
-dist: xenial
+dist: bionic
 sudo: required
 language: go
 go:
-  - 1.9
+  - 1.11
+  - 1.12
 go_import_path: v2.staffjoy.com
 addons:
   apt:
@@ -13,8 +14,8 @@ addons:
       - wget
       - pkg-config
 before_install:
-  - wget https://github.com/bazelbuild/bazel/releases/download/0.6.0/bazel_0.6.0-linux-x86_64.deb
-  - sudo dpkg -i bazel_0.6.0-linux-x86_64.deb
+  - wget https://github.com/bazelbuild/bazel/releases/download/0.27.0/bazel_0.27.0-linux-x86_64.deb
+  - sudo dpkg -i bazel_0.27.0-linux-x86_64.deb
 install:
   - mkdir $GOPATH/bin
   - curl https://glide.sh/get | sh

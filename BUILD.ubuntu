@@ -1,9 +1,9 @@
 load("@io_bazel_rules_docker//container:container.bzl", "container_image")
 
 container_image(
-  name = "xenial",
+  name = "bionic",
   tars = [
-      "xenial/ubuntu-xenial-core-cloudimg-amd64-root.tar.gz",
+      "bionic/ubuntu-bionic-core-cloudimg-amd64-root.tar.gz",
   ],
   visibility = ["//visibility:public"],
 )

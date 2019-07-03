@@ -1,9 +1,9 @@
 set -e
 
-apt-get -y --force-yes install nginx
+apt -y --force-yes install nginx
 echo '
 server {
-    listen 80; 
+    listen 80;
     server_name kubernetes.staffjoy-v2.local;
     location / {
         proxy_pass http://localhost:8080;

@@ -3,7 +3,7 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
 
-io_rules_docker_version="3732c9d05315bef6a3dbd195c545d6fea3b86880" # v0.7.0
+io_rules_docker_version="80ea3aae060077e5fe0cdef1a5c570d4b7622100" # v0.8.1
 ## Load docker rules
 http_archive(
     name = "io_bazel_rules_docker",
@@ -12,7 +12,7 @@ http_archive(
     strip_prefix = "rules_docker-%s" % io_rules_docker_version
 )
 
-#DOCKER STUFF
+# DOCKER STUFF
 load(
     "@io_bazel_rules_docker//repositories:repositories.bzl",
     container_repositories = "repositories",
@@ -23,8 +23,6 @@ load(
     "@io_bazel_rules_docker//container:container.bzl",
     "container_pull",
 )
-
-container_repositories()
 
 container_pull(
     name = "nginx",
@@ -37,7 +35,7 @@ container_pull(
     name = "ubuntu",
     registry ="index.docker.io",
     repository = "library/ubuntu",
-    tag = "xenial",
+    tag = "bionic",
 )
 
 
@@ -55,7 +53,7 @@ container_pull(
 
 #http_file(
 #    name = "nginx",
-#    urls = ["http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.16.0-1~xenial_amd64.deb"],
+#    urls = ["http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.16.0-1~bionic_amd64.deb"],
 #    sha256 = "83d821f514ae3c4f449bebd4b73b7e1dd15ec64bc25de73cf39aa59e457745a2",
 #)
 
@@ -206,7 +204,7 @@ new_git_repository(
 )
 
 ## slight bug, BUILD.bazel messing up the build. After build fails need to remove these files:
-## rm -rf /home/vagrant/.cache/bazel/_bazel_vagrant/1234567890/external/go_grpc_gateway/utilities/BUILD.bazel && rm -rf /home/vagrant/.cache/bazel/_bazel_vagrant/1234567890/external/go_grpc_gateway/runtime/BUILD.bazel && rm -rf ~/.cache/bazel/_bazel_vagrant/1234567890/external/go_grpc_gateway/internal/BUILD.bazel
+## rm -rf utilities/BUILD.bazel && rm -rf runtime/BUILD.bazel && rm -rf internal/BUILD.bazel
 ## third_party/googleapis/google/api missing .go files, need to generate from .proto. CMD: 
 ##  1. protoc --go_out=. google/api/http.proto
 ##  2. protoc --go_out=. google/api/annotations.proto

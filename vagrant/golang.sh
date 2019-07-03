@@ -31,20 +31,12 @@ if ! command -V glide ; then
     curl https://glide.sh/get | sh
 fi
 
-if ! command -V migrate ; then 
-    #prefered solution.. install fresh
-    #go get -u github.com/golang-migrate/migrate/cli
-    #cd $GOPATH/src/github.com/golang-migrate/migrate/cli
-    #go get -u github.com/go-sql-driver/mysql
-    #go build -tags 'mysql' -o migrate github.com/golang-migrate/migrate/cli
-    #sudo mv ./migrate /usr/local/bin/migrate
-    #cd ~/
-
-    ## fallback
-    curl -L https://packagecloud.io/mattes/migrate/gpgkey | sudo apt-key add -
-    echo 'deb https://packagecloud.io/mattes/migrate/ubuntu/ xenial main' | sudo tee /etc/apt/sources.list.d/migrate.list
-    sudo apt-get update -y -q
-    sudo apt-get install -y -q  migrate
+if ! command -V migrate ; then
+    # https://github.com/golang-migrate/migrate
+    curl -L https://packagecloud.io/golang-migrate/migrate/gpgkey | sudo apt-key add -
+    echo 'deb https://packagecloud.io/golang-migrate/migrate/ubuntu/ bionic main' | sudo tee /etc/apt/sources.list.d/migrate.list
+    sudo apt update -y -q
+    sudo apt install -y -q  migrate
 fi
 
 if ! command -V buildifier ; then
