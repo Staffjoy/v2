@@ -78,7 +78,7 @@ def _dedup_packages(packages):
   seen = depset()
   filtered = []
   for pkg in packages:
-    if pkg.name not in seen:
+    if pkg.name not in seen.to_list():
       seen += [pkg.name]
       filtered += [pkg]
   return filtered
@@ -250,7 +250,7 @@ def _link_binary(ctx, binary, archive, transitive_deps,
                  stamp=False, extldflags=[], cc_libs=[]):
   gotool = ctx.file._go
 
-  for a in cc_libs:
+  for a in cc_libs.to_list():
     extldflags += [a.path]
 
   dep_archives, package_map = _construct_package_map(transitive_deps)
@@ -262,7 +262,7 @@ def _link_binary(ctx, binary, archive, transitive_deps,
     stamp=False # enable stamping only on optimized release builds
 
   args = _link_args(ctx)[mode]
-  inputs = ctx.files._goroot + [archive] + dep_archives + list(cc_libs)
+  inputs = ctx.files._goroot + [archive] + dep_archives + list(cc_libs.to_list())
   goroot = ctx.file._go.owner.workspace_root
   cmd = ['set -e'] + _construct_go_path(go_path, package_map) + [
       'export GOROOT="' + goroot + '"',
@@ -277,7 +277,7 @@ def _link_binary(ctx, binary, archive, transitive_deps,
             + ctx.file._format_build_vars.path + ' ' + _build_var_package + ')']
     tool_cmd += '${BUILD_VARS} '
     inputs += [ctx.file._format_build_vars, ctx.info_file, ctx.version_file]
-  tool_cmd += ('-extldflags="' + ' '.join(list(extldflags)) + '"'
+  tool_cmd += ('-extldflags="' + ' '.join(list(extldflags.to_list())) + '"'
                + ' ' + ' '.join(args) + ' -L "' + go_path + '"'
                + ' -o ' + binary.path + ' ' + archive.path)
   cmd += [tool_cmd]

@@ -18,8 +18,16 @@ do
     # Remove slashes from service
     service=$(echo $target | sed 's/\///g')
     export service
+
     # Run the build and upload to GKE
-    bazel run --incompatible_string_join_requires_strings=false --incompatible_disallow_filetype=false --incompatible_disable_deprecated_attr_params=false --incompatible_disallow_dict_plus=false --incompatible_new_actions_api=false --incompatible_depset_union=false --incompatible_depset_is_not_iterable=false //$target:docker
+    bazel run \
+        --incompatible_depset_union=false \
+        --incompatible_disallow_filetype=false \
+        --incompatible_disable_deprecated_attr_params=false \
+        --incompatible_disallow_dict_plus=false \
+        --incompatible_new_actions_api=false \
+        //$target:docker
+    
     # Tag so we can track the deploy in Kubernetes
     # (bazel converts slash to an underscore)
     docker tag bazel/$(echo $target):docker localhost:5000/$service:$VERSION
