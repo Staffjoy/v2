@@ -121,10 +121,17 @@ new_git_repository(
 )
 
 new_git_repository(
-    name = "go_mandrill",
-    build_file = "//:third_party/go/keighl_mandrill.BUILD",
-    commit = "1775dd4b3b4121aa2731132552ebcff17253d103", # Jun 5, 2017 (LATEST GIT COMMIT)
-    remote = "https://github.com/keighl/mandrill.git",
+    name = "go_mailgun",
+    build_file = "//:third_party/go/go_mailgun.BUILD",
+    commit = "cd4cc0c6e6178be81b436ae16651f8db3d6e8460", # Jul 1, 2019 (LATEST GIT COMMIT)
+    remote = "https://github.com/mailgun/mailgun-go.git",
+)
+
+new_git_repository(
+    name = "easyjson",
+    build_file = "//:third_party/go/easyjson.BUILD",
+    commit = "b2ccc519800e761ac8000b95e5d57c80a897ff9e", # Jun 26, 2019 (LATEST GIT COMMIT)
+    remote = "https://github.com/mailru/easyjson.git",
 )
 
 new_git_repository(

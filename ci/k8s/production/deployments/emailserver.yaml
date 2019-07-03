@@ -38,9 +38,14 @@ spec:
             secretKeyRef:
               name: sentry
               key: dsn
-        - name: MANDRILL_API_KEY
+        - name: MAILGUN_DOMAIN
           valueFrom:
             secretKeyRef:
-              name: mandrill
+              name: mailgun_domain
+              key: domain
+        - name: MAILGUN_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: mailgun_api_key
               key: key
 

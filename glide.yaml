@@ -52,7 +52,7 @@ import:
 - package: github.com/go-gorp/gorp
   version: ^1.7.1
 - package: github.com/go-sql-driver/mysql
-- package: github.com/keighl/mandrill
+- package: github.com/mailgun/mailgun-go
 - package: github.com/gorilla/csrf
   version: ^1.4.0
 - package: github.com/pkg/errors

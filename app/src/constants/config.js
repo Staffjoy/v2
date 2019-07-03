@@ -6,8 +6,8 @@ export const ENV_NAME_STAGING = 'STAGE';
 export const ENV_NAME_PRODUCTION = 'PROD';
 
 /*eslint-disable */
-export const SENTRY_PRODUCTION_KEY = 'https://c037c826f1864e28a674dcba23350b4b@sentry.io/106472';
-export const SENTRY_STAGING_KEY = 'https://6d2bfa8c878d4905b2537647032f61c8@sentry.io/106473';
+export const SENTRY_PRODUCTION_KEY = 'https://f4d735c8d9fc44e2a184f6dd858302c4@sentry.io/1496206';
+export const SENTRY_STAGING_KEY = 'https://f4d735c8d9fc44e2a184f6dd858302c4@sentry.io/1496206';
 /*eslint-enable */
 
 // these constants are configuration settings in the application

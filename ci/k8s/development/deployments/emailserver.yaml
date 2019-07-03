@@ -29,8 +29,10 @@ spec:
         env:
         - name: DEPLOY
           value: VERSION
-        - name: MANDRILL_API_KEY
-          value: S3CrEtApIkEy
+        - name: MAILGUN_DOMAIN
+          value: domain.com
+        - name: MAILGUN_API_KEY
+          value: key-4g
         - name: ENV
           valueFrom:
             fieldRef:

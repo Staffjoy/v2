@@ -60,7 +60,6 @@ var configs = map[string]Config{
 		Debug:        false,
 		ExternalApex: "staffjoystaging.com",
 		InternalApex: "staging",
-
 		LogLevel: logrus.InfoLevel,
 		Scheme:   "https",
 	},

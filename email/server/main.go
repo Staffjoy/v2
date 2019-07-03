@@ -8,17 +8,19 @@ import (
 	"os"
 	"strings"
 	"sync"
+	"time"
 
 	"golang.org/x/net/context"
 
 	"github.com/golang/protobuf/ptypes/empty"
+
+	"github.com/mailgun/mailgun-go"
 
 	"github.com/Sirupsen/logrus"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	"github.com/keighl/mandrill"
 	pb "v2.staffjoy.com/email"
 	"v2.staffjoy.com/environments"
 	"v2.staffjoy.com/healthcheck"
@@ -30,7 +32,6 @@ const (
 	fromName            = "Staffjoy"
 	from                = "help@staffjoy.com"
 	staffjoyEmailSuffix = "@staffjoy.com"
-	mandrillTemplate    = "staffjoy-base"
 )
 
 var (
@@ -41,7 +42,7 @@ var (
 type emailServer struct {
 	logger      *logrus.Entry
 	errorClient environments.SentryClient
-	client      *mandrill.Client
+	client      *mailgun.MailgunImpl
 	clientMutex *sync.Mutex
 	config      *environments.Config
 }
@@ -63,7 +64,8 @@ func main() {
 	if !config.Debug {
 		s.errorClient = environments.ErrorClient(&config)
 	}
-	s.client = mandrill.ClientWithKey(os.Getenv("MANDRILL_API_KEY"))
+	s.client = mailgun.NewMailgun(os.Getenv("MAILGUN_DOMAIN"), os.Getenv("MAILGUN_API_KEY"))
+	s.client.SetAPIBase("https://api.eu.mailgun.net/v3")
 
 	var err error
 
@@ -121,15 +123,16 @@ func (s *emailServer) processSend(req *pb.EmailRequest) {
 			return
 		}
 	}
-	message := &mandrill.Message{}
-	message.AddRecipient(req.To, req.Name, "to")
-	message.FromEmail = from
-	message.FromName = fromName
-	message.Subject = req.Subject
 
-	templateContent := map[string]string{"body": req.HtmlBody, "title": req.Subject}
+	//templateContent := map[string]string{"body": req.HtmlBody, "title": req.Subject}
 
-	res, err := s.client.MessagesSendTemplate(message, mandrillTemplate, templateContent)
+	// The message object allows you to add attachments and Bcc recipients
+	message := s.client.NewMessage(from, req.Subject, req.HtmlBody, req.To)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
+	defer cancel()
+
+	res, id, err := s.client.Send(ctx, message)
 	if err != nil {
 		if s.errorClient != nil {
 			s.errorClient.CaptureError(err, map[string]string{
@@ -137,7 +140,7 @@ func (s *emailServer) processSend(req *pb.EmailRequest) {
 				"to":      req.To,
 			})
 		}
-		logLine.Errorf("Unable to send email - %s %v", err, res)
+		logLine.Errorf("Unable to send email - %s %s %v", err, id, res)
 		return
 	}
 	logLine.Infof("successfully sent - %v", res)

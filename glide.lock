@@ -87,8 +87,8 @@ imports:
   version: bbd0c6e271208dce66d8fda4bc536453cd27fc4a
   subpackages:
   - '...'
-- name: github.com/keighl/mandrill
-  version: 6a59523fcf7d27e9230141f0e2563ba976a92b8f
+- name: github.com/mailgun/mailgun-go
+  version: cd4cc0c6e6178be81b436ae16651f8db3d6e8460
 - name: github.com/pkg/errors
   version: 645ef00459ed84a119197bfb8d8205042c6df63d
 - name: github.com/russross/blackfriday
