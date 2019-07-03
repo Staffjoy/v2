@@ -10,12 +10,10 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - openjdk-8-jdk
+      - openjdk-11-jdk
+      - bazel
       - wget
       - pkg-config
-before_install:
-  - wget https://github.com/bazelbuild/bazel/releases/download/0.27.0/bazel_0.27.0-linux-x86_64.deb
-  - sudo dpkg -i bazel_0.27.0-linux-x86_64.deb
 install:
   - mkdir $GOPATH/bin
   - curl https://glide.sh/get | sh
