@@ -79,20 +79,21 @@ def _dedup_packages(packages):
   filtered = []
   for pkg in packages:
     if pkg.name not in seen.to_list():
-      seen += [pkg.name]
+      moshe = depset([pkg.name])
+      seen = depset(transitive = [seen, depset([pkg.name])])
       filtered += [pkg]
   return filtered
 
 def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
-  cgo_link_flags = depset([], order="topological")
+  cgo_link_flags = depset(transitive = [], order = "topological")
   transitive_deps = []
   transitive_cc_libs = depset()
   deps = []
   for dep in ctx.attr.deps:
     deps += [dep.go.package]
     transitive_deps += dep.go.transitive_deps
-    cgo_link_flags += dep.go.cgo_link_flags
-    transitive_cc_libs += dep.go.transitive_cc_libs
+    cgo_link_flags = depset(transitive = [cgo_link_flags, dep.go.cgo_link_flags])
+    transitive_cc_libs = depset(transitive = [transitive_cc_libs, dep.go.transitive_cc_libs])
 
   transitive_deps += extra_packages
   deps += extra_packages
@@ -123,7 +124,7 @@ def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
   return transitive_deps, cgo_link_flags, transitive_cc_libs
 
 def _go_build(ctx, archive):
-  cgo_link_flags = depset([], order="topological")
+  cgo_link_flags = depset(transitive = [], order = "topological")
   transitive_deps = []
   transitive_cc_libs = depset()
   deps = []
@@ -200,7 +201,8 @@ def _go_library_impl(ctx):
   else:
     pkg = ctx.attr.package
   # TODO(shahms): Figure out why protocol buffer .jar files are being included.
-  srcs = FileType([".go"]).filter(ctx.files.srcs)
+  
+  srcs = ctx.files.srcs
 
   if len(srcs) == 0:
     fail('ERROR: ' + str(ctx.label) + ' missing .go srcs')
@@ -224,7 +226,7 @@ def _go_library_impl(ctx):
 def _go_build_impl(ctx):
   if ctx.attr.package == "":
     fail('ERROR: missing package attribute')
-  if len(FileType([".go"]).filter(ctx.files.srcs)) == 0:
+  if len(ctx.files.srcs) == 0:
     fail('ERROR: ' + str(ctx.label) + ' missing .go srcs')
 
   archive = ctx.outputs.archive
@@ -377,7 +379,7 @@ def _go_test_impl(ctx):
 base_attrs = {
     "srcs": attr.label_list(
         mandatory = True,
-        allow_files = FileType([".go"]),
+        allow_files = [".go"],
     ),
     "deps": attr.label_list(
         allow_files = False,
@@ -428,7 +430,7 @@ binary_attrs = base_attrs + {
     ),
     "data": attr.label_list(
         allow_files = True,
-        cfg = "target",
+        cfg = "host",
     ),
 }
 
@@ -455,7 +457,7 @@ go_test = rule(
         ),
         "_go_testmain_srcs": attr.label(
             default = Label("//tools/go:testmain_srcs"),
-            allow_files = FileType([".go"]),
+            allow_files = [".go"],
         ),
     },
     executable = True,

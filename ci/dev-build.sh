@@ -21,7 +21,6 @@ do
 
     # Run the build and upload to GKE
     bazel run \
-        --incompatible_depset_union=false \
         --incompatible_disallow_filetype=false \
         --incompatible_disable_deprecated_attr_params=false \
         --incompatible_disallow_dict_plus=false \
