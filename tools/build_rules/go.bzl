@@ -393,8 +393,7 @@ base_attrs = {
     ),
     "_go": attr.label(
         default = Label("//tools/go"),
-        allow_files = True,
-        single_file = True,
+        allow_single_file = True,
     ),
     "_goroot": attr.label(
         default = Label("//tools/go:goroot"),
@@ -425,8 +424,7 @@ go_library = rule(
 binary_attrs = base_attrs + {
     "_format_build_vars": attr.label(
         default = Label("//tools/go:format_build_vars.sh"),
-        allow_files = True,
-        single_file = True,
+        allow_single_file = True,
     ),
     "data": attr.label_list(
         allow_files = True,
@@ -449,11 +447,11 @@ go_test = rule(
         ),
         "_go_testmain_generator": attr.label(
             default = Label("//tools/go:testmain_generator"),
-            single_file = True,
+            allow_single_file = True,
         ),
         "_go_test_parser": attr.label(
             default = Label("//tools/go:parse_test_output"),
-            single_file = True,
+            allow_single_file = True,
         ),
         "_go_testmain_srcs": attr.label(
             default = Label("//tools/go:testmain_srcs"),
