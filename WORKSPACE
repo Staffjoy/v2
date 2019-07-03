@@ -1,5 +1,3 @@
-# The native http_archive rule is deprecated in Bazel 0.20.0
-# we need to load the new rule from the following package
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository", "new_git_repository")
 
@@ -39,33 +37,8 @@ container_pull(
 )
 
 
-# what is that good for anyway?
-#new_http_archive(
-#  name = "docker_ubuntu",
-#  build_file = "//:BUILD.ubuntu",
-#  urls = ["https://codeload.github.com/tianon/docker-brew-ubuntu-core/zip/52c8214ecac89d45592d16ce7c14ef82ac7b0822"],
-#  sha256 = "a7386a64ad61298ee518885b414f70f9dba86eda61aebc1bca99bd91b07dd32c",
-#  type = "zip",
-#  strip_prefix = "docker-brew-ubuntu-core-52c8214ecac89d45592d16ce7c14ef82ac7b0822"
-#)
-
-# NGINX
-
-#http_file(
-#    name = "nginx",
-#    urls = ["http://nginx.org/packages/ubuntu/pool/nginx/n/nginx/nginx_1.16.0-1~bionic_amd64.deb"],
-#    sha256 = "83d821f514ae3c4f449bebd4b73b7e1dd15ec64bc25de73cf39aa59e457745a2",
-#)
-
-# NODEJS
-
-http_file(
-    name = "nodejs",
-    urls = ["https://deb.nodesource.com/node_10.x/pool/main/n/nodejs/nodejs_10.16.0-1nodesource1_arm64.deb"],
-    sha256 = "cca9736b02da747fd01b40a948ebc75aa92b6963f0c5b2477109dd93dd51aef8",
-)
-
 # GOLANG INIT
+
 load("//tools/go:go_configure.bzl", "go_configure")
 
 go_configure()
