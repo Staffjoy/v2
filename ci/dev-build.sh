@@ -20,9 +20,7 @@ do
     export service
 
     # Run the build and upload to GKE
-    bazel run \
-        --incompatible_new_actions_api=false \
-        //$target:docker
+    bazel run //$target:docker
     
     # Tag so we can track the deploy in Kubernetes
     # (bazel converts slash to an underscore)

@@ -114,7 +114,7 @@ def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
       '-I "' + go_path + '" ' + cmd_helper.join_paths(" ", depset(srcs)),
   ])
 
-  ctx.action(
+  ctx.actions.run_shell(
       inputs = ctx.files._goroot + srcs + archives,
       outputs = [archive],
       mnemonic = 'GoCompile',
@@ -185,7 +185,7 @@ def _go_build(ctx, archive):
       gotool.path + ' build -a ' + ' '.join(args) + ' -o ' + archive.path + ' ' + ctx.attr.package,
   ])
 
-  ctx.action(
+  ctx.actions.run_shell(
       inputs = ctx.files._goroot + ctx.files.srcs + archives + list(cc_inputs),
       outputs = [archive],
       mnemonic = 'GoBuild',
@@ -284,7 +284,7 @@ def _link_binary(ctx, binary, archive, transitive_deps,
                + ' -o ' + binary.path + ' ' + archive.path)
   cmd += [tool_cmd]
 
-  ctx.action(
+  ctx.actions.run_shell(
       inputs = inputs,
       outputs = [binary],
       mnemonic = 'GoLink',
@@ -307,7 +307,7 @@ def _go_binary_impl(ctx):
   if len(ctx.files.srcs) == 0:
     fail('ERROR: ' + str(ctx.label) + ' missing srcs')
 
-  archive = ctx.new_file(ctx.configuration.bin_dir, ctx.label.name + ".a")
+  archive = ctx.actions.declare_file("%s/%s" % (ctx.configuration.bin_dir.path, ctx.label.name + ".a"))
   transitive_deps, cgo_link_flags, transitive_cc_libs = _go_compile(ctx, 'main', ctx.files.srcs, archive)
 
   _link_binary(ctx, ctx.outputs.executable, archive, transitive_deps,
@@ -321,13 +321,13 @@ def _go_test_impl(ctx):
 
   # Construct the Go source that executes the tests when run.
   test_srcs = ctx.files.srcs
-  testmain = ctx.new_file(ctx.configuration.genfiles_dir, ctx.label.name + "main.go")
+  testmain = ctx.actions.declare_file("%s/%s" % (ctx.configuration.genfiles_dir.path, ctx.label.name + "main.go"))
   testmain_generator = ctx.file._go_testmain_generator
   cmd = (
       'set -e;' +
       testmain_generator.path + ' ' + pkg + ' ' + testmain.path + ' ' +
       cmd_helper.join_paths(' ', depset(test_srcs)) + ';')
-  ctx.action(
+  ctx.actions.run_shell(
       inputs = test_srcs + [testmain_generator],
       outputs = [testmain],
       mnemonic = 'GoTestMain',
@@ -335,7 +335,7 @@ def _go_test_impl(ctx):
   )
 
   # Compile the library along with all of its test sources (creating the test package).
-  archive = ctx.new_file(ctx.configuration.bin_dir, ctx.label.name + '.a')
+  archive = ctx.actions.declare_file("%s/%s" % (ctx.configuration.bin_dir.path, ctx.label.name + '.a'))
   transitive_deps, cgo_link_flags, transitive_cc_libs = _go_compile(
       ctx, pkg, test_srcs + lib.go.sources, archive,
       extra_packages = lib.go.transitive_deps)
@@ -346,7 +346,7 @@ def _go_test_impl(ctx):
   transitive_cc_libs += lib.go.transitive_cc_libs
 
   # Compile the generated test main.go source
-  testmain_archive = ctx.new_file(ctx.configuration.bin_dir, ctx.label.name + "main.a")
+  testmain_archive = ctx.actions.declare_file("%s/%s" % (ctx.configuration.bin_dir.path, ctx.label.name + "main.a"))
   _go_compile(ctx, 'main', [testmain] + ctx.files._go_testmain_srcs, testmain_archive,
               extra_packages = [test_pkg])
 
