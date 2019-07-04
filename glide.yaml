@@ -38,12 +38,12 @@ import:
   version: 5c24d5110e0e198d9ae16f1f3465366085001d92
 - package: google.golang.org/grpc
   version: 73b304d882a0822aaeb3c982c747563777e79586
-  repo: git@github.com:grpc/grpc-go.git
+  repo: https://github.com/grpc/grpc-go
   subpackages:
   - '...'
 - package: google.golang.org/genproto
   version: eb59cef1c072c61ea4f7623910448d5e9c6a4455
-  repo: git@github.com:googleapis/go-genproto.git
+  repo: https://github.com/googleapis/go-genproto
   subpackages:
   - '...'
 - package: github.com/grpc-ecosystem/grpc-gateway
@@ -64,12 +64,12 @@ import:
   version: deb3ae2ef2610fde3330947281941c562861188b
 - package: cloud.google.com/go
   version: cf81fad90a1a1de334c4fc27e23eb9a4224b627a
-  repo: git@github.com:GoogleCloudPlatform/google-cloud-go.git
+  repo: https://github.com/GoogleCloudPlatform/google-cloud-go
   subpackages:
   - '...'
 - package: gopkg.in/intercom/intercom-go.v2
   version: 1dbafb072bcdb981cad04ad4a0e6e29afbfc0c42
-  repo: git@github.com:intercom/intercom-go
+  repo: https://github.com/intercom/intercom-go
 - package: github.com/google/go-querystring
   version: c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80
   subpackages:
@@ -92,32 +92,32 @@ import:
   version: 877a9775f06853f611fb2d4e817d92479242d1cd
 - package: golang.org/x/net
   version: da137c7871d730100384dbcf36e6f8fa493aef5b
-  repo: git@github.com:golang/net.git
+  repo: https://github.com/golang/net
   subpackages:
   - html
   - context
 - package: github.com/golang/oauth2
   version: 0f29369cfe4552d0e4bcddc57cc75f4d7e672a33
-  repo: git@github.com:golang/oauth2.git
+  repo: https://github.com/golang/oauth2
 - package: golang.org/x/time
   version: 9d24e82272b4f38b78bc8cff74fa936d31ccd8ef
-  repo: git@github.com:golang/time.git
+  repo: https://github.com/golang/time
   subpackages:
   - rate
 - package: golang.org/x/crypto
   version: cc06ce4a13d484c0101a9e92913248488a75786d
-  repo: git@github.com:golang/crypto.git
+  repo: https://github.com/golang/crypto
   subpackages:
   - bcrypt
 - package: golang.org/x/text
   version: 342b2e1fbaa52c93f31447ad2c6abc048c63e475
-  repo: git@github.com:golang/text.git
+  repo: https://github.com/golang/text
 - package: golang.org/x/sync
   version: 112230192c580c3556b8cee6403af37a4fc5f28c
-  repo: git@github.com:golang/sync.git
+  repo: https://github.com/golang/sync
 - package: go.opencensus.io
   version: 5897c5ce32247fc8af19c7710abd96e3304fb43c
-  repo: git@github.com:census-instrumentation/opencensus-go.git
+  repo: https://github.com/census-instrumentation/opencensus-go
 - package: github.com/hashicorp/golang-lru
   version: 59383c442f7d7b190497e9bb8fc17a48d06cd03f
 - package: github.com/googleapis/gax-go
