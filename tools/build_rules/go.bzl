@@ -376,7 +376,7 @@ def _go_test_impl(ctx):
 
   return binary_struct(ctx, extra_runfiles=[ctx.outputs.bin, test_parser])
 
-base_attrs = {
+base_attrs = dict({
     "srcs": attr.label_list(
         mandatory = True,
         allow_files = [".go"],
@@ -399,29 +399,29 @@ base_attrs = {
         default = Label("//tools/go:goroot"),
         allow_files = True,
     ),
-}
+})
 
 go_build = rule(
     _go_build_impl,
-    attrs = base_attrs + {
+    attrs = dict(base_attrs, **{
         "cc_deps": attr.label_list(
             allow_files = False,
             providers = ["cc"],
         ),
         "package": attr.string(mandatory = True),
-    },
+    }),
     outputs = {"archive": "%{name}.a"},
 )
 
 go_library = rule(
     _go_library_impl,
-    attrs = base_attrs + {
+    attrs = dict(base_attrs, **{
         "package": attr.string(),
-    },
+    }),
     outputs = {"archive": "%{name}.a"},
 )
 
-binary_attrs = base_attrs + {
+binary_attrs = dict(base_attrs, **{
     "_format_build_vars": attr.label(
         default = Label("//tools/go:format_build_vars.sh"),
         allow_single_file = True,
@@ -430,7 +430,7 @@ binary_attrs = base_attrs + {
         allow_files = True,
         cfg = "host",
     ),
-}
+})
 
 go_binary = rule(
     _go_binary_impl,
@@ -440,7 +440,7 @@ go_binary = rule(
 
 go_test = rule(
     _go_test_impl,
-    attrs = binary_attrs + {
+    attrs = dict(binary_attrs, **{
         "library": attr.label(
             mandatory = True,
             providers = ["go"],
@@ -457,7 +457,7 @@ go_test = rule(
             default = Label("//tools/go:testmain_srcs"),
             allow_files = [".go"],
         ),
-    },
+    }),
     executable = True,
     outputs = {"bin": "%{name}.bin"},
     test = True,
