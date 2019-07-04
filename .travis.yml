@@ -15,7 +15,6 @@ addons:
       - wget
       - pkg-config
 install:
-  - mkdir $GOPATH/bin
   - go get github.com/PuerkitoBio/goquery
   - go get -u golang.org/x/lint/golint
   - go get -u golang.org/x/tools/cmd/cover
