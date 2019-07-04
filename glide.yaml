@@ -20,8 +20,9 @@ import:
   version: 5dd56998c22c824ad2e13c50bc3213e85b125134
 - package: github.com/pkg/errors
   version: 27936f6d90f9c8e1145f11ed52ffffbfdb9e0af7
-- package: github.com/mailgun/mailgun-go
+- package: github.com/mailgun/mailgun-go/v3
   version: cd4cc0c6e6178be81b436ae16651f8db3d6e8460
+  repo: https://github.com/mailgun/mailgun-go
 - package: github.com/mailru/easyjson
   version: b2ccc519800e761ac8000b95e5d57c80a897ff9e
 - package: github.com/Sirupsen/logrus
