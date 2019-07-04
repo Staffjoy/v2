@@ -36,4 +36,4 @@ echo "export COMPANY_MYSQL_CONFIG=\"mysql://root:SHIBBOLETH@tcp(10.0.0.100:3306)
 echo "alias k=\"kubectl --namespace=development\"" | tee -a $VHOME/.bash_aliases
 echo "alias bazel=\"/home/vagrant/.bazel/bin/bazel\"" | tee -a $VHOME/.bash_aliases
 
-echo "192.168.69.69 suite.local" | tee -a /etc/hosts
+echo "192.168.69.69 suite.local" | sudo tee -a /etc/hosts
