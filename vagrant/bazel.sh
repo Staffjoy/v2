@@ -25,12 +25,21 @@ if ! command -V python >/dev/null 2>&1; then
 fi
 
 if ! command -V bazel >/dev/null 2>&1; then
-    sudo apt install -y -q  pkg-config zip g++ zlib1g-dev unzip python3
+    sudo apt install -y -q  pkg-config zip g++ zlib1g-dev unzip
 
-    if [ ! -f /etc/apt/sources.list.d/bazel.list ]; then
-        echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
-        curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
-        sudo apt update -y -q
+    # This release version should correspond to the version listed here:
+    # https://github.com/bazelbuild/bazel/releases
+    RELEASE=0.27.1
+
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        sudo curl -L https://github.com/bazelbuild/bazel/releases/download/${RELEASE}/bazel-${RELEASE}-installer-linux-x86_64.sh --output /usr/src/bazel-${RELEASE}-installer-linux-x86_64.sh
+        sudo chmod +x /usr/src/bazel-${RELEASE}-installer-linux-x86_64.sh
+        /usr/src/bazel-${RELEASE}-installer-linux-x86_64.sh --user
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        sudo curl -L https://github.com/bazelbuild/bazel/releases/download/${RELEASE}/bazel-${RELEASE}-installer-darwin-x86_64.sh --output /usr/src/bazel-${RELEASE}-installer-darwin-x86_64.sh
+        sudo chmod +x /usr/src/bazel-${RELEASE}-installer-darwin-x86_64.sh
+        /usr/src/bazel-${RELEASE}-installer-darwin-x86_64.sh --user
     fi
-    sudo apt install -y -q  bazel
+
+    echo "source /home/${USER}/.bazel/bin/bazel-complete.bash" | sudo tee -a ~/.bashrc
 fi

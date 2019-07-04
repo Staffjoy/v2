@@ -31,4 +31,3 @@ do
 done
 
 echo "Finished deploying version ${VERSION} - check the status at http://kubernetes.staffjoy-v2.local"
-
