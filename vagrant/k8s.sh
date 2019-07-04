@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARCH=amd64
-export K8S_VERSION="v1.4.0" # should match google cloud deployed version
+export K8S_VERSION="v1.15.0" # should match google cloud deployed version
 
 
 if [ ! -f /usr/local/bin/kubectl ]; then
