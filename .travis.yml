@@ -1,6 +1,7 @@
 dist: bionic
 sudo: required
 language: go
+env: GO111MODULE=on
 go:
   - 1.11
   - 1.12
