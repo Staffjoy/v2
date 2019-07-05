@@ -137,8 +137,8 @@ new_git_repository(
 new_git_repository(
     name = "go_logrus",
     build_file = "//:third_party/go/Sirupsen_logrus.BUILD",
-    commit = "07a84ee7412e7a28663d92930a1d46f81b124ee1", # Jul 1, 2019 (LATEST GIT COMMIT)
-    remote = "https://github.com/Sirupsen/logrus.git",
+    commit = "839c75faf7f98a33d445d181f3018b5c3409a45e", # May 18, 2019 (LATEST OFFICIAL VERSION)
+    remote = "https://github.com/sirupsen/logrus.git",
 )
 
 new_git_repository(
@@ -172,7 +172,7 @@ new_git_repository(
 new_git_repository(
     name = "go_grpc",
     build_file = "//:third_party/go/google_grpc.BUILD",
-    commit = "73b304d882a0822aaeb3c982c747563777e79586", # Jun 28, 2019 (LATEST GIT COMMIT)
+    commit = "73b304d882a0822aaeb3c982c747563777e79586", # v1.22.0 Jul 3, 2019 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/grpc/grpc-go.git",
 )
 

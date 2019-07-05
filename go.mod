@@ -32,12 +32,12 @@ require (
 	github.com/pkg/errors v0.8.2-0.20190227000051-27936f6d90f9
 	github.com/russross/blackfriday v1.5.3-0.20190616195246-a925a152c144
 	github.com/shurcooL/sanitized_anchor_name v1.0.0
-	github.com/sirupsen/logrus v1.4.3-0.20190701143506-07a84ee7412e
+	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.3.0
 	github.com/ttacon/builder v0.0.0-20170518171403-c099f663e1c2
 	github.com/ttacon/libphonenumber v1.0.2-0.20190108145153-23ddf903e8f8
 	github.com/urfave/negroni v1.0.0
-	go.opencensus.io v0.22.0
+	go.opencensus.io v0.20.0
 	golang.org/x/crypto v0.0.0-20190621222207-cc06ce4a13d4
 	golang.org/x/lint v0.0.0-20190409202823-959b441ac422
 	golang.org/x/net v0.0.0-20190628185345-da137c7871d7
@@ -49,7 +49,7 @@ require (
 	google.golang.org/api v0.7.1-0.20190702010756-cad4a65739ec
 	google.golang.org/appengine v1.6.1
 	google.golang.org/genproto v0.0.0-20190627203621-eb59cef1c072
-	google.golang.org/grpc v1.21.1
+	google.golang.org/grpc v1.22.0
 	gopkg.in/intercom/intercom-go.v2 v2.0.0-20190319111853-1dbafb072bcd
 	honnef.co/go/tools v0.0.0-20190523083050-ea95bdfd59fc // indirect
 )
