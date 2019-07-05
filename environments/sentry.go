@@ -6,8 +6,8 @@
 package environments
 
 import (
-	"github.com/Sirupsen/logrus"
 	sentry "github.com/getsentry/raven-go"
+	"github.com/sirupsen/logrus"
 )
 
 // SentryConfig is an interface for being able to retrieve error handler funcs

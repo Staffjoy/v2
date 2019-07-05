@@ -7,7 +7,7 @@ import (
 	"mime"
 	"net/http"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/elazarl/go-bindata-assetfs"
 )
 

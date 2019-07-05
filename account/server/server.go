@@ -10,8 +10,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	intercom "gopkg.in/intercom/intercom-go.v2"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/go-gorp/gorp"
+	"github.com/sirupsen/logrus"
 
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"

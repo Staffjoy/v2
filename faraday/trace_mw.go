@@ -9,7 +9,7 @@ import (
 	"golang.org/x/net/context"
 
 	"cloud.google.com/go/trace"
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"v2.staffjoy.com/environments"
 )
 

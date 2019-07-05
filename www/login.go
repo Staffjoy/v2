@@ -16,8 +16,8 @@ import (
 	"v2.staffjoy.com/helpers"
 	"v2.staffjoy.com/suite"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/gorilla/csrf"
+	"github.com/sirupsen/logrus"
 )
 
 type loginPage struct {

@@ -12,7 +12,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/elazarl/go-bindata-assetfs"
 	"github.com/gorilla/csrf"
 	"github.com/gorilla/mux"

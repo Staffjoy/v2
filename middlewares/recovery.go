@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"runtime"
 
-	"github.com/Sirupsen/logrus"
 	sentry "github.com/getsentry/raven-go"
+	"github.com/sirupsen/logrus"
 	"v2.staffjoy.com/environments"
 	"v2.staffjoy.com/errorpages"
 )

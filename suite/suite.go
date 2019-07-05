@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"v2.staffjoy.com/environments"
 )
 

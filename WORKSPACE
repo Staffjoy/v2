@@ -136,7 +136,7 @@ new_git_repository(
 
 new_git_repository(
     name = "go_logrus",
-    build_file = "//:third_party/go/Sirupsen_logrus.BUILD",
+    build_file = "//:third_party/go/sirupsen_logrus.BUILD",
     commit = "839c75faf7f98a33d445d181f3018b5c3409a45e", # May 18, 2019 (LATEST OFFICIAL VERSION)
     remote = "https://github.com/sirupsen/logrus.git",
 )

@@ -12,8 +12,8 @@ import (
 	"v2.staffjoy.com/company"
 	pb "v2.staffjoy.com/company"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/gorilla/mux"
+	"github.com/sirupsen/logrus"
 	"github.com/urfave/negroni"
 	"google.golang.org/grpc/metadata"
 	"v2.staffjoy.com/environments"

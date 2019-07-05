@@ -7,9 +7,9 @@ import (
 
 	"google.golang.org/grpc/metadata"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/gorilla/csrf"
 	"github.com/gorilla/mux"
+	"github.com/sirupsen/logrus"
 	"golang.org/x/net/context"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"

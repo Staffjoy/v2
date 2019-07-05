@@ -10,8 +10,8 @@ import (
 
 	"google.golang.org/grpc/metadata"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/gorilla/mux"
+	"github.com/sirupsen/logrus"
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"
 	"v2.staffjoy.com/company"

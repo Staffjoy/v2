@@ -12,9 +12,9 @@ import (
 	"v2.staffjoy.com/account"
 	"v2.staffjoy.com/auth"
 
-	"github.com/Sirupsen/logrus"
 	recaptcha "github.com/dpapathanasiou/go-recaptcha"
 	"github.com/gorilla/csrf"
+	"github.com/sirupsen/logrus"
 )
 
 type resetPage struct {
@@ -54,7 +54,7 @@ func resetHandler(res http.ResponseWriter, req *http.Request) {
 			// Cloudflare proxy
 			remoteIP = req.Header.Get("CF-Connecting-IP")
 		}
-		result, err:= recaptcha.Confirm(remoteIP, recaptchaResponse[0])
+		result, err := recaptcha.Confirm(remoteIP, recaptchaResponse[0])
 		if !result {
 			res.Write([]byte("Recaptcha incorrect."))
 			return

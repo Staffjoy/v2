@@ -2,8 +2,8 @@
 package auditlog
 
 import (
-	"github.com/Sirupsen/logrus"
 	"github.com/fatih/structs"
+	"github.com/sirupsen/logrus"
 )
 
 var auditFields = logrus.Fields{"auditlog": "true"}

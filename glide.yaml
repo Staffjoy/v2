@@ -29,7 +29,7 @@ import:
   repo: https://github.com/mailgun/mailgun-go
 - package: github.com/mailru/easyjson
   version: b2ccc519800e761ac8000b95e5d57c80a897ff9e
-- package: github.com/Sirupsen/logrus
+- package: github.com/sirupsen/logrus
   version: 839c75faf7f98a33d445d181f3018b5c3409a45e
 - package: github.com/stretchr/testify
   version: ^1.3.0

@@ -20,7 +20,7 @@ do
     export service
 
     # Run the build and upload to GKE
-    bazel run //$target:docker
+    /home/vagrant/.bazel/bin/bazel run //$target:docker
     
     # Tag so we can track the deploy in Kubernetes
     # (bazel converts slash to an underscore)

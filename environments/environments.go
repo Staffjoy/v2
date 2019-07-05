@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Sirupsen/logrus"
 	sentry "github.com/getsentry/raven-go"
+	"github.com/sirupsen/logrus"
 	intercom "gopkg.in/intercom/intercom-go.v2"
 )
 
@@ -60,8 +60,8 @@ var configs = map[string]Config{
 		Debug:        false,
 		ExternalApex: "staffjoystaging.com",
 		InternalApex: "staging",
-		LogLevel: logrus.InfoLevel,
-		Scheme:   "https",
+		LogLevel:     logrus.InfoLevel,
+		Scheme:       "https",
 	},
 	"production": {
 		Name:         "production",

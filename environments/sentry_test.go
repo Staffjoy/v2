@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Sirupsen/logrus"
 	sentry "github.com/getsentry/raven-go"
+	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
 
