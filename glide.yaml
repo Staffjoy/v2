@@ -14,6 +14,10 @@ import:
   version: ^1.1.1
 - package: github.com/gorilla/context
   version: 8559d4a6b87e4f517ec1846eb90a192b8748cc89
+
+
+
+
 - package: github.com/gorilla/csrf
   version: 9b0e3acb4f79e4bf9415d6144123987e7b8527cb
 - package: github.com/gorilla/mux
@@ -75,12 +79,14 @@ import:
   version: c8c88dbee036db4e4808d1f2ec8c2e15e11c3f80
   subpackages:
   - '...'
-- package: github.com/google/google-api-go-client
+- package: google.golang.org/api
   version: cad4a65739ec9027249a05eec449fe57ff999d48
+  repo: https://github.com/google/google-api-go-client
   subpackages:
   - '...'
-- package: github.com/golang/appengine
+- package: google.golang.org/appengine
   version: b2f4a3cf3c67576a2ee09e1fe62656a5086ce880
+  repo: https://github.com/golang/appengine
 - package: github.com/go-gorp/gorp
   version: f3677d4a0a8838c846ed41bf41927f2c8713bd60
 - package: github.com/russross/blackfriday
@@ -97,7 +103,7 @@ import:
   subpackages:
   - html
   - context
-- package: github.com/golang/oauth2
+- package: golang.org/x/oauth2
   version: 0f29369cfe4552d0e4bcddc57cc75f4d7e672a33
   repo: https://github.com/golang/oauth2
 - package: golang.org/x/time
