@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-glide install
+go mod download
