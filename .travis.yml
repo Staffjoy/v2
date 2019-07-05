@@ -17,6 +17,7 @@ addons:
       - wget
       - pkg-config
 install:
+  - curl https://glide.sh/get | sh
   - make build
 script:
   - make test
