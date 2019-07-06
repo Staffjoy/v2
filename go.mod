@@ -21,7 +21,7 @@ require (
 	github.com/googleapis/gax-go v1.0.3
 	github.com/gorilla/context v1.1.2-0.20190627024605-8559d4a6b87e
 	github.com/gorilla/csrf v1.6.1-0.20190626012333-9b0e3acb4f79
-	github.com/gorilla/mux v0.0.0-20160604082155-5dd56998c22c
+	github.com/gorilla/mux v1.6.2
 	github.com/gorilla/securecookie v1.1.1
 	github.com/gorilla/sessions v1.1.3
 	github.com/grpc-ecosystem/grpc-gateway v1.9.4-0.20190629162216-740ef2ee80c4
@@ -37,7 +37,7 @@ require (
 	github.com/ttacon/builder v0.0.0-20170518171403-c099f663e1c2
 	github.com/ttacon/libphonenumber v1.0.2-0.20190108145153-23ddf903e8f8
 	github.com/urfave/negroni v1.0.0
-	go.opencensus.io v0.20.0
+	go.opencensus.io v0.12.0
 	golang.org/x/crypto v0.0.0-20190621222207-cc06ce4a13d4
 	golang.org/x/lint v0.0.0-20190409202823-959b441ac422
 	golang.org/x/net v0.0.0-20190628185345-da137c7871d7
@@ -51,5 +51,5 @@ require (
 	google.golang.org/genproto v0.0.0-20190627203621-eb59cef1c072
 	google.golang.org/grpc v1.22.0
 	gopkg.in/intercom/intercom-go.v2 v2.0.0-20190319111853-1dbafb072bcd
-	honnef.co/go/tools v0.0.0-20190523083050-ea95bdfd59fc // indirect
+	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
