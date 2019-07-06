@@ -22,6 +22,7 @@ go_binary(
         "@go_gogo_protobuf//:types",
         "@go_gorilla_mux//:mux",
         "@go_grpc//:codes",
+        "@go_grpc//:status",
         "@go_grpc//:grpc",
         "@go_grpc//:grpclog",
         "@go_grpc_gateway//:runtime",

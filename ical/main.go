@@ -96,7 +96,7 @@ func CalHandler(res http.ResponseWriter, req *http.Request) {
 
 	tinfo, err := companyClient.GetWorkerTeamInfo(ctx, old)
 	if err != nil {
-		logger.Debugf("unable to get team info", err)
+		logger.Debugf("unable to get team info %s", err)
 	}
 
 	wsl := &pb.WorkerShiftListRequest{
@@ -109,12 +109,12 @@ func CalHandler(res http.ResponseWriter, req *http.Request) {
 
 	company, err := companyClient.GetCompany(ctx, &pb.GetCompanyRequest{Uuid: tinfo.CompanyUuid})
 	if err != nil {
-		logger.Debugf("unable to get company ", err)
+		logger.Debugf("unable to get company %s", err)
 	}
 
 	shifts, err := companyClient.ListWorkerShifts(ctx, wsl)
 	if err != nil {
-		logger.Debugf("unable to get worker shifts", err)
+		logger.Debugf("unable to get worker shifts %s", err)
 	}
 
 	cal := Cal{

@@ -16,7 +16,7 @@ go_binary(
         "@go_grpc//:codes",
         "@go_grpc//:grpc",
         "@go_logrus//:logrus",
-        "@go_mailgun//:mailgun-go",
+        "@go_mailgun//:v3",
         "@go_protobuf//:ptypes",
         "@go_protobuf//:ptypes/empty",
         "@go_x_net//:context",

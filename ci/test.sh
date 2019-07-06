@@ -36,7 +36,8 @@ if [ "$gocount" -gt 0 ]; then
 	exit 1
 fi
 
-buildcount=$(buildifier -mode=check $(find . -iname BUILD -type f -not -path "./vendor/*") | wc -l)
+# find better way to ignore node_modules more genericly.
+buildcount=$(buildifier -mode=check $(find . -iname BUILD -type f -not -path "./vendor/*" -type f -not -path "./myaccount/node_modules/*") | wc -l)
 if [ "$buildcount" -gt 0 ]; then
 	echo "Some BUILD files are not formatted. Run make build-fmt"
 	exit 1

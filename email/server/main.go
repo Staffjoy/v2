@@ -14,7 +14,7 @@ import (
 
 	"github.com/golang/protobuf/ptypes/empty"
 
-	"github.com/mailgun/mailgun-go"
+	"github.com/mailgun/mailgun-go/v3"
 
 	"github.com/sirupsen/logrus"
 

@@ -8,6 +8,7 @@ if [ ! -d /usr/local/go ]; then
     sudo rm go1.12.6.linux-amd64.tar.gz
     echo "export GOPATH=$GOPATH" >> "$VHOME/.profile"
     echo "export PATH=\$PATH:\$GOPATH/bin:/usr/local/go/bin" >> "$VHOME/.profile"
+    echo "export GO111MODULE=on" >> "$VHOME/.profile"
 fi
 
 sudo -u vagrant -H bash -c "

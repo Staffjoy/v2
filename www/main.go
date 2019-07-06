@@ -12,10 +12,10 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/sirupsen/logrus"
 	"github.com/elazarl/go-bindata-assetfs"
 	"github.com/gorilla/csrf"
 	"github.com/gorilla/mux"
+	"github.com/sirupsen/logrus"
 	"v2.staffjoy.com/environments"
 	"v2.staffjoy.com/errorpages"
 	"v2.staffjoy.com/healthcheck"

@@ -7,8 +7,8 @@ import (
 	"mime"
 	"net/http"
 
-	"github.com/sirupsen/logrus"
 	"github.com/elazarl/go-bindata-assetfs"
+	"github.com/sirupsen/logrus"
 )
 
 const (

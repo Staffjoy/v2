@@ -14,6 +14,7 @@ go_library(
         "@go_gogo_protobuf//:gogoproto",
         "@go_gogo_protobuf//:proto",
         "@go_gogo_protobuf//:types",
+        "@go_grpc//:status",
         "@go_grpc//:codes",
         "@go_grpc//:grpc",
         "@go_grpc//:grpclog",
