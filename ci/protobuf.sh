@@ -13,6 +13,7 @@ protoc \
     --go_out=Mgoogle/api/annotations.proto=github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api,plugins=grpc:../ \
     ./protobuf/account.proto
 mv account/account.pb.go account/api/
+
 protoc \
     -I ./protobuf/ \
     -I $GOPATH/pkg/mod \
@@ -20,6 +21,7 @@ protoc \
     --grpc-gateway_out=logtostderr=true:../ \
     ./protobuf/account.proto
 mv ./account/account.pb.gw.go ./account/api/
+
 sed -i "s/package account/package main/g" account/api/account.pb.go
 sed -i "s/package account/package main/g" account/api/account.pb.gw.go
 
@@ -78,6 +80,7 @@ protoc \
     --go_out=Mgoogle/api/annotations.proto=github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api,plugins=grpc:../ \
     ./protobuf/company.proto
 mv company/company.pb.go company/api/
+
 protoc \
     -I ./protobuf/ \
     -I $GOPATH/pkg/mod \
@@ -85,6 +88,7 @@ protoc \
     --grpc-gateway_out=logtostderr=true:../ \
     ./protobuf/company.proto
 mv ./company/company.pb.gw.go ./company/api/
+
 sed -i "s/package company/package main/g" company/api/company.pb.go
 sed -i "s/package company/package main/g" company/api/company.pb.gw.go
 
@@ -104,6 +108,7 @@ protoc \
     --swagger_out=logtostderr=true:./company/api/ \
     ./protobuf/company.proto
 # Encode swagger
+
 cd ./company/api/
 
 go-bindata company.swagger.json
