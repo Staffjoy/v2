@@ -6,6 +6,8 @@ cloud.google.com/go v0.41.0/go.mod h1:OauMR7DV8fzvZIl2qg6rkaIhD/vmgk4iwEw/h6ercm
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/PuerkitoBio/goquery v1.5.0/go.mod h1:qD2PgZ9lccMbQlc7eEOjaeRlFQON7xY8kdmcsrnKqMg=
+github.com/amsokol/protoc-gen-gotag v0.2.1 h1:N3ovy0PyxxUBXz+jkuJJUA1iNlQ+7a/QVSW361XF0kc=
+github.com/amsokol/protoc-gen-gotag v0.2.1/go.mod h1:VGStdb9DuXf/2T+bgrIqBouu8Hl81egNzVxD/DyEPAg=
 github.com/andybalholm/cascadia v1.0.0/go.mod h1:GsXiBklL0woXo1j/WYWtSYYC4ouU9PqHO0sqidkEA4Y=
 github.com/bazelbuild/buildifier v0.0.0-20190606114006-eb1a85ca787f/go.mod h1:SEc5aiVK6KazPqPL64r99exRhpHkr0E+nc3ZfvpmKwU=
 github.com/certifi/gocertifi v0.0.0-20180118203423-deb3ae2ef261 h1:6/yVvBsKeAw05IUj4AzvrxaCnDjN4nUqKjW9+w5wixg=
@@ -25,11 +27,15 @@ github.com/facebookgo/stack v0.0.0-20160209184415-751773369052/go.mod h1:UbMTZqL
 github.com/facebookgo/subset v0.0.0-20150612182917-8dac2c3c4870/go.mod h1:5tD+neXqOorC30/tWg0LCSkrqj/AR6gu8yY8/fpw1q0=
 github.com/fatih/structs v1.1.1-0.20181010231757-878a968ab225 h1:dBJnHTA37b8mPnoLCos0djW6jIOUKdsnJC5rQ3h8QvE=
 github.com/fatih/structs v1.1.1-0.20181010231757-878a968ab225/go.mod h1:9NiDSp5zOcgEDl+j00MP/WkGVPOlPRLejGD8Ga6PJ7M=
+github.com/fatih/structtag v1.0.0 h1:pTHj65+u3RKWYPSGaU290FpI/dXxTaHdVwVwbcPKmEc=
+github.com/fatih/structtag v1.0.0/go.mod h1:IKitwq45uXL/yqi5mYghiD3w9H6eTOvI9vnk8tXMphA=
 github.com/getsentry/raven-go v0.1.2-0.20190619092523-5c24d5110e0e h1:Ph+asACoMkPY4GPDLtMBe2FGQiHWvEWPPkdTVgsGACU=
 github.com/getsentry/raven-go v0.1.2-0.20190619092523-5c24d5110e0e/go.mod h1:KungGk8q33+aIAZUIVWZDr2OfAEBsO49PX4NzFV5kcQ=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/go-chi/chi v4.0.0+incompatible h1:SiLLEDyAkqNnw+T/uDTf3aFB9T4FTrwMpuYrgaRcnW4=
 github.com/go-chi/chi v4.0.0+incompatible/go.mod h1:eB3wogJHnLi3x/kFX2A+IbTBlXxmMeXJVKy9tTv1XzQ=
+github.com/go-gorp/gorp v2.0.1-0.20180410155428-6032c66e0f5f+incompatible h1:cWM8mu5v0FdhuVs0oqlVI5IcEXfTaAw9Xu025fBqkeQ=
+github.com/go-gorp/gorp v2.0.1-0.20180410155428-6032c66e0f5f+incompatible/go.mod h1:7IfkAQnO7jfT/9IQ3R9wL1dFhukN6aQxzKTHnkxzA/E=
 github.com/go-gorp/gorp v2.0.1-0.20181104192722-f3677d4a0a88+incompatible h1:SBdsOG1GGam6p8fJpnkPynqWMvME3KZKnJPa1mQVuyY=
 github.com/go-gorp/gorp v2.0.1-0.20181104192722-f3677d4a0a88+incompatible/go.mod h1:7IfkAQnO7jfT/9IQ3R9wL1dFhukN6aQxzKTHnkxzA/E=
 github.com/go-sql-driver/mysql v1.4.1-0.20190510102335-877a9775f068 h1:q2kwd9Bcgl2QpSi/Wjcx9jzwyICt3EWTP5to43QhwaA=
@@ -89,6 +95,8 @@ github.com/konsorten/go-windows-terminal-sequences v1.0.1/go.mod h1:T0+1ngSBFLxv
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
+github.com/lyft/protoc-gen-star v0.4.10 h1:yekjh68Yp+AF+IXd/0vLd+DQv+eb6joCTA6qxRmtE2A=
+github.com/lyft/protoc-gen-star v0.4.10/go.mod h1:mE8fbna26u7aEA2QCVvvfBU/ZrPgocG1206xAFPcs94=
 github.com/mailgun/mailgun-go v2.0.0+incompatible/go.mod h1:NWTyU+O4aczg/nsGhQnvHL6v2n5Gy6Sv5tNDVvC6FbU=
 github.com/mailgun/mailgun-go/v3 v3.6.0 h1:oQWhyDTFjSiuO6vx1PRlfLZ7Fu+oK0Axn0UTREh3k/g=
 github.com/mailgun/mailgun-go/v3 v3.6.0/go.mod h1:E81I5Agcfi/u1szdehi6p6ttdRX/UD3Rq2SrUzwyFIU=
@@ -110,6 +118,8 @@ github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeV
 github.com/sirupsen/logrus v1.4.2 h1:SPIRibHv4MatM3XXNO2BJeFLZwZ2LvZgfQ5+UNI2im4=
 github.com/sirupsen/logrus v1.4.2/go.mod h1:tLMulIdttU9McNUspp0xgXVQah82FyeX6MwdIuYE2rE=
 github.com/sirupsen/logrus v1.4.3-0.20190701143506-07a84ee7412e/go.mod h1:tLMulIdttU9McNUspp0xgXVQah82FyeX6MwdIuYE2rE=
+github.com/spf13/afero v1.2.2 h1:5jhuqJyZCZf2JRofRvN/nIFgIWNzPa3/Vz8mYylgbWc=
+github.com/spf13/afero v1.2.2/go.mod h1:9ZxEEn6pIJ8Rxe320qSDBk6AsU0r9pR7Q4OcevTdifk=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
