@@ -1,7 +1,7 @@
 set -e
 
 # install packages
-npm install
+yarn install
 go get -u github.com/jteeuwen/go-bindata/...
 
 echo "gulp Gulp GULP"
