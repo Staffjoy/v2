@@ -58,7 +58,7 @@ package main
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api"
+import _ "google.golang.org/genproto/googleapis/api/annotations"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/timestamp"
 import google_protobuf2 "github.com/golang/protobuf/ptypes/empty"
 import _ "github.com/gogo/protobuf/gogoproto"

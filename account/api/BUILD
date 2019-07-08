@@ -26,7 +26,7 @@ go_binary(
         "@go_grpc//:codes",
         "@go_grpc//:grpclog",
         "@go_grpc_gateway//:runtime",
-        "@go_grpc_gateway//:third_party/googleapis/google/api",
+        "@go_genproto//:googleapis/api/annotations",
         "@go_grpc_gateway//:utilities",
         "@go_logrus//:logrus",
         "@go_protobuf//:proto",

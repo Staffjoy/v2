@@ -185,9 +185,6 @@ new_git_repository(
 
 ## slight bug, BUILD.bazel messing up the build. After build fails need to remove these files:
 ## rm -rf utilities/BUILD.bazel && rm -rf runtime/BUILD.bazel && rm -rf internal/BUILD.bazel
-## third_party/googleapis/google/api missing .go files, need to generate from .proto. CMD: 
-##  1. protoc --go_out=. google/api/http.proto
-##  2. protoc --go_out=. google/api/annotations.proto
 ## need to find a way to make it neatly via BUILD.bazel
 new_git_repository(
     name = "go_grpc_gateway",

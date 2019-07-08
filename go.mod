@@ -45,7 +45,7 @@ require (
 	golang.org/x/sys v0.0.0-20190626221950-04f50cda93cb // indirect
 	golang.org/x/tools v0.0.0-20190706070813-72ffa07ba3db // indirect
 	google.golang.org/api v0.7.1-0.20190702010756-cad4a65739ec
-	google.golang.org/genproto v0.0.0-20190627203621-eb59cef1c072 // indirect
+	google.golang.org/genproto v0.0.0-20190627203621-eb59cef1c072
 	google.golang.org/grpc v1.22.0
 	gopkg.in/intercom/intercom-go.v2 v2.0.0-20190319111853-1dbafb072bcd
 	gopkg.in/yaml.v2 v2.2.2 // indirect

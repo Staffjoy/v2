@@ -18,7 +18,7 @@ go_library(
         "@go_grpc//:status",
         "@go_grpc//:grpclog",
         "@go_grpc_gateway//:runtime",
-        "@go_grpc_gateway//:third_party/googleapis/google/api",
+        "@go_genproto//:googleapis/api/annotations",
         "@go_grpc_gateway//:utilities",
         "@go_protobuf//:proto",
         "@go_protobuf//:ptypes/empty",

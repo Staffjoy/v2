@@ -10,7 +10,7 @@ protoc \
     -I ./protobuf/ \
     -I $GOPATH/pkg/mod \
     -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --go_out=Mgoogle/api/annotations.proto=github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api,plugins=grpc:../ \
+    --go_out=Mgoogle/api/annotations.proto=google.golang.org/genproto/googleapis/api/annotations,plugins=grpc:../ \
     ./protobuf/account.proto
 mv account/account.pb.go account/api/
 
@@ -32,7 +32,7 @@ protoc \
     -I ./protobuf/ \
     -I $GOPATH/pkg/mod \
     -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --gogo_out=Mgoogle/api/annotations.proto=github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api,plugins=grpc:../ \
+    --gogo_out=Mgoogle/api/annotations.proto=google.golang.org/genproto/googleapis/api/annotations,plugins=grpc:../ \
     ./protobuf/account.proto
 # gateway
 # swagger
@@ -77,7 +77,7 @@ protoc \
     -I ./protobuf/ \
     -I $GOPATH/pkg/mod \
     -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --go_out=Mgoogle/api/annotations.proto=github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api,plugins=grpc:../ \
+    --go_out=Mgoogle/api/annotations.proto=google.golang.org/genproto/googleapis/api/annotations,plugins=grpc:../ \
     ./protobuf/company.proto
 mv company/company.pb.go company/api/
 
@@ -98,7 +98,7 @@ protoc \
     -I ./protobuf/ \
     -I $GOPATH/pkg/mod \
     -I $GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-    --gogo_out=Mgoogle/api/annotations.proto=github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/google/api,plugins=grpc:../ \
+    --gogo_out=Mgoogle/api/annotations.proto=google.golang.org/genproto/googleapis/api/annotations,plugins=grpc:../ \
     ./protobuf/company.proto
 # swagger
 protoc \

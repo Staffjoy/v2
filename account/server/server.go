@@ -149,6 +149,7 @@ func (s *accountServer) Create(ctx context.Context, req *pb.CreateAccountRequest
 	a := &pb.Account{Uuid: uuid.String(), Email: req.Email, Name: req.Name, Phonenumber: req.Phonenumber}
 	a.PhotoUrl = GenerateGravatarURL(a.Email)
 	a.MemberSince = time.Now()
+
 	if err = s.dbMap.Insert(a); err != nil {
 		return nil, s.internalError(err, "Could not create user account")
 	}

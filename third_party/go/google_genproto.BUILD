@@ -24,6 +24,15 @@ external_go_package(
 )
 
 external_go_package(
+    name = "googleapis/api/annotations",
+    base_pkg = "google.golang.org/genproto",
+    deps = [
+        "@go_protobuf//:proto",
+        "@go_protobuf//:protoc-gen-go/descriptor",
+    ],
+)
+
+external_go_package(
     name = "googleapis/api/httpbody",
     base_pkg = "google.golang.org/genproto",
     deps = [
