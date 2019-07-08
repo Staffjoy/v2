@@ -18,9 +18,8 @@ Vagrant.configure(2) do |config|
   config.disksize.size = '20GB' # vagrant plugin install vagrant-disksize
   
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder ".", "/home/vagrant/golang/src/v2.staffjoy.com",
-	owner: "vagrant", group: "vagrant"
-
+  config.vm.synced_folder ".", "/home/vagrant/golang/src/v2.staffjoy.com", SharedFoldersEnableSymlinksCreate: true, owner: "vagrant", group: "vagrant"
+  
   config.vm.provider 'virtualbox' do |vb|
     vb.name = config.vm.hostname
     vb.customize ['modifyvm', :id, '--cpus', cpus]
