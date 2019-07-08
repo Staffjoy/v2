@@ -16,7 +16,7 @@ id
 source ~/.profile
 
 if ! command -V golint ; then
-    go get -u github.com/golang/lint/golint
+    go get -u golang.org/x/lint/golint
     go get -u golang.org/x/tools/cmd/cover
     go get -u golang.org/x/tools/cmd/goimports
 fi

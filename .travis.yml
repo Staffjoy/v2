@@ -3,6 +3,7 @@ sudo: required
 language: go
 env:
   - GO111MODULE=on
+  - BAZEL_VERSION=0.27.1
 go:
   - 1.12
 node_js:
@@ -17,6 +18,8 @@ addons:
       - bazel
       - wget
       - pkg-config
+before_install:
+    - ./vagrant/bazel.sh
 install:
   - curl https://glide.sh/get | sh
   - go get -u golang.org/x/lint/golint
