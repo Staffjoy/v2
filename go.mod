@@ -39,7 +39,7 @@ require (
 	github.com/ttacon/builder v0.0.0-20170518171403-c099f663e1c2 // indirect
 	github.com/ttacon/libphonenumber v1.0.2-0.20190108145153-23ddf903e8f8
 	github.com/urfave/negroni v1.0.0
-	go.opencensus.io v0.12.0
+	go.opencensus.io v0.22.0
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
 	golang.org/x/net v0.0.0-20190628185345-da137c7871d7
 	golang.org/x/sys v0.0.0-20190626221950-04f50cda93cb // indirect

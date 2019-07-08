@@ -13,7 +13,7 @@ declare -a npmservices=("myaccount")
 for npmservice in "${npmservices[@]}"
 do
     cd $npmservice
-    npm install
+    yarn install
     lintcount=$(./node_modules/.bin/eslint src/ | wc -l)
     if [ "$lintcount" -gt 0  ]; then
         echo "eslint found files that need formatting - please fix!"
