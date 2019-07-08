@@ -3,7 +3,6 @@ sudo: required
 language: go
 env:
   - GO111MODULE=on
-  - BAZEL_VERSION=0.27.1
 go:
   - 1.12
 node_js:
