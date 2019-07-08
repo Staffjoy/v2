@@ -14,7 +14,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - openjdk-11-jdk
-      - bazel
       - wget
       - pkg-config
 before_install:
