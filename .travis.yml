@@ -13,6 +13,7 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
+      - openjdk-11-jdk
       - wget
       - pkg-config
 before_install:
