@@ -183,14 +183,17 @@ new_git_repository(
     remote = "https://github.com/googleapis/go-genproto.git"
 )
 
-## slight bug, BUILD.bazel messing up the build. After build fails need to remove these files:
-## rm -rf utilities/BUILD.bazel && rm -rf runtime/BUILD.bazel && rm -rf internal/BUILD.bazel
-## need to find a way to make it neatly via BUILD.bazel
+# temp fix, crosses boundary fix for bazel, grpc-gateway modules:
+#   * utilities/BUILD.bazel
+#   * runtime/BUILD.bazel 
+#   * internal/BUILD.bazel
+# forked (10/07/19) and deleted the files that prevent compilation
+# @todo: find better way to compile these, without forking grpc-gateway
 new_git_repository(
     name = "go_grpc_gateway",
     build_file = "//:third_party/go/grpc_gateway.BUILD",
-    commit = "740ef2ee80c49ed4a272e8c3b54ebf352109f572", # Jun 26, 2019 (LATEST GIT COMMIT)
-    remote = "https://github.com/grpc-ecosystem/grpc-gateway.git",
+    commit = "2be0f6f1f172c9c3f3713e027003534c3065e5e3", # Forked latest 10/07/19
+    remote = "https://github.com/LandRover/grpc-gateway.git",
 )
 
 new_git_repository(
