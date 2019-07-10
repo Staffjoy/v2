@@ -2,7 +2,7 @@ dist: xenial
 sudo: required
 language: go
 go:
-  - 1.9
+  - 1.10
 go_import_path: v2.staffjoy.com
 addons:
   apt:
