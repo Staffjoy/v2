@@ -64,7 +64,7 @@ func AccountExists(email string) (exists bool, err error) {
 	if err = json.Unmarshal(body, &data); err != nil {
 		return
 	}
-	logger.Debugf("suite response - %s %s", resp.Status, data)
+	logger.Debugf("suite response - %s %v", resp.Status, data)
 	// user exists, is not sudo (to avoid annoyign redirects, has confirmed account, and active
 	exists = len(data.Data) > 0 && !data.Data[0].Sudo && data.Data[0].Active && data.Data[0].Confirmed
 	return
