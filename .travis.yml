@@ -4,7 +4,7 @@ language: go
 go:
   - 1.11
 jdk:
-  - oraclejdk8
+  - openjdk8
 go_import_path: v2.staffjoy.com
 addons:
   apt:
