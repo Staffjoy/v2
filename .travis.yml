@@ -11,7 +11,6 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - openjdk-8-jdk
       - wget
       - pkg-config
 before_install:
