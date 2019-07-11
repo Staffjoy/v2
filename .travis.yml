@@ -3,6 +3,8 @@ sudo: required
 language: go
 go:
   - 1.11
+jdk:
+ - openjdk8
 go_import_path: v2.staffjoy.com
 addons:
   apt:
