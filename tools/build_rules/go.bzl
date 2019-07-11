@@ -84,7 +84,7 @@ def _dedup_packages(packages):
   return filtered
 
 def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
-  cgo_link_flags = depset([], order="link")
+  cgo_link_flags = depset([], order="topological")
   transitive_deps = []
   transitive_cc_libs = depset()
   deps = []
@@ -123,7 +123,7 @@ def _go_compile(ctx, pkg, srcs, archive, extra_packages=[]):
   return transitive_deps, cgo_link_flags, transitive_cc_libs
 
 def _go_build(ctx, archive):
-  cgo_link_flags = depset([], order="link")
+  cgo_link_flags = depset([], order="topological")
   transitive_deps = []
   transitive_cc_libs = depset()
   deps = []
