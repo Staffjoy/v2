@@ -17,15 +17,15 @@ sudo mkdir -p $PROJECT_ROOT
 sudo chown -R vagrant $GOPATH
 sudo chgrp -R vagrant $GOPATH
 
-source golang.sh
-source bazel.sh
-source docker.sh
-source k8s.sh
-source npm.sh
-source docker.sh
-source nginx.sh
-source grpc.sh
-source mysql.sh
+source $PROJECT_ROOT/golang.sh
+source $PROJECT_ROOT/bazel.sh
+source $PROJECT_ROOT/docker.sh
+source $PROJECT_ROOT/k8s.sh
+source $PROJECT_ROOT/npm.sh
+source $PROJECT_ROOT/docker.sh
+source $PROJECT_ROOT/nginx.sh
+source $PROJECT_ROOT/grpc.sh
+source $PROJECT_ROOT/mysql.sh
 
 sudo apt autoremove -y -q && sudo apt clean
 
