@@ -29,11 +29,11 @@ source mysql.sh
 
 sudo apt autoremove -y -q && sudo apt clean
 
-echo "export STAFFJOY=/home/vagrant/golang/src/v2.staffjoy.com/" | tee -a $VHOME/.profile
+echo "export STAFFJOY=${PROJECT_ROOT}" | tee -a $VHOME/.profile
 echo "export ACCOUNT_MYSQL_CONFIG=\"mysql://root:SHIBBOLETH@tcp(10.0.0.100:3306)/account\"" | tee -a $VHOME/.profile
 echo "export COMPANY_MYSQL_CONFIG=\"mysql://root:SHIBBOLETH@tcp(10.0.0.100:3306)/company\"" | tee -a $VHOME/.profile
 
 echo "alias k=\"kubectl --namespace=development\"" | tee -a $VHOME/.bash_aliases
-echo "alias bazel=\"/home/vagrant/.bazel/bin/bazel\"" | tee -a $VHOME/.bash_aliases
+echo "alias bazel=\"${VHOME}/.bazel/bin/bazel\"" | tee -a $VHOME/.bash_aliases
 
 echo "192.168.69.69 suite.local" | sudo tee -a /etc/hosts
