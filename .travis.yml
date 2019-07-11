@@ -3,13 +3,13 @@ sudo: required
 language: go
 go:
   - 1.11
-jdk: openjdk8
 go_import_path: v2.staffjoy.com
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
+      - openjdk-8-jdk
       - wget
       - pkg-config
 before_install:
