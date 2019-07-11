@@ -3,8 +3,6 @@ sudo: required
 language: go
 go:
   - 1.11
-jdk:
-  - openjdk8
 go_import_path: v2.staffjoy.com
 addons:
   apt:
@@ -17,6 +15,7 @@ before_install:
   - wget https://github.com/bazelbuild/bazel/releases/download/0.6.0/bazel_0.6.0-linux-x86_64.deb
   - sudo dpkg -i bazel_0.6.0-linux-x86_64.deb
 install:
+  - jdk_switcher use openjdk8
   - curl https://glide.sh/get | sh
   - go get github.com/PuerkitoBio/goquery
   - go get -u golang.org/x/lint/golint
