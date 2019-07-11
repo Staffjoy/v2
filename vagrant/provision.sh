@@ -17,15 +17,15 @@ sudo mkdir -p $PROJECT_ROOT
 sudo chown -R vagrant $GOPATH
 sudo chgrp -R vagrant $GOPATH
 
-source $PROJECT_ROOT/golang.sh
-source $PROJECT_ROOT/bazel.sh
-source $PROJECT_ROOT/docker.sh
-source $PROJECT_ROOT/k8s.sh
-source $PROJECT_ROOT/npm.sh
-source $PROJECT_ROOT/docker.sh
-source $PROJECT_ROOT/nginx.sh
-source $PROJECT_ROOT/grpc.sh
-source $PROJECT_ROOT/mysql.sh
+source $PROJECT_ROOT/vagrant/golang.sh
+source $PROJECT_ROOT/vagrant/bazel.sh
+source $PROJECT_ROOT/vagrant/docker.sh
+source $PROJECT_ROOT/vagrant/k8s.sh
+source $PROJECT_ROOT/vagrant/npm.sh
+source $PROJECT_ROOT/vagrant/docker.sh
+source $PROJECT_ROOT/vagrant/nginx.sh
+source $PROJECT_ROOT/vagrant/grpc.sh
+source $PROJECT_ROOT/vagrant/mysql.sh
 
 sudo apt-get autoremove -y -q
 echo "export STAFFJOY=/home/vagrant/golang/src/v2.staffjoy.com/" >> "$VHOME/.profile"
