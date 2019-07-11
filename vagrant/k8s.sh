@@ -70,4 +70,4 @@ done
 kubectl create namespace development
 
 # kick off account-mysql
-kubectl --namespace=development create -R -f /vagrant/ci/k8s/development/infrastructure/app-mysql
+kubectl --namespace=development create -R -f ${STAFFJOY}/ci/k8s/development/infrastructure/app-mysql
