@@ -50,5 +50,5 @@ Vagrant.configure(2) do |config|
   else
     fail_with_message "vagrant-hostmanager missing, please install the plugin with this command:\nvagrant plugin install vagrant-hostmanager"
   end
-  config.vm.provision "shell", path: "vagrant/provision.sh"
+  config.vm.provision "shell", path: "vagrant/provision.sh", privileged: false
 end
