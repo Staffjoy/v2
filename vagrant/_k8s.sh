@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# @depricated
+
 ARCH=amd64
 export K8S_VERSION="v1.5.0" # should match google cloud deployed version
 # export K8S_VERSION=$(curl -sS https://storage.googleapis.com/kubernetes-release/release/stable.txt)
