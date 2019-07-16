@@ -71,4 +71,4 @@ done
 kubectl create namespace development
 
 # kick off account-mysql
-kubectl --namespace=development create -R -f ${JOYSTAFF}/ci/k8s/development/infrastructure/app-mysql
+kubectl --namespace=development create -R -f ~/golang/src/v2.staffjoy.com/ci/k8s/development/infrastructure/app-mysql
