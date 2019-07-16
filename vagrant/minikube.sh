@@ -31,10 +31,6 @@ sudo minikube addons enable dashboard
 # either use sudo on all kubectl commands, or chown/chgrp to your user
 sudo chown -R ${USER}:${USER} /home/${USER}/.kube /home/${USER}/.minikube
 
-sudo find /etc/kubernetes \
-    \( -type f -exec sudo chmod +r {} \; \) , \
-    \( -type d -exec sudo chmod +rx {} \; \)
-
 # this will write over any previous configuration)
 # wait for the cluster to become ready/accessible via kubectl
 echo -e -n " [ ] Waiting for master components to start...";
