@@ -55,6 +55,7 @@ fi
 # above may fail, wipe and re-run
 # `docker rm -f $(docker ps -aq)`
 
+
 # setup cluster config
 kubectl config set-cluster staffjoy-dev --server=http://localhost:8080
 kubectl config set-context staffjoy-dev --cluster=staffjoy-dev
@@ -70,4 +71,4 @@ done
 kubectl create namespace development
 
 # kick off account-mysql
-kubectl --namespace=development create -R -f ${STAFFJOY}/ci/k8s/development/infrastructure/app-mysql
+kubectl --namespace=development create -R -f ${JOYSTAFF}/ci/k8s/development/infrastructure/app-mysql

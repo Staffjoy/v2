@@ -29,7 +29,7 @@ if ! command -V bazel >/dev/null 2>&1; then
 
     # This release version should correspond to the version listed here:
     # https://github.com/bazelbuild/bazel/releases
-    RELEASE=0.27.1
+    RELEASE=0.28.0
 
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         sudo curl -L https://github.com/bazelbuild/bazel/releases/download/${RELEASE}/bazel-${RELEASE}-installer-linux-x86_64.sh --output /usr/src/bazel-${RELEASE}-installer-linux-x86_64.sh

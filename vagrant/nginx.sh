@@ -1,12 +1,13 @@
 set -e
 
-apt -y --force-yes install nginx
+sudo apt install -y -q  nginx
+
 echo '
 server {
     listen 80;
     server_name kubernetes.staffjoy-v2.local;
     location / {
-        proxy_pass http://localhost:8080;
+        proxy_pass http://localhost:8001;
     }
 }
 server {
@@ -19,5 +20,6 @@ server {
     }
 } 
 
-'  > /etc/nginx/sites-enabled/default
-service nginx restart
+' | sudo tee /etc/nginx/sites-enabled/default
+
+sudo service nginx restart

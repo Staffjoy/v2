@@ -2,7 +2,6 @@
 
 # docker deps
 sudo apt install -y -q btrfs-tools libsystemd-dev apparmor debhelper dh-apparmor dh-systemd libapparmor-dev libdevmapper-dev libltdl-dev libsqlite3-dev pkg-config
-#sudo apt install -y -q "linux-image-extra-$(uname -r)"
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
@@ -30,3 +29,6 @@ sudo usermod -aG docker $(whoami)
 sudo chmod 777 /var/run/docker.sock
 
 sudo systemctl status docker
+
+# above may fail, wipe and re-run
+# `docker rm -f $(docker ps -aq)`
