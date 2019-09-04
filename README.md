@@ -4,7 +4,7 @@
 
 ---
 
-**Update - Sept 2019:** This repo is deprecated. However, Oleg Blozman is maintaining an active fork of the repo:
+**Update - Sept 2019:** This repo is deprecated. However, Oleg Glozman is maintaining an active fork of the repo:
 
 * The active development fork is [LandRover/StaffjoyV2](https://github.com/LandRover/StaffjoyV2), where new features are being added
 * The [`minimal-fixes-to-compile` branch](https://github.com/LandRover/StaffjoyV2/tree/minimal-fixes-to-compile) adds minimal changes to this original repo to make it compile without altering the original functionality
