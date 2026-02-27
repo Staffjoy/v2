@@ -1,0 +1,25 @@
+name: Phase 1 Foundation Checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+      - feat/**
+
+jobs:
+  foundation-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare env file
+        run: cp .env.example .env
+
+      - name: Validate env shape
+        run: ./scripts/check-env.sh .env
+
+      - name: Validate docker-compose syntax
+        run: docker compose --env-file .env config > /dev/null

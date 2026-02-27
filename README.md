@@ -20,6 +20,10 @@ We started building V2 in August 2016, became feature complete in November 2016,
 
 This is a *monorepo*, so all of the code for all of the services are in this repo. The core technologies are the [Bazel build system](https://bazel.build/), [Kubernetes](https://kubernetes.io/) (including its DNS for internal service discovery), [Redux](http://redux.js.org/), [Go](https://golang.org/), [Protocol Buffers](https://developers.google.com/protocol-buffers/), [gRPC](http://www.grpc.io/), and [Yarn](https://yarnpkg.com/en/). In staging and production, we used [Google Container Engine](https://cloud.google.com/container-engine/) and their managed databases. 
 
+## Schedulerr modernization
+
+For the active modernization plan for this fork, see [`MODERNIZATION_ROADMAP.md`](./MODERNIZATION_ROADMAP.md).
+
 ## Credit
 
 The authors of the original code were [@philipithomas](https://github.com/philipithomas), [@samdturner](https://github.com/samdturner), [@andhess](https://github.com/andhess), and some contractors. [@kootommy](https://github.com/kootommy) designed the application and most of the marketing pages, and worked closely with engineering on implementation. This is a fork of the internal repository. For security purposes, the Git history has been squashed.
@@ -46,6 +50,18 @@ The authors of the original code were [@philipithomas](https://github.com/philip
 * Services should be RESTful JSON over HTTPS
 * Serve the spec at `/swagger.json`
 * Use the `apidocs` package to serve a swagger UI at `/ui/`
+
+### Modernized local foundation (Phase 1)
+
+A lightweight modernization baseline has been added to simplify local setup:
+
+```bash
+cp .env.example .env
+make env-check
+make up
+```
+
+This boots local dependencies via Docker Compose (PostgreSQL + MailHog).
 
 ## Dev
 

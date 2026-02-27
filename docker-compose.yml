@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: schedulerr-postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-schedulerr}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-schedulerr}
+      POSTGRES_DB: ${POSTGRES_DB:-schedulerr}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-schedulerr} -d ${POSTGRES_DB:-schedulerr}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: schedulerr-mailhog
+    ports:
+      - "${MAILHOG_SMTP_PORT:-1025}:1025"
+      - "${MAILHOG_HTTP_PORT:-8025}:8025"
+
+volumes:
+  postgres_data:
